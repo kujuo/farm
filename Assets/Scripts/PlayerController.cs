@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sr;
     private Vector2 playerDir;
     private Sprite[] frames;
+    public InventoryManager inventory;
 
     private States state;
     private bool moving = true;
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour
         frames = downMove;
         StartCoroutine("MoveAnimation");
         state = States.Normal;
+        inventory = new InventoryManager();
     }
 
     private void Move()

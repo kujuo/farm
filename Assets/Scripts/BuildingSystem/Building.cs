@@ -7,8 +7,6 @@ public class Building : MonoBehaviour
     private bool canPlace;
     private bool behind;
     private SpriteRenderer outline;
-
-    private BoxCollider2D childCollider;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +32,12 @@ public class Building : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         if (isPlaced) return;
-        if (other.name == "Outline")
+        if (GetComponentsInChildren<BoxCollider2D>()[1].IsTouching(other) && other.tag == "Building") 
+        {
+            canPlace = true;
+            outline.color = Color.blue;
+        }
+        else if (other.name == "Outline")
         {
             canPlace = true;
             behind = true;
@@ -62,5 +65,6 @@ public class Building : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
         outline.enabled = false;
         if (behind) GetComponent<SpriteRenderer>().sortingOrder = --BuildingSystemManager.buildingLayer;
+        // remove from inventory
     }
 }

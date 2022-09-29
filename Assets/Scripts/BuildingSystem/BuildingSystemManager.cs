@@ -29,17 +29,6 @@ public class BuildingSystemManager : MonoBehaviour
         isOpen = false;
         BuildingSystemManager.buildingLayer = 0;
         player = FindObjectOfType<PlayerController>();
-        foreach (var bp in blueprint)
-        {
-            var curr = Instantiate(layout);
-            var text = curr.GetComponentsInChildren<TextMeshProUGUI>();
-            text[0].text = bp.buildingName;
-            text[1].text = bp.buildingDescription;
-            text[2].text = bp.buildingMaterials;
-            curr.GetComponent<BuildingBlueprint>().building = bp.building;
-            curr.transform.SetParent(layoutParent.transform, false);
-            
-        }
     }
 
     public static BuildingSystemManager Instance
@@ -55,15 +44,28 @@ public class BuildingSystemManager : MonoBehaviour
         }
     }
 
-    public bool Build(Items materials)
-    {
-        return true;
-    }
-
     public void DisplayBuildingUi()
     {
         isOpen = !isOpen;
+        if (isOpen) CreateDisplay();
         GameStateManager.Instance.Pause(isOpen);
         animator.SetBool("isOpen", isOpen);
+    }
+
+    private void CreateDisplay()
+    {
+        // todo
+        // clear it first
+        foreach (var bp in blueprint)
+        {
+            var curr = Instantiate(layout);
+            var text = curr.GetComponentsInChildren<TextMeshProUGUI>();
+            text[0].text = bp.buildingName;
+            text[1].text = bp.buildingDescription;
+            text[2].text = ""; // too lazy to delete from here and the UI 
+            curr.GetComponent<BuildingBlueprint>().building = bp.building;
+            curr.transform.SetParent(layoutParent.transform, false);
+            
+        }
     }
 }
