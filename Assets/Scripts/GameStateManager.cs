@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
-    public static GameStateManager instance;
+    private static GameStateManager instance;
     public bool pause;
     public bool isInteracting;
     // Start is called before the first frame update
@@ -29,7 +29,6 @@ public class GameStateManager : MonoBehaviour
             if (!instance)
             {
                 instance = FindObjectOfType<GameStateManager>();
-                Debug.Log(instance);
                 if (!instance) throw new UnityException("GameStateManager instance not found");
             }
             return instance;

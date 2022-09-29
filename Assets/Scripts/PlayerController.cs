@@ -113,6 +113,7 @@ public class PlayerController : MonoBehaviour
         InteractionCheck();
         if (Input.GetKeyDown(KeyCode.E) && interactableTarget) interactableTarget.Interact();
         if (Input.GetKeyDown(KeyCode.Z)) StartCoroutine("Attack");
+        if (Input.GetKeyDown(KeyCode.B)) BuildingSystemManager.Instance.DisplayBuildingUi();
     }
 
     private IEnumerator Attack()

@@ -24,9 +24,9 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("isOpen", true);
         nameText.text = dialogue.name;
 
-        GameStateManager.instance.isInteracting = true;
-        GameStateManager.instance.pause = true;
-        GameStateManager.instance.Pause(true);
+        GameStateManager.Instance.isInteracting = true;
+        GameStateManager.Instance.pause = true;
+        GameStateManager.Instance.Pause(true);
         
         sentences.Clear();
 
@@ -41,9 +41,9 @@ public class DialogueManager : MonoBehaviour
     {
         if (sentences.Count == 0)
         {
-            GameStateManager.instance.isInteracting = false;
-            GameStateManager.instance.pause = false;
-            GameStateManager.instance.Pause(false);
+            GameStateManager.Instance.isInteracting = false;
+            GameStateManager.Instance.pause = false;
+            GameStateManager.Instance.Pause(false);
             EndDialogue();
             return;
         }
