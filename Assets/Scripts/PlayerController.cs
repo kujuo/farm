@@ -13,18 +13,10 @@ public class PlayerController : MonoBehaviour
     }
 
     public float speed = 5;
-    public float attackDuration = 0.25f;
-    public float frameDuration = 2f;
-    public float hitDistance = 3f;
+    public float attackDuration = 0.5f;
+    //public float frameDuration = 2f;
+    public float hitDistance = 0.5f;
     public float health = 100;
-    public Sprite[] downIdle;
-    public Sprite[] upIdle;
-    public Sprite[] rightIdle;
-    public Sprite[] leftIdle;
-    public Sprite[] downMove;
-    public Sprite[] upMove;
-    public Sprite[] rightMove;
-    public Sprite[] leftMove;
 
     public Sprite[] upAttack;
     public Sprite[] downAttack;
@@ -35,10 +27,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2D;
     private SpriteRenderer sr;
     private Vector2 playerDir;
-    private Sprite[] frames;
+    //private Sprite[] frames;
 
     private States state;
-    private bool moving = true;
     private bool canInteract;
     private NpcController interactableTarget;
 
@@ -52,8 +43,7 @@ public class PlayerController : MonoBehaviour
         canInteract = false;
         sr = GetComponent<SpriteRenderer>();
         Physics2D.queriesStartInColliders = false;
-        frames = downMove;
-        StartCoroutine("MoveAnimation");
+        animationController.direction = playerDir;
         state = States.Normal;
     }
 
@@ -64,56 +54,65 @@ public class PlayerController : MonoBehaviour
         if (inputX > 0)
         {
             playerDir = new Vector2(1, 0);
-            frames = rightMove;
+            animationController.direction = playerDir;
         }
         else if (inputX < 0)
         {
             playerDir = new Vector2(-1, 0);
-            frames = leftMove;
+            animationController.direction = playerDir;
         }
         float inputY = Input.GetAxis("Vertical");
         if (inputY > 0)
         {
             playerDir = new Vector2(0, 1);
-            frames = upMove;
+            animationController.direction = playerDir;
         }
         else if (inputY < 0)
         {
             playerDir = new Vector2(0, -1);
-            frames = downMove;
+            animationController.direction = playerDir;
         }
         Vector3 movement = new Vector3(inputX, inputY, 0);
 
         if (movement.magnitude > 0)
         {
-            moving = true;
             movement.Normalize();
-            if (playerDir != oldPlayerDir)
+            if (playerDir != oldPlayerDir || !animationController.moving)
             {
-                StopCoroutine("MoveAnimation");
-                StartCoroutine("MoveAnimation");
+                animationController.moving = true;
+                animationController.StopCoroutine("MoveAnimation");
+                animationController.StartCoroutine("MoveAnimation");
             }
         }
         else // magnitude is nothing
         {
-            if (moving)
+            if (animationController.moving)
             {
-                moving = false;
-                StopCoroutine(MoveAnimation());
-                StartCoroutine("MoveAnimation");
+                
+                animationController.moving = false;
+                animationController.StopCoroutine("MoveAnimation");
+                animationController.StartCoroutine("MoveAnimation");
             }
         }
         rb2D.velocity = movement * speed;
+        //Debug.Log(rb2D.velocity);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (state == States.Attacking) return;
         Move();
         InteractionCheck();
         if (Input.GetKeyDown(KeyCode.E) && interactableTarget) interactableTarget.Interact();
         if (Input.GetKeyDown(KeyCode.Z)) StartCoroutine("Attack");
         if (Input.GetKeyDown(KeyCode.B)) BuildingSystemManager.Instance.DisplayBuildingUi();
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            rb2D.velocity = new Vector2(0, 0);
+            StartCoroutine("Attack");
+            HitInteraction();
+        }
     }
 
     private IEnumerator Attack()
@@ -121,27 +120,10 @@ public class PlayerController : MonoBehaviour
         state = States.Attacking;
         enabled = false;
         rb2D.velocity = new Vector2(0, 0);
-        StopCoroutine("MoveAnimation");
-        Sprite[] attackFrames;
-        if (playerDir.Equals(new Vector2(1, 0)))
-        {
-            attackFrames = rightAttack;
-        }
-        else if (playerDir.Equals(new Vector2(-1, 0)))
-        {
-            //playerDir = new Vector2(-1, 0);
-            attackFrames = leftAttack;
-        }
-        else if (playerDir.Equals(new Vector2(0, 1)))
-        {
-            //playerDir = new Vector2(0, 1);
-            attackFrames = upAttack;
-        }
-        else
-        {
-            //playerDir = new Vector2(0, -1);
-            attackFrames = downAttack;
-        }
+        animationController.StopCoroutine("MoveAnimation");
+
+        Sprite[][] frameSet = { rightAttack, leftAttack, upAttack, downAttack };
+        Sprite[] attackFrames = animationController.GetFramesFromDirection(frameSet);
 
         foreach (Sprite frame in attackFrames)
         {
@@ -150,13 +132,13 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(attackDuration);
         }
         enabled = true;
-        StartCoroutine("MoveAnimation");
+        animationController.StartCoroutine("MoveAnimation");
         state = States.Normal;
     }
 
     private void HitInteraction()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, playerDir, hitDistance);
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, .5f, playerDir * 0.5f, hitDistance);
         if (hit.collider && hit.collider.tag == "Enemy")
         {
             Enemy en = hit.collider.gameObject.GetComponent<Enemy>();
@@ -169,7 +151,7 @@ public class PlayerController : MonoBehaviour
         if (state == States.Invulnerable) return;
         health -= healthLost;
         StartCoroutine(DamageTaken());
-        Debug.Log(health);
+        //Debug.Log(health);
     }
 
     private void InteractionCheck()
@@ -179,34 +161,11 @@ public class PlayerController : MonoBehaviour
         else interactableTarget = null;
     }
 
-    IEnumerator MoveAnimation()
-    {
-        int i;
-        i = 0;
-        if (!moving) // idle animations
-        {
-            if (playerDir.x > 0) frames = rightIdle; // idle right
-            else if (playerDir.x < 0) frames = leftIdle;
-            else if (playerDir.y > 0) frames = upIdle;
-            else if (playerDir.y < 0) frames = downIdle;
-        }
-        while (true)
-        {
-            sr.sprite = frames[i];
-            i++;
-            if (i >= frames.Length)
-            {
-                i = 0;
-            }
-            yield return new WaitForSeconds(frameDuration);
-        }
-    }
-
     IEnumerator DamageTaken()
     {
         state = States.Invulnerable;
         sr.color = new Color(255, 0, 0);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         sr.color = new Color(1, 1, 1, 1);
         yield return new WaitForSeconds(0.1f);
         state = States.Normal;
