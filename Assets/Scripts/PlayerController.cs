@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     private bool canInteract;
     private NpcController interactableTarget;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,7 +98,7 @@ public class PlayerController : MonoBehaviour
         rb2D.velocity = movement * speed;
         //Debug.Log(rb2D.velocity);
     }
-
+    
     // Update is called once per frame
     void Update()
     {
