@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public Sprite[] rightAttack;
     public Sprite[] leftAttack;
 
+    public LayerMask enemyLayer;
     public CharacterAnimationController animationController;
     private Rigidbody2D rb2D;
     private SpriteRenderer sr;
@@ -36,15 +37,10 @@ public class PlayerController : MonoBehaviour
     private bool canInteract;
     private NpcController interactableTarget;
 
-    private float healthRegenAmount;
-    private bool startedHealthRegen;
 
     // Start is called before the first frame update
     void Start()
     {
-        maxHealth = health;
-        healthRegen = true;
-        startedHealthRegen = false;
         inventory = new InventoryManager();
         rb2D = GetComponent<Rigidbody2D>();
         animationController = GetComponent<CharacterAnimationController>();
@@ -107,7 +103,7 @@ public class PlayerController : MonoBehaviour
         rb2D.velocity = movement * speed;
         //Debug.Log(rb2D.velocity);
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -122,12 +118,6 @@ public class PlayerController : MonoBehaviour
             rb2D.velocity = new Vector2(0, 0);
             StartCoroutine("Attack");
             HitInteraction();
-        }
-
-        if (healthRegen && !startedHealthRegen)
-        {
-            StartCoroutine(ApplyEffects());
-            startedHealthRegen = true;
         }
     }
 
@@ -154,7 +144,14 @@ public class PlayerController : MonoBehaviour
 
     private void HitInteraction()
     {
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, .5f, playerDir * 0.5f, hitDistance);
+        Physics2D.queriesStartInColliders = true;
+        
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, .5f, playerDir * 0.5f, hitDistance, enemyLayer);
+        if (hit.collider)
+        {
+            Debug.Log(hit.collider);
+        }
+
         if (hit.collider && hit.collider.tag == "Enemy")
         {
             Enemy en = hit.collider.gameObject.GetComponent<Enemy>();

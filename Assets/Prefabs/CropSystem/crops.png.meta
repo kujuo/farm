@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ee2a2b1d4045f4ce98866cf71b72f133
+guid: 19bb7908588324e3197766c7ed14034c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -2813,7 +2813,7 @@ TextureImporter:
         x: 992
         y: 768
         width: 32
-        height: 64
+        height: 62
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3190,10 +3190,10 @@ TextureImporter:
         serializedVersion: 2
         x: 544
         y: 704
-        width: 32
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.36586}
+        width: 31
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3465,8 +3465,8 @@ TextureImporter:
         y: 704
         width: 32
         height: 64
-      alignment: 9
-      pivot: {x: 0.4870758, y: 0.17111683}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5269,8 +5269,8 @@ TextureImporter:
         serializedVersion: 2
         x: 640
         y: 512
-        width: 31
-        height: 29
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -7306,8 +7306,8 @@ TextureImporter:
       crops_274: 1412435393
       crops_3: 1294388540
       crops_132: 659375124
-      crops_184: -1814619192
       crops_196: -1360285434
+      crops_184: -1814619192
       crops_109: 420739300
       crops_160: 1692487557
       crops_30: -825248409

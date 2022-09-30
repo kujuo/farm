@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Seed
+  - Apple
+  - Miner
+  - Zombie
+  - Strawberry
+  - Crop
   - Building
   layers:
   - Default
@@ -15,8 +21,8 @@ TagManager:
   - UI
   - Highlight
   - Building
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 
