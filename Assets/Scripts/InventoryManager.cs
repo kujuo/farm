@@ -7,17 +7,19 @@ public class InventoryManager
     //public List<Sprite> inventoryCount;
     public static List<Items> itemList;
 
-    public InventoryManager()
-    {
-        itemList = new List<Items>();
-        AddItem(new Items { itemType = Items.itemTypes.Building, amount = 1});
-        AddItem(new Items { itemType = Items.itemTypes.Crop, amount = 1 });
-        //Debug.Log(itemList.Count);
-        //Items potato = new Items { itemType = Items.itemTypes.Crop, amount = 1 };
-        RemoveItem(Items.itemTypes.Building);
-        RemoveItem(Items.itemTypes.Crop);
-        Debug.Log(itemList.Count);
-    }
+
+    //This is for testing out the functions
+
+    //public InventoryManager()
+    //{
+    //    itemList = new List<Items>();
+    //    AddItem(new Items { itemType = Items.itemTypes.Building, amount = 1});
+    //    AddItem(new Items { itemType = Items.itemTypes.Crop, amount = 1 });
+    //    //Debug.Log(itemList.Count);
+    //    RemoveItem(Items.itemTypes.Building);
+    //    RemoveItem(Items.itemTypes.Crop);
+    //    Debug.Log(itemList.Count);
+    //}
 
     public void AddItem(Items item){
         bool itemInInventory = false;
@@ -61,16 +63,7 @@ public class InventoryManager
         return itemList;
     }
 
-    //public void RemoveItem()
-    //{
-
-    //}
 
 
-//public void inventoryChange(int amount)
-//    {
-//        Destroy(gameObject);
-//        Instantiate(inventoryCount[amount]);
-//    }
 
 }

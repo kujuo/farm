@@ -120,18 +120,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 33
-        width: 62
-        height: 71
+        y: 32
+        width: 63
+        height: 73
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 25}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 113df5f38468b4be49d89a63b26fcd3f
-      internalID: -1968397334
+      internalID: -337351728639113470
       vertices: []
       indices: 
       edges: []
@@ -140,10 +140,10 @@ TextureImporter:
       name: free_1
       rect:
         serializedVersion: 2
-        x: 144
-        y: 79
-        width: 32
-        height: 33
+        x: 0
+        y: 80
+        width: 208
+        height: 80
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,7 +152,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e723291784c20443cbae6c526850e810
-      internalID: -120244892
+      internalID: -4965553739594148211
       vertices: []
       indices: 
       edges: []
@@ -163,17 +163,17 @@ TextureImporter:
         serializedVersion: 2
         x: 66
         y: 32
-        width: 76
-        height: 78
+        width: 0
+        height: 0
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: cd9ca89986ce945e1a47f57118f1d9d9
-      internalID: -203960624
+      spriteID: fed8634e298fb6dd0800000000000000
+      internalID: -2491624659041743377
       vertices: []
       indices: 
       edges: []
@@ -181,7 +181,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -189,9 +189,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      free_1: -120244892
-      free_2: -203960624
-      free_0: -1968397334
+      free_1: -4965553739594148211
+      free_2: -2491624659041743377
+      free_0: -337351728639113470
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
