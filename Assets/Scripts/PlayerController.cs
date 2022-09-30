@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     //public float frameDuration = 2f;
     public float hitDistance = 0.5f;
     public float health = 100;
+    public InventoryManager inventory;
 
     public Sprite[] upAttack;
     public Sprite[] downAttack;
@@ -28,14 +29,23 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sr;
     private Vector2 playerDir;
     private Sprite[] frames;
+    private float maxHealth;
+    private bool healthRegen;
 
     private States state;
     private bool canInteract;
     private NpcController interactableTarget;
 
+    private float healthRegenAmount;
+    private bool startedHealthRegen;
+
     // Start is called before the first frame update
     void Start()
     {
+        maxHealth = health;
+        healthRegen = true;
+        startedHealthRegen = false;
+        inventory = new InventoryManager();
         rb2D = GetComponent<Rigidbody2D>();
         animationController = GetComponent<CharacterAnimationController>();
         playerDir = new Vector2(0, -1);
@@ -113,6 +123,12 @@ public class PlayerController : MonoBehaviour
             StartCoroutine("Attack");
             HitInteraction();
         }
+
+        if (healthRegen && !startedHealthRegen)
+        {
+            StartCoroutine(ApplyEffects());
+            startedHealthRegen = true;
+        }
     }
 
     private IEnumerator Attack()
@@ -169,5 +185,30 @@ public class PlayerController : MonoBehaviour
         sr.color = new Color(1, 1, 1, 1);
         yield return new WaitForSeconds(0.1f);
         state = States.Normal;
+    }
+    
+    // EFFECTS
+    private IEnumerator ApplyEffects()
+    {
+        yield break;
+    }
+    public void SetHealthRegenEffect(float amount)
+    {
+        
+    }
+
+    public void SetShieldEffect(float amount)
+    {
+        
+    }
+
+    public void SetAttackRangeEffect(float amount)
+    {
+        
+    }
+
+    public void SetPoisonEffect(float amount)
+    {
+        
     }
 }

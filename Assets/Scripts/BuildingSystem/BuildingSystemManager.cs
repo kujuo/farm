@@ -21,7 +21,7 @@ public class BuildingSystemManager : MonoBehaviour
 
     public bool isOpen;
 
-    private PlayerController player;
+    public PlayerController player;
     // Start is called before the first frame update
     private void Awake()
     {
