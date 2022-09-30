@@ -19,7 +19,7 @@ public abstract class Enemy : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         rb2D = GetComponent<Rigidbody2D>();
         animationController = GetComponent<CharacterAnimationController>();
-        enemyDir = new Vector2(0, -1);
+        enemyDir = new Vector3(0, -1,0);
         animationController.direction = enemyDir;
 
         Physics2D.queriesStartInColliders = false;
