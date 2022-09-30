@@ -113,6 +113,9 @@ MonoBehaviour:
   - {fileID: 1092593389, guid: 860d6055b02a24c288564d722c97ea55, type: 3}
   leftAttack:
   - {fileID: 909700197, guid: 860d6055b02a24c288564d722c97ea55, type: 3}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
   animationController: {fileID: 0}
 --- !u!114 &4805975255388374105
 MonoBehaviour:

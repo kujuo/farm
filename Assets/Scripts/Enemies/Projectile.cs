@@ -22,6 +22,7 @@ public class Projectile : MonoBehaviour
 
     public void addForce(Vector2 direction)
     {
-        rb2D.AddForce(direction);
+        Debug.Log(direction);
+        rb2D.AddForce(direction * 10, ForceMode2D.Impulse);
     }
 }
