@@ -51,23 +51,23 @@ public class BasicEnemy : Enemy
             }
             else return;
         }
-        var step = speed * Time.deltaTime; // calculate distance to move
-        Vector3 move = Vector3.MoveTowards(transform.position, player.transform.position, step);
-        Vector3 movement = move - transform.position;
-        transform.position = move;
+        //var step = speed * Time.deltaTime; // calculate distance to move
+        //Vector3 move = Vector3.MoveTowards(transform.position, player.transform.position, step);
+        //Vector3 movement = move - transform.position;
+        //transform.position = move;
 
-        //Vector3 movement = move - player.transform.position;
-        Vector2 direction = new Vector2(movement.x, movement.y);
-        Vector2 currentDir = animationController.getDirection(direction);
+        ////Vector3 movement = move - player.transform.position;
+        //Vector2 direction = new Vector2(movement.x, movement.y);
+        //Vector2 currentDir = animationController.getDirection(direction);
 
-        if (currentDir != enemyDir)
-        {
-            animationController.direction = currentDir;
-            enemyDir = currentDir;
+        //if (currentDir != enemyDir)
+        //{
+        //    animationController.direction = currentDir;
+        //    enemyDir = currentDir;
 
-            animationController.StopCoroutine("MoveAnimation");
-            animationController.StartCoroutine("MoveAnimation");
-        }
+        //    animationController.StopCoroutine("MoveAnimation");
+        //    animationController.StartCoroutine("MoveAnimation");
+        //}
     }
 
     //IEnumerator Animate(Sprite[] frames)

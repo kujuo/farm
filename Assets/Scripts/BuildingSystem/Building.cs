@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
 
 public class Building : MonoBehaviour
@@ -7,8 +8,11 @@ public class Building : MonoBehaviour
     private bool canPlace;
     private bool behind;
     private SpriteRenderer outline;
+    private bool isHealthRegenEffect;
+    private bool isShieldEffect;
+    private bool isAttackRangeEffect;
+    private bool isPoisonEffect;
 
-    private BoxCollider2D childCollider;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,10 +35,23 @@ public class Building : MonoBehaviour
         }
     }
 
+    public void Init(bool health, bool shield, bool attack, bool poision)
+    {
+        isHealthRegenEffect = health;
+        isShieldEffect = shield;
+        isAttackRangeEffect = attack;
+        isPoisonEffect = poision;
+    }
+
     private void OnTriggerStay2D(Collider2D other)
     {
         if (isPlaced) return;
-        if (other.name == "Outline")
+        if (GetComponentsInChildren<BoxCollider2D>()[1].IsTouching(other) && other.tag == "Building") 
+        {
+            canPlace = true;
+            outline.color = Color.blue;
+        }
+        else if (other.name == "Outline")
         {
             canPlace = true;
             behind = true;
@@ -62,5 +79,15 @@ public class Building : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
         outline.enabled = false;
         if (behind) GetComponent<SpriteRenderer>().sortingOrder = --BuildingSystemManager.buildingLayer;
+        // remove from inventory
+    }
+
+    public void UseEffect()
+    {
+        PlayerController player = BuildingSystemManager.Instance.player;
+        if (isHealthRegenEffect) player.SetHealthRegenEffect(0.05f);
+        else if (isShieldEffect)player.SetShieldEffect(50);
+        else if (isAttackRangeEffect) player.SetAttackRangeEffect(5);
+        else if (isPoisonEffect) player.SetPoisonEffect(0.01f);
     }
 }

@@ -8,16 +8,19 @@ public class BuildingBlueprint : MonoBehaviour
     // Start is called before the first frame update
     public string buildingName;
     public string buildingDescription;
-    public string buildingMaterials; // change to item array when item has been created
     public Building building;
+    
+    public bool isHealthRegenEffect;
+    public bool isShieldEffect;
+    public bool isAttackRangeEffect;
+    public bool isPoisonEffect;
 
     public void onClick()
     {
-        // checks if player has required materials 
-        // todo
         var s = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         s.z = 0;
         var created = Instantiate(building, s, Quaternion.identity);
+        created.Init(isHealthRegenEffect, isShieldEffect, isAttackRangeEffect, isPoisonEffect);
         BuildingSystemManager.Instance.DisplayBuildingUi();
     }
 }
