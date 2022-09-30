@@ -29,6 +29,7 @@ public class Crop : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Seed seed;
     private float waitingTime = 0;
+    private GameObject harvestProduct, seedObject;
     public Sprite defaultSprite;
     // private UIManager uIManager; import UI Manager later
     void Start()
@@ -56,20 +57,51 @@ public class Crop : MonoBehaviour
         }
     }
 
+    private void OnMouseDown()
+    {
+        if (cropState == CropState.EMPTY)
+        {
+            //Redundant way of setting image to sprite :)
+            //Waiting for the UI, just a temporary solution
+            seedObject = Instantiate(GameObject.FindGameObjectsWithTag("Seed")[0], transform.position, Quaternion.identity);
+
+            this.setSeed(seedObject);
+            seedObject.SetActive(false);
+            
+        } else if (cropState == CropState.PLANT)
+        {
+            harvest();
+        }
+
+    }
+
+    private void OnMouseEnter()
+    {
+        spriteRenderer.color = Color.red;
+    }
+
+    private void OnMouseExit()
+    {
+        spriteRenderer.color = Color.white;
+    }
+
     /**
      * Plant the crop
      * Player need to choose from the invenroty to give this crop a seed
      * It expects type SEED, otherwise, it throws an error.
      * 
      */
-    public void setSeed(Seed seed) 
+    public void setSeed(GameObject seedObj) 
     {
+        var seed = seedObj.GetComponent<Seed>();
         if (cropState == CropState.EMPTY)
         {
             this.seed = seed;
             this.waitingTime = seed.getHarvestingTime();
             this.cropState = CropState.SEED;
             this.spriteRenderer.sprite = seed.getSeedImage();
+            this.harvestProduct = seed.getHarvestProduct();
+
         } else
         {
             //display to the UI that this cannot be planted
@@ -84,12 +116,18 @@ public class Crop : MonoBehaviour
      * give the player some amount of money, and update the crop. Otherwise, the 
      * money will be 0.
      */
-    public float harvest()
+    public GameObject harvest()
     {
         if (cropState == CropState.PLANT)
         {
             cropState = CropState.EMPTY;
-            return seed.getHarvestMoney();
+
+            //Better to instantaniate object
+            Object.Instantiate(harvestProduct, this.transform.position, Quaternion.identity);
+            
+            harvestProduct.SetActive(true);
+            Destroy(seedObject);
+
         } else if (cropState == CropState.SEED)
         {
             //Should access to the UI and display some info
@@ -100,6 +138,6 @@ public class Crop : MonoBehaviour
             Debug.Log("Please plant something");
         }
 
-        return 0;
+        return null;
     }
 }

@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7565865852367034848}
   - component: {fileID: 3905653101193292351}
-  - component: {fileID: 6980717303083818613}
+  - component: {fileID: 8357272435461420784}
   - component: {fileID: 2462588423978860761}
   - component: {fileID: 7583217425875266526}
   - component: {fileID: 4755925204840407559}
-  m_Layer: 0
+  - component: {fileID: 1294815529}
+  m_Layer: 9
   m_Name: ProjectileEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1736636376, guid: 397bc1ee034cb4d5f8f57e164e3efd05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -88,7 +89,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6980717303083818613
+--- !u!114 &8357272435461420784
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,15 +98,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5639744469968079597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 080c1add26d3f461fa4ea06a0cf463df, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c2c029f2c1c84b248278c49c8d9d3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   maxHealth: 100
   healthCanvas: {fileID: 3697363039924043752, guid: 68f248c7c593f45148553402450d70ca, type: 3}
-  animateSpeed: 0.5
   speed: 1.5
+  attackSpeed: 5
+  buildUpTime: 1
   activeDistance: 10
+  projectile: {fileID: 5925582513153225043, guid: d278712481528468b8e5002c5c2d5f06, type: 3}
 --- !u!114 &2462588423978860761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,18 +172,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0045984387, y: -0.005721569}
+  m_Offset: {x: 0.003341794, y: 0.006452799}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.6, y: 1.5}
+    oldSize: {x: 1.0666667, y: 1}
     newSize: {x: 2.7, y: 1.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6055521, y: 1.5089221}
+  m_Size: {x: 1.0657299, y: 0.99194765}
   m_EdgeRadius: 0
 --- !u!50 &4755925204840407559
 Rigidbody2D:
@@ -203,3 +206,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1294815529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5639744469968079597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436bc0f096be0d34ba379a789d03ec45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Config: {fileID: 0}
+  MouseControl: 0
+  Target: {fileID: 0}
+  CanMove: 1
+  MovementSpeed: 5
+  RotationSpeed: 500
+  isMoving: 0
+  pathIndex: 0
+  posInGrid: {x: 0, y: 0, z: 0}
+  CanSearch: 1
+  PathUpdateRate: 0.15
+  GetNextPointDistance: 0.1
+  ShowGraphic: 1
+  color:
+    serializedVersion: 2
+    rgba: 4292990208
+  path: []

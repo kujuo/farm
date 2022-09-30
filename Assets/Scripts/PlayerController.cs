@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public Sprite[] rightAttack;
     public Sprite[] leftAttack;
 
+    public LayerMask enemyLayer;
     public CharacterAnimationController animationController;
     private Rigidbody2D rb2D;
     private SpriteRenderer sr;
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     private States state;
     private bool canInteract;
     private NpcController interactableTarget;
+
 
     // Start is called before the first frame update
     void Start()
@@ -97,7 +99,7 @@ public class PlayerController : MonoBehaviour
         rb2D.velocity = movement * speed;
         //Debug.Log(rb2D.velocity);
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -138,7 +140,14 @@ public class PlayerController : MonoBehaviour
 
     private void HitInteraction()
     {
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, .5f, playerDir * 0.5f, hitDistance);
+        Physics2D.queriesStartInColliders = true;
+        
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, .5f, playerDir * 0.5f, hitDistance, enemyLayer);
+        if (hit.collider)
+        {
+            Debug.Log(hit.collider);
+        }
+
         if (hit.collider && hit.collider.tag == "Enemy")
         {
             Enemy en = hit.collider.gameObject.GetComponent<Enemy>();
