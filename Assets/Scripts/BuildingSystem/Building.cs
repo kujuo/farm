@@ -85,9 +85,9 @@ public class Building : MonoBehaviour
     public void UseEffect()
     {
         PlayerController player = BuildingSystemManager.Instance.player;
-        if (isHealthRegenEffect) player.SetHealthRegenEffect(0.05f);
-        else if (isShieldEffect)player.SetShieldEffect(50);
-        else if (isAttackRangeEffect) player.SetAttackRangeEffect(5);
-        else if (isPoisonEffect) player.SetPoisonEffect(0.01f);
+        if (isHealthRegenEffect) StartCoroutine(player.SetHealthRegenEffect(0.05f, 5f));
+        else if (isShieldEffect) StartCoroutine(player.SetShieldEffect(50, 10));
+        else if (isAttackRangeEffect) StartCoroutine(player.SetAttackRangeEffect(50)); 
+        else if (isPoisonEffect) StartCoroutine(player.SetPoisonEffect(0.01f, 5));
     }
 }

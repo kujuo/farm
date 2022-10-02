@@ -14,6 +14,7 @@ public class BasicEnemy : Enemy
     public float speed = 0.5f;
     public float activeDistance;
 
+
     //private Vector2 direction;
     //private CharacterAnimationController charAnimationController;
     //private float currHealth;
@@ -111,7 +112,7 @@ public class BasicEnemy : Enemy
         if (other.gameObject.tag == "Player")
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            player.loseHealth(10);
+            player.loseHealth(touchDamage);
         }
 
     }
