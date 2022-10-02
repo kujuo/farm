@@ -200,21 +200,6 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3562919958989307171}
   m_OnClick:
     m_PersistentCalls:
-<<<<<<< HEAD:Assets/Assets/Prefabs_ItemButton/ItemButton.prefab
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-=======
       m_Calls: []
 --- !u!114 &886317500757292134
 MonoBehaviour:
@@ -304,7 +289,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
->>>>>>> 8624e49ae6c2eec377c548d99f385da41a6244fc:Assets/Prefabs/BuildingSystem/Prefabs_ItemButton/ItemButton.prefab
 --- !u!1 &8498484013441302419
 GameObject:
   m_ObjectHideFlags: 0

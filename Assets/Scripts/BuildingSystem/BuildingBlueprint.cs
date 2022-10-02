@@ -28,7 +28,7 @@ public class BuildingBlueprint : MonoBehaviour
         var created = Instantiate(building, s, Quaternion.identity);
         created.Init(isHealthRegenEffect, isShieldEffect, isAttackRangeEffect, isPoisonEffect);
         //BuildingSystemManager.Instance.DisplayBuildingUi(); no longer needed
-        InventoryManagerNew.Instance.Remove(item);
+        InventoryManagerNew.Instance.RemoveItem(item);
         InventoryManagerNew.Instance.ListItems();
     }
 }
