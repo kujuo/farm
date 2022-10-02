@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 4
   itemName: House2
   value: 0
-  amount: 0
+  amount: 1
   icon: {fileID: -337351728639113470, guid: e200e30b08c9e4672b0b6ad8052174a3, type: 3}
   type: 0
-  prefab: {fileID: 8961635606511531238, guid: f39365d8287671e4eb9820eb18fee200, type: 3}
+  prefab: {fileID: 3467352252253618740, guid: 2f34c219faebf1740bc21b1287a25269, type: 3}
