@@ -42,9 +42,30 @@ public class InventoryManagerNew : MonoBehaviour
         }
     }
 
-    public void Remove(Item item)
+    //public void Remove(Item item)
+    //{
+    //    Items.Remove(item);
+    //}
+    //
+
+    public void RemoveItem(Item item)
     {
-        Items.Remove(item);
+        Item needRemovedItem = null;
+        for (int i = 0; i < Items.Count; i++)
+        {
+            if (item.type == Items[i].type)
+            {
+                Items[i].amount -= 1;
+                if (Items[i].amount == 0)
+                {
+                    needRemovedItem = Items[i];
+                }
+            }
+        }
+        if (needRemovedItem != null)
+        {
+            Items.Remove(needRemovedItem);
+        }
     }
 
     //list item icons in inventory ui
@@ -85,6 +106,18 @@ public class InventoryManagerNew : MonoBehaviour
             InventoryItems[i].AddItem(Items[i]);
         }
 
+    }
+
+    //check if item in the inventory is of seed type
+    public void CheckSeedType()
+    {
+        for (int i = 0; i < Items.Count; i++)
+        {
+            if (Items[i].type == Item.itemType.Seed)
+            {
+
+            }
+        }
     }
 
 
