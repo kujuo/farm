@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: de77359787c72104aa43de08101725dd, type: 2}
+  Items: []
 --- !u!114 &3596832027415266100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,5 +158,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.7, y: 3.8}
+  m_Size: {x: 2.1333334, y: 2.1333334}
   m_EdgeRadius: 0

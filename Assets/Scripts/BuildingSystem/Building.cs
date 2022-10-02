@@ -49,7 +49,12 @@ public class Building : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         if (isPlaced) return;
-        if (GetComponentsInChildren<BoxCollider2D>()[1].IsTouching(other) && other.tag == "Building") 
+        if (other.name == "Player")
+        {
+            canPlace = false;
+            outline.color = Color.red;
+        }
+        else if (GetComponentsInChildren<BoxCollider2D>()[1].IsTouching(other) && other.tag == "Building") 
         {
             canPlace = true;
             outline.color = Color.blue;
@@ -61,11 +66,6 @@ public class Building : MonoBehaviour
             behind = true;
             outline.color = Color.green;
         }
-        else
-        {
-            canPlace = false;
-            outline.color = Color.red;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -73,6 +73,7 @@ public class Building : MonoBehaviour
         if (isPlaced) return;
         canPlace = true;
         behind = false;
+        front = false;
         outline.color = Color.green;
     }
 
@@ -100,7 +101,10 @@ public class Building : MonoBehaviour
         if (isPlaced)
         {
             isPlaced = false;
-            canPlace = false;
+            gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+            outline.enabled = true;
+            behind = false;
+            front = false;
         }
     }
 }
