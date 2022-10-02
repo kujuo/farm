@@ -74,15 +74,15 @@ SpriteRenderer:
   m_SortingLayerID: -1084757485
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1968397334, guid: e200e30b08c9e4672b0b6ad8052174a3, type: 3}
+  m_Sprite: {fileID: 1866124732, guid: 997902b17b48a4d96979f5ace1d732a8, type: 3}
   m_Color: {r: 0, g: 1, b: 0.11383653, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.1, y: 2.4333334}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &9104012821592203149
@@ -100,10 +100,10 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.000047445297, y: 1.06}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 1.25}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.15, y: 3.65}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 2.1, y: 2.4333334}
+    newSize: {x: 2.1, y: 2.4333334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -124,8 +124,6 @@ GameObject:
   - component: {fileID: -3062665871165480880}
   - component: {fileID: -8931294808700641930}
   - component: {fileID: 659624920153319526}
-  - component: {fileID: 615809248551435116}
-  - component: {fileID: -9148167928593859210}
   m_Layer: 0
   m_Name: House1
   m_TagString: Building
@@ -260,29 +258,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &615809248551435116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8961635606511531238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72c231d4bbc114c21a76e77a554cc5f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: b2bed503ed3304f67b82752c14d78986, type: 2}
---- !u!114 &-9148167928593859210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8961635606511531238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06778f17815d44d2c9bd9b41b0613e1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: b2bed503ed3304f67b82752c14d78986, type: 2}

@@ -129,23 +129,5 @@ public class CharacterAnimationController : MonoBehaviour
         return directions[closest];
     }
 
-    //private IEnumerator Attack(bool canMove)
-    //{
-
-    //    //enabled = false;
-    //    StopCoroutine("MoveAnimation");
-
-    //    Sprite[][] frameSet = { rightAttack, leftAttack, upAttack, downAttack };
-    //    Sprite[] attackFrames = GetFramesFromDirection(frameSet);
-
-    //    foreach (Sprite frame in attackFrames)
-    //    {
-    //        sr.sprite = frame;
-    //        yield return new WaitForSeconds(attackDuration);
-    //    }
-    //    //enabled = true;
-    //    StartCoroutine("MoveAnimation");
-    //}
-
 
 }

@@ -12,7 +12,11 @@ TagManager:
   - Strawberry
   - Crop
   - Building
+<<<<<<< HEAD
   - Bounds
+=======
+  - CropProduct
+>>>>>>> 62987bda3cebdfd9fc4366cce847444bbeb1f4d1
   layers:
   - Default
   - TransparentFX

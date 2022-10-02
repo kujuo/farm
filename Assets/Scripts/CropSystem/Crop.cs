@@ -28,33 +28,35 @@ public class Crop : MonoBehaviour
     private CropState cropState;
     private SpriteRenderer spriteRenderer;
     private Seed seed;
-    private float waitingTime = 0;
+    private float totalDuration;
     private GameObject harvestProduct, seedObject;
     public Sprite defaultSprite;
+    public Sprite[] seedImages;
+    public float dropOffsetX, dropOffsetY;
     // private UIManager uIManager; import UI Manager later
-    void Start()
+    void Awake()
     {
         cropState = CropState.EMPTY;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        dropOffsetX = +2f;
+        dropOffsetY = -2f;
+    }
+
+    private IEnumerator Grow()
+    {
+        foreach (var image in seedImages)
+        {
+            spriteRenderer.sprite = image;
+            yield return new WaitForSeconds(totalDuration / seedImages.Length);
+        }
+
+        this.cropState = CropState.PLANT;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (cropState == CropState.SEED)
-        {
-            if (waitingTime > 0)
-            {
-                waitingTime -= Time.deltaTime;
-            } else
-            {
-                cropState = CropState.PLANT;
-                spriteRenderer.sprite = seed.getPlantImage();
-            }
-        } else
-        {
-            if (cropState == CropState.EMPTY) spriteRenderer.sprite = defaultSprite;
-        }
+        if (cropState == CropState.EMPTY) spriteRenderer.sprite = defaultSprite;
     }
 
     private void OnMouseDown()
@@ -97,10 +99,13 @@ public class Crop : MonoBehaviour
         if (cropState == CropState.EMPTY)
         {
             this.seed = seed;
-            this.waitingTime = seed.getHarvestingTime();
+            this.totalDuration = seed.getHarvestingTime();
             this.cropState = CropState.SEED;
-            this.spriteRenderer.sprite = seed.getSeedImage();
+            //this.spriteRenderer.sprite = seed.getSeedImage();
             this.harvestProduct = seed.getHarvestProduct();
+            this.seedImages = seed.getImages();
+            this.spriteRenderer.sprite = seedImages[0];
+            StartCoroutine(Grow());
 
         } else
         {
@@ -123,15 +128,19 @@ public class Crop : MonoBehaviour
             cropState = CropState.EMPTY;
 
             //Better to instantaniate object
-            Object.Instantiate(harvestProduct, this.transform.position, Quaternion.identity);
-            
+            var dropOffset = new Vector3();
+            dropOffset.x = dropOffsetX;
+            dropOffset.y = dropOffsetY;
+            Object.Instantiate(harvestProduct, this.transform.position + dropOffset, Quaternion.identity);
+
+            harvestProduct.GetComponent<BoxCollider2D>().isTrigger = true;
             harvestProduct.SetActive(true);
             Destroy(seedObject);
 
         } else if (cropState == CropState.SEED)
         {
             //Should access to the UI and display some info
-            Debug.Log("Please come back later. Waiting time: " + this.waitingTime);
+            Debug.Log("Please come back later.");
         } else
         {
             //Should access to the UI and display some info
