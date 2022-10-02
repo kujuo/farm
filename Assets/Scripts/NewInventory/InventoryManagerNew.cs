@@ -11,16 +11,34 @@ public class InventoryManagerNew : MonoBehaviour
     public Transform ItemContent; //item slot icon
     public GameObject InventoryItem;
 
-    //public InventoryItemController[] InventoryItems;
+    public InventoryItemController[] InventoryItems;
     private void Awake()
     {
         Instance = this;
 
     }
 
+    //public void Add(Item item)
+    //{
+    //    Items.Add(item);
+    //}
+
     public void Add(Item item)
     {
-        Items.Add(item);
+        bool itemInInventory = false;
+        for (int i = 0; i < Items.Count; i++)
+            {
+            if (item.type == Items[i].type)
+            {
+                Items[i].amount += 1;
+                itemInInventory = true;
+            }
+        }
+        if (itemInInventory == false)
+        {
+            Items.Add(item);
+            item.amount = 1;
+        }
     }
 
     public void Remove(Item item)
@@ -42,20 +60,22 @@ public class InventoryManagerNew : MonoBehaviour
             GameObject obj = Instantiate(InventoryItem, ItemContent);
             var itemIcon = obj.transform.Find("ItemImage").GetComponent<Image>();
             itemIcon.sprite = item.icon;
+            var itemAmount = obj.transform.Find("ItemAmount").GetComponent<Text>();
+            itemAmount.text = item.amount.ToString();
         }
 
-        //SetInventoryItems();
+        SetInventoryItems();
     }
 
-    //public void SetInventoryItems()
-    //{
-    //    InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
-    //    for(int i = 0; i < Items.Count; i++)
-    //    {
-    //        InventoryItems[i].AddItem(Items[i]);
-    //    }
+    public void SetInventoryItems()
+    {
+        InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
+        for (int i = 0; i < Items.Count; i++)
+        {
+            InventoryItems[i].AddItem(Items[i]);
+        }
 
-    //}
-        
+    }
+
 
 }
