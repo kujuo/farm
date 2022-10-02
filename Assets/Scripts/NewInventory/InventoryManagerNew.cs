@@ -28,7 +28,7 @@ public class InventoryManagerNew : MonoBehaviour
         bool itemInInventory = false;
         for (int i = 0; i < Items.Count; i++)
             {
-            if (item.type == Items[i].type)
+            if (item.name == Items[i].name)
             {
                 Items[i].amount += 1;
                 itemInInventory = true;
@@ -52,7 +52,7 @@ public class InventoryManagerNew : MonoBehaviour
         Item needRemovedItem = null;
         for (int i = 0; i < Items.Count; i++)
         {
-            if (item.type == Items[i].type)
+            if (item.name == Items[i].name)
             {
                 Items[i].amount -= 1;
                 if (Items[i].amount == 0)

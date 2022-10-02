@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b97e9f16462db40ef8223b05f7dc564a, type: 3}
-  m_Name: House2
+  m_Name: Well1
   m_EditorClassIdentifier: Assembly-CSharp::item
-  id: 3
-  itemName: House2
+  id: 5
+  itemName: Well1
   value: 0
   amount: 0
-  icon: {fileID: -2491624659041743377, guid: e200e30b08c9e4672b0b6ad8052174a3, type: 3}
+  icon: {fileID: 21300000, guid: 1e53ce780f9d547db98db34e12e3cadf, type: 3}
   type: 0
-  prefab: {fileID: 1609335142222950082, guid: d5e829ef4e550b944b12e21f562515ac, type: 3}
+  prefab: {fileID: 1609335142222950082, guid: e796fb2e40a8b5344b22689b37a74184, type: 3}

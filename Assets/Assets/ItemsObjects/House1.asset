@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: House1
   m_EditorClassIdentifier: Assembly-CSharp::item
   id: 4
-  itemName: House2
+  itemName: House1
   value: 0
-  amount: 1
+  amount: 0
   icon: {fileID: -337351728639113470, guid: e200e30b08c9e4672b0b6ad8052174a3, type: 3}
   type: 0
   prefab: {fileID: 3467352252253618740, guid: 2f34c219faebf1740bc21b1287a25269, type: 3}

@@ -48,12 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a222a16af448488aa647731590504ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingName: Medium House
-  buildingDescription: A comfortable home for a large family.
-  building: {fileID: -3062665871165480880, guid: 65cc7ce1c094a8f4085ffdd83e7c3acb, type: 3}
+  buildingName: Well
+  buildingDescription: Well well well
+  building: {fileID: -3062665871165480880, guid: f2476373e2d66fd479ecb52e048b303b, type: 3}
   isHealthRegenEffect: 0
-  isShieldEffect: 1
-  isAttackRangeEffect: 0
+  isShieldEffect: 0
+  isAttackRangeEffect: 1
   isPoisonEffect: 0
 --- !u!212 &7784584628710574907
 SpriteRenderer:
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2491624659041743377, guid: e200e30b08c9e4672b0b6ad8052174a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e53ce780f9d547db98db34e12e3cadf, type: 3}
   m_Color: {r: 0, g: 1, b: 0.9898002, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60ca63034c58647b18b5eefcd2f7e875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: c59eaeb29ec052e41a2c0ff05ee351a3, type: 2}
+  item: {fileID: 11400000, guid: de77359787c72104aa43de08101725dd, type: 2}
 --- !u!114 &3596832027415266100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c231d4bbc114c21a76e77a554cc5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: c59eaeb29ec052e41a2c0ff05ee351a3, type: 2}
+  item: {fileID: 11400000, guid: de77359787c72104aa43de08101725dd, type: 2}
 --- !u!61 &3672046848131879766
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,9 +148,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 1.4}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.7, y: 3.8}
+    oldSize: {x: 2.1333334, y: 2.1333334}
     newSize: {x: 3.7, y: 3.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

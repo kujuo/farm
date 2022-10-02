@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Mime;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class Building : MonoBehaviour
 {
     private bool isPlaced;
     private bool canPlace;
+    private bool front;
     private bool behind;
     private SpriteRenderer outline;
     private bool isHealthRegenEffect;
@@ -18,6 +20,7 @@ public class Building : MonoBehaviour
     {
         isPlaced = false;
         behind = false;
+        front = false;
         canPlace = true;
         outline = GetComponentsInChildren<SpriteRenderer>()[1]; //GetComponentInChildren<SpriteRenderer>();
     }
@@ -50,6 +53,7 @@ public class Building : MonoBehaviour
         {
             canPlace = true;
             outline.color = Color.blue;
+            front = true;
         }
         else if (other.name == "Outline")
         {
@@ -79,22 +83,24 @@ public class Building : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
         outline.enabled = false;
         if (behind) GetComponent<SpriteRenderer>().sortingOrder = --BuildingSystemManager.buildingLayer;
-        // remove from inventory
+        else if (front) GetComponent<SpriteRenderer>().sortingOrder = ++BuildingSystemManager.buildingLayerFront;
     }
 
     public void UseEffect()
     {
-        Debug.Log("sdaklfjds");
         PlayerController player = BuildingSystemManager.Instance.player;
-        Debug.Log(player);
         if (isHealthRegenEffect) player.Regen(0.5f, 5f);
         else if (isShieldEffect) player.Shield(50, 10);
         else if (isAttackRangeEffect) player.SetAttackRangeEffect(5);
         else if (isPoisonEffect) player.Poison(5f, 5);
     }
 
-    public void InventoryClicked()
+    private void OnMouseDown()
     {
-        Debug.Log("I have been clicked!");
+        if (isPlaced)
+        {
+            isPlaced = false;
+            canPlace = false;
+        }
     }
 }

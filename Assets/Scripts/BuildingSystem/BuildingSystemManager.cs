@@ -11,6 +11,7 @@ public class BuildingSystemManager : MonoBehaviour
 {
     private static BuildingSystemManager instance;
     public static int buildingLayer;
+    public static int buildingLayerFront;
 
     public Animator animator;
     public GameObject layoutParent;
@@ -27,7 +28,8 @@ public class BuildingSystemManager : MonoBehaviour
     {
         instance = this;
         isOpen = false;
-        BuildingSystemManager.buildingLayer = 0;
+        buildingLayer = 0;
+        buildingLayerFront = 0;
         player = FindObjectOfType<PlayerController>();
     }
 
@@ -54,8 +56,6 @@ public class BuildingSystemManager : MonoBehaviour
 
     private void CreateDisplay()
     {
-        // todo
-        // clear it first
         foreach (var bp in blueprint)
         {
             var curr = Instantiate(layout);
