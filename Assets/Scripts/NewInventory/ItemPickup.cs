@@ -16,7 +16,7 @@ public class ItemPickup : MonoBehaviour
 
     void Pickup()
     {
-        if (item.type == Item.itemType.Building)
+        //if (item.type == Item.itemType.Building)
         InventoryManagerNew.Instance.Add(item);
         Destroy(gameObject);
         InventoryManagerNew.Instance.ListItems(InventoryManagerNew.Instance.Items);
@@ -26,7 +26,5 @@ public class ItemPickup : MonoBehaviour
     private void OnMouseDown()
     {
         Pickup();
-        
-
     }
 }
