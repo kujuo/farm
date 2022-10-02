@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -69,7 +68,27 @@ public class InventoryManagerNew : MonoBehaviour
     }
 
     //list item icons in inventory ui
-    public void ListItems()
+    //public void ListItems()
+    //{
+    //    //clean inside of content before instantiating
+    //    foreach (Transform item in ItemContent)
+    //    {
+    //        Destroy(item.gameObject);
+    //    }
+
+    //    foreach (var item in Items)
+    //    {
+    //        GameObject obj = Instantiate(InventoryItem, ItemContent);
+    //        var itemIcon = obj.transform.Find("ItemImage").GetComponent<Image>();
+    //        itemIcon.sprite = item.icon;
+    //        var itemAmount = obj.transform.Find("ItemAmount").GetComponent<Text>();
+    //        itemAmount.text = item.amount.ToString();
+    //    }
+
+    //    SetInventoryItems();
+    //}
+
+    public void ListItems(List<Item> ItemList)
     {
         //clean inside of content before instantiating
         foreach (Transform item in ItemContent)
@@ -77,19 +96,10 @@ public class InventoryManagerNew : MonoBehaviour
             Destroy(item.gameObject);
         }
 
-        foreach (var item in Items)
+        foreach (var item in ItemList)
         {
-            Debug.Log("Now displaying inventory");
             GameObject obj = Instantiate(InventoryItem, ItemContent);
             var itemIcon = obj.transform.Find("ItemImage").GetComponent<Image>();
-            Button btn = obj.GetComponent<Button>();
-            // binds clicking to building
-            if (item.prefab.GetComponent<BuildingBlueprint>())
-            {
-                item.prefab.GetComponent<BuildingBlueprint>().initItem(item);
-                btn.onClick.AddListener(item.prefab.GetComponent<BuildingBlueprint>().onClick);
-            }
-            // TODO, binds clicking to crops/etc
             itemIcon.sprite = item.icon;
             var itemAmount = obj.transform.Find("ItemAmount").GetComponent<Text>();
             itemAmount.text = item.amount.ToString();
@@ -97,6 +107,8 @@ public class InventoryManagerNew : MonoBehaviour
 
         SetInventoryItems();
     }
+
+
 
     public void SetInventoryItems()
     {
