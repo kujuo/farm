@@ -12,6 +12,7 @@ TagManager:
   - Strawberry
   - Crop
   - Building
+  - CropProduct
   layers:
   - Default
   - TransparentFX
