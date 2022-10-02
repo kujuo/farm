@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   maxHealth: 100
+  touchDamage: 10
   healthCanvas: {fileID: 3697363039924043752, guid: 68f248c7c593f45148553402450d70ca, type: 3}
   speed: 1.5
   attackSpeed: 5

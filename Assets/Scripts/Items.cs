@@ -7,7 +7,8 @@ public class Items
     public enum itemTypes
     {
     Building,
-    Crop
+    Crop,
+    Seed,
     }
     public itemTypes itemType;
     public int amount;
