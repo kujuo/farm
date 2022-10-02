@@ -41,9 +41,29 @@ public class InventoryManagerNew : MonoBehaviour
         }
     }
 
-    public void Remove(Item item)
+    //public void Remove(Item item)
+    //{
+    //    Items.Remove(item);
+    //}
+
+    public void RemoveItem(Item item)
     {
-        Items.Remove(item);
+        Item needRemovedItem = null;
+        for (int i = 0; i < Items.Count; i++)
+        {
+            if (item.type == Items[i].type)
+            {
+                Items[i].amount -= 1;
+                if (Items[i].amount == 0)
+                {
+                    needRemovedItem = Items[i];
+                }
+            }
+        }
+        if (needRemovedItem != null)
+        {
+            Items.Remove(needRemovedItem);
+        }
     }
 
     //list item icons in inventory ui
