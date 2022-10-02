@@ -84,10 +84,12 @@ public class Building : MonoBehaviour
 
     public void UseEffect()
     {
+        Debug.Log("sdaklfjds");
         PlayerController player = BuildingSystemManager.Instance.player;
-        if (isHealthRegenEffect) StartCoroutine(player.SetHealthRegenEffect(0.05f, 5f));
-        else if (isShieldEffect) StartCoroutine(player.SetShieldEffect(50, 10));
-        else if (isAttackRangeEffect) StartCoroutine(player.SetAttackRangeEffect(50)); 
-        else if (isPoisonEffect) StartCoroutine(player.SetPoisonEffect(0.01f, 5));
+        Debug.Log(player);
+        if (isHealthRegenEffect) player.Regen(0.5f, 5f);
+        else if (isShieldEffect) player.Shield(50, 10);
+        else if (isAttackRangeEffect) player.SetAttackRangeEffect(5);
+        else if (isPoisonEffect) player.Poison(5f, 5);
     }
 }

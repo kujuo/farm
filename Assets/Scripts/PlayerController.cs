@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -29,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
 
     // PUT BUILDINGS HERE
-    public Building[] buildings;
+    public List<Building> buildings = new List<Building>();
 
 
     private Rigidbody2D rb2D;
@@ -103,14 +104,12 @@ public class PlayerController : MonoBehaviour
         {
             if (animationController.moving)
             {
-                
                 animationController.moving = false;
                 animationController.StopCoroutine("MoveAnimation");
                 animationController.StartCoroutine("MoveAnimation");
             }
         }
         rb2D.velocity = movement * speed;
-        //Debug.Log(rb2D.velocity);
     }
     
     // Update is called once per frame
@@ -197,6 +196,8 @@ public class PlayerController : MonoBehaviour
     }
 
     // EFFECTS
+
+    // CALL THIS FUNCTION ON SCENE LOAD
     public void ApplyEffects()
     {
         foreach (Building building in buildings)
@@ -205,34 +206,69 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public IEnumerator SetHealthRegenEffect(float amount, float rate)
+    // adds a building for effects to use
+    public void AddBuilding(Building building)
     {
-        health += amount;
-        yield return new WaitForSeconds(rate);
+        buildings.Add(building);
     }
 
-    public IEnumerator SetShieldEffect(float amount, float rate)
+    public void Regen(float amount, float rate)
     {
-        shieldHealth = amount;
-        yield return new WaitForSeconds(rate);
+        StartCoroutine(SetHealthRegenEffect(amount, rate));
     }
 
-    public IEnumerator SetAttackRangeEffect(float amount)
+    public void Shield(float amount, float rate)
+    {
+        StartCoroutine(SetShieldEffect(amount, rate));
+    }
+
+    public void Poison(float amount, float rate)
+    {
+        StartCoroutine(SetPoisonEffect(amount, rate));
+    }
+
+    private IEnumerator SetHealthRegenEffect(float amount, float rate)
+    {
+        while (true)
+        {
+            health += amount;
+            yield return new WaitForSeconds(rate);
+        }
+    }
+
+    private IEnumerator SetShieldEffect(float amount, float rate)
+    {
+        while (true)
+        {
+            shieldHealth = amount;
+            yield return new WaitForSeconds(rate);
+        }
+    }
+
+    public void SetAttackRangeEffect(float amount)
     {
         attackRange = amount;
-        yield break;
     }
 
-    public IEnumerator SetPoisonEffect(float amount, float rate)
+    private IEnumerator SetPoisonEffect(float amount, float rate)
     {
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, 5, playerDir * 0.5f, .5f, enemyLayer);
-
-        if (hit.collider && hit.collider.tag == "Enemy")
+        while (true)
         {
-            Enemy en = hit.collider.gameObject.GetComponent<Enemy>();
-            en.OnHit(amount);
-        }
+            Physics2D.queriesStartInColliders = true;
 
-        yield return new WaitForSeconds(rate);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 5, enemyLayer);
+
+            foreach (Collider2D hit in hits)
+            {
+                if (hit.tag == "Enemy")
+                {
+                    Enemy en = hit.gameObject.GetComponent<Enemy>();
+                    en.OnHit(amount);
+                }
+            }
+
+
+            yield return new WaitForSeconds(rate);
+        }
     }
 }
