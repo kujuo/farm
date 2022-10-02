@@ -11,8 +11,9 @@ public class Item : ScriptableObject
     public int value;
     public int amount;
     public Sprite icon;
+    public itemType type;
 
-    public enum itemTypes
+    public enum itemType
     {
         Building,
         Crop,

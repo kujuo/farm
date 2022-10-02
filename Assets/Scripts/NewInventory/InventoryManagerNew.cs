@@ -11,6 +11,7 @@ public class InventoryManagerNew : MonoBehaviour
     public Transform ItemContent; //item slot icon
     public GameObject InventoryItem;
 
+    //public InventoryItemController[] InventoryItems;
     private void Awake()
     {
         Instance = this;
@@ -31,18 +32,30 @@ public class InventoryManagerNew : MonoBehaviour
     public void ListItems()
     {
         //clean inside of content before instantiating
-        //foreach (Transform item in ItemContent)
-        //{
-        //    Destroy(item.gameObject);
-        //}
+        foreach (Transform item in ItemContent)
+        {
+            Destroy(item.gameObject);
+        }
+
         foreach (var item in Items)
         {
             GameObject obj = Instantiate(InventoryItem, ItemContent);
             var itemIcon = obj.transform.Find("ItemImage").GetComponent<Image>();
-            Debug.Log(itemIcon);
             itemIcon.sprite = item.icon;
         }
+
+        //SetInventoryItems();
     }
+
+    //public void SetInventoryItems()
+    //{
+    //    InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
+    //    for(int i = 0; i < Items.Count; i++)
+    //    {
+    //        InventoryItems[i].AddItem(Items[i]);
+    //    }
+
+    //}
         
 
 }
