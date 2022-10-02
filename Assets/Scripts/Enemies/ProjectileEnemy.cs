@@ -8,10 +8,9 @@ public class ProjectileEnemy : Enemy
     public float attackSpeed;
     public float buildUpTime;
     public float activeDistance;
-    
+
     public GameObject projectile;
     private bool attacking = false;
-    //private float nextActionTime = 0.0f;
 
     public override void Start()
     {
@@ -101,11 +100,12 @@ public class ProjectileEnemy : Enemy
     }
     IEnumerator ShootingProjectile()
     {
-        Debug.Log("lmao");
         attacking = true;
         GameObject shoot = Instantiate(projectile, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(buildUpTime);
-        shoot.gameObject.GetComponent<Projectile>().addForce(enemyDir);
+        Vector2 shootingVector = player.transform.position - transform.position;
+        shootingVector.Normalize();
+        shoot.gameObject.GetComponent<Projectile>().addForce(shootingVector);
         attacking = false;
 
     }
@@ -115,7 +115,7 @@ public class ProjectileEnemy : Enemy
         if (other.gameObject.tag == "Player")
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            player.loseHealth(10);
+            player.loseHealth(touchDamage);
         }
 
     }

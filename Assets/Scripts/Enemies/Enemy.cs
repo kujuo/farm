@@ -6,6 +6,7 @@ public abstract class Enemy : MonoBehaviour
 {
     public GameObject player;
     public float maxHealth;
+    public float touchDamage;
 
     protected bool active;
     protected SpriteRenderer sr;
