@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,8 +40,17 @@ public class InventoryManagerNew : MonoBehaviour
 
         foreach (var item in Items)
         {
+            Debug.Log("Now displaying inventory");
             GameObject obj = Instantiate(InventoryItem, ItemContent);
             var itemIcon = obj.transform.Find("ItemImage").GetComponent<Image>();
+            Button btn = obj.GetComponent<Button>();
+            // binds clicking to building
+            if (item.prefab.GetComponent<BuildingBlueprint>())
+            {
+                item.prefab.GetComponent<BuildingBlueprint>().initItem(item);
+                btn.onClick.AddListener(item.prefab.GetComponent<BuildingBlueprint>().onClick);
+            }
+            // TODO, binds clicking to crops/etc
             itemIcon.sprite = item.icon;
         }
 

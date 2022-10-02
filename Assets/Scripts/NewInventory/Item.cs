@@ -12,6 +12,7 @@ public class Item : ScriptableObject
     public int amount;
     public Sprite icon;
     public itemType type;
+    public GameObject prefab;
 
     public enum itemType
     {

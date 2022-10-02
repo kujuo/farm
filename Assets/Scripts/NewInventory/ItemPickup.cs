@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
@@ -9,11 +10,12 @@ public class ItemPickup : MonoBehaviour
     //the building script -- so in building script, start should be changed. Building should
     //be able to move around once building button in inventory is clicked.!!
 
-    public Item Item;
+    public Item item;
 
     void Pickup()
     {
-        InventoryManagerNew.Instance.Add(Item);
+        if (item.type == Item.itemType.Building)
+        InventoryManagerNew.Instance.Add(item);
         Destroy(gameObject);
     }
 

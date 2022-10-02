@@ -92,4 +92,9 @@ public class Building : MonoBehaviour
         else if (isAttackRangeEffect) player.SetAttackRangeEffect(5);
         else if (isPoisonEffect) player.Poison(5f, 5);
     }
+
+    public void InventoryClicked()
+    {
+        Debug.Log("I have been clicked!");
+    }
 }

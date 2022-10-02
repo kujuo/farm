@@ -215,7 +215,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26641875}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53669c277b80e4b37a2a4a89c0052cf2, type: 3}
   m_Name: 
@@ -881,6 +881,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7296095646073155582, guid: 7bfdb06ca2e1342549d79e39336258db, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: c470bfc5716ce489b89ad2dd8dedc699, type: 2}
     - target: {fileID: 8529052950218627887, guid: 7bfdb06ca2e1342549d79e39336258db, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1237,7 +1241,6 @@ MonoBehaviour:
   Items: []
   ItemContent: {fileID: 132792281}
   InventoryItem: {fileID: 2749776596851009776, guid: 657bd00cd255e4ec0aaeab1912477165, type: 3}
-  InventoryItems: []
 --- !u!4 &287491070
 Transform:
   m_ObjectHideFlags: 0
@@ -1809,6 +1812,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Seed1
       objectReference: {fileID: 0}
+    - target: {fileID: 4219645197973872475, guid: f3c5f47fe805247b3ab59ba4398f390b, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 123a22ebf1e6244eaabedd97761d3fa7, type: 2}
     - target: {fileID: 7666238582544795863, guid: f3c5f47fe805247b3ab59ba4398f390b, type: 3}
       propertyPath: m_RootOrder
       value: 1
