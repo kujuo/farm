@@ -14,9 +14,8 @@ GameObject:
   - component: {fileID: 4805975255388374105}
   - component: {fileID: 4805975255388374104}
   - component: {fileID: 4805975255388374107}
-  - component: {fileID: 965161243}
-  m_Layer: 0
-  m_Name: Player2
+  m_Layer: 8
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   attackDuration: 0.25
-  hitDistance: 1.5
+  attackRange: 2
   health: 100
   upAttack:
   - {fileID: -1163314739, guid: 860d6055b02a24c288564d722c97ea55, type: 3}
@@ -117,6 +116,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   animationController: {fileID: 0}
+  statusManagerPrefab: {fileID: 2023777781817004645, guid: 21a7e64c5072741df8b3ffa9c0309563, type: 3}
+  buildings: []
+  statusManager: {fileID: 0}
 --- !u!114 &4805975255388374105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,32 +214,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.923028, y: 1.0602584}
   m_EdgeRadius: 0
---- !u!114 &965161243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4805975255388374106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 436bc0f096be0d34ba379a789d03ec45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Config: {fileID: 0}
-  MouseControl: 0
-  Target: {fileID: 0}
-  CanMove: 1
-  MovementSpeed: 5
-  RotationSpeed: 500
-  isMoving: 0
-  pathIndex: 0
-  posInGrid: {x: 0, y: 0, z: 0}
-  CanSearch: 1
-  PathUpdateRate: 0.15
-  GetNextPointDistance: 0.1
-  ShowGraphic: 1
-  color:
-    serializedVersion: 2
-    rgba: 4292990208
-  path: []

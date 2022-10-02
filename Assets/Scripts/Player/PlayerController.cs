@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask enemyLayer;
     public CharacterAnimationController animationController;
-
+    public GameObject statusManagerPrefab;
 
     // PUT BUILDINGS HERE
     public List<Building> buildings = new List<Building>();
@@ -38,9 +38,10 @@ public class PlayerController : MonoBehaviour
     private Vector2 playerDir;
     private Sprite[] frames;
 
-    private float maxHealth;
+    private float maxHealth = 100;
     private bool healthRegen;
     private float shieldHealth = 0;
+    public PlayerStatusManager statusManager;
 
     private States state;
     private bool canInteract;
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour
         animationController = GetComponent<CharacterAnimationController>();
         playerDir = new Vector2(0, -1);
 
+        statusManager = Instantiate(statusManagerPrefab).GetComponent<PlayerStatusManager>();
         canInteract = false;
         sr = GetComponent<SpriteRenderer>();
         Physics2D.queriesStartInColliders = false;
@@ -119,9 +121,9 @@ public class PlayerController : MonoBehaviour
         Move();
         InteractionCheck();
         if (Input.GetKeyDown(KeyCode.E) && interactableTarget) interactableTarget.Interact();
-        if (Input.GetKeyDown(KeyCode.Z)) StartCoroutine("Attack");
+        //if (Input.GetKeyDown(KeyCode.Z)) StartCoroutine("Attack");
         if (Input.GetKeyDown(KeyCode.B)) BuildingSystemManager.Instance.DisplayBuildingUi();
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             rb2D.velocity = new Vector2(0, 0);
             StartCoroutine("Attack");
@@ -171,11 +173,11 @@ public class PlayerController : MonoBehaviour
             if (shieldHealth <= 0) shieldHealth = 0;
             return;
         }
-        if (state == States.Invulnerable || shieldHealth > 0) return;
+        if (state == States.Invulnerable) return;
         
         health -= healthLost;
-        
-        StartCoroutine(DamageTaken());
+        statusManager.updateHealth(health, maxHealth);
+        if (state == States.Normal) StartCoroutine(DamageTaken());
     }
 
     private void InteractionCheck()
@@ -189,14 +191,12 @@ public class PlayerController : MonoBehaviour
     {
         state = States.Invulnerable;
         sr.color = new Color(255, 0, 0);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         sr.color = new Color(1, 1, 1, 1);
-        yield return new WaitForSeconds(0.1f);
         state = States.Normal;
     }
 
     // EFFECTS
-
     // CALL THIS FUNCTION ON SCENE LOAD
     public void ApplyEffects()
     {
@@ -231,7 +231,9 @@ public class PlayerController : MonoBehaviour
     {
         while (true)
         {
-            health += amount;
+            if (health <= maxHealth) health += amount;
+            if (health > maxHealth) health = maxHealth;
+            statusManager.updateHealth(health, maxHealth);
             yield return new WaitForSeconds(rate);
         }
     }
@@ -266,8 +268,6 @@ public class PlayerController : MonoBehaviour
                     en.OnHit(amount);
                 }
             }
-
-
             yield return new WaitForSeconds(rate);
         }
     }
