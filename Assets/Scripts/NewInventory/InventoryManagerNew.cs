@@ -45,6 +45,7 @@ public class InventoryManagerNew : MonoBehaviour
     //{
     //    Items.Remove(item);
     //}
+    //
 
     public void RemoveItem(Item item)
     {
@@ -95,6 +96,18 @@ public class InventoryManagerNew : MonoBehaviour
             InventoryItems[i].AddItem(Items[i]);
         }
 
+    }
+
+    //check if item in the inventory is of seed type
+    public void CheckSeedType()
+    {
+        for (int i = 0; i < Items.Count; i++)
+        {
+            if (Items[i].type == Item.itemType.Seed)
+            {
+
+            }
+        }
     }
 
 
