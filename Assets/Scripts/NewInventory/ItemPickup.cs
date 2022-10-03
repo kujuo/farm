@@ -12,7 +12,6 @@ public class ItemPickup : MonoBehaviour
     //be able to move around once building button in inventory is clicked.!!
 
     public Item item;
-    public List<Item> Items;
 
     void Pickup()
     {

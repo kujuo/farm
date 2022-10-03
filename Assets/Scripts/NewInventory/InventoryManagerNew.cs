@@ -8,9 +8,10 @@ public class InventoryManagerNew : MonoBehaviour
 {
     public static InventoryManagerNew Instance;
     public List<Item> Items = new List<Item>();
-
+   
     public Transform ItemContent; //item slot icon
     public GameObject InventoryItem;
+    public GameObject Content;
 
     public InventoryItemController[] InventoryItems;
     private void Awake()
@@ -28,7 +29,7 @@ public class InventoryManagerNew : MonoBehaviour
     {
         bool itemInInventory = false;
         for (int i = 0; i < Items.Count; i++)
-            {
+        {
             if (item.name == Items[i].name)
             {
                 Items[i].amount += 1;
@@ -89,6 +90,7 @@ public class InventoryManagerNew : MonoBehaviour
     //    SetInventoryItems();
     //}
 
+    //show items on ui window
     public void ListItems(List<Item> ItemList)
     {
         //clean inside of content before instantiating
@@ -111,7 +113,7 @@ public class InventoryManagerNew : MonoBehaviour
                 item.prefab.GetComponent<BuildingBlueprint>().initItem(item);
                 btn.onClick.AddListener(item.prefab.GetComponent<BuildingBlueprint>().onClick);
             }
-            // TODO, binds clicking to crops/etc
+            //TODO, binds clicking to crops/ etc
         }
 
         SetInventoryItems();
@@ -132,14 +134,56 @@ public class InventoryManagerNew : MonoBehaviour
     //check if item in the inventory is of seed type
     public void CheckSeedType()
     {
+        List<Item> Seeds = new List<Item>();
         for (int i = 0; i < Items.Count; i++)
         {
             if (Items[i].type == Item.itemType.Seed)
             {
-
+                Seeds.Add(Items[i]);
             }
         }
+        ListItems(Seeds);
+        
     }
+
+    public void CheckBuildingType()
+    {
+        List<Item> Buildings = new List<Item>();
+        for (int i = 0; i < Items.Count; i++)
+        {
+            if (Items[i].type == Item.itemType.Building)
+            {
+                Buildings.Add(Items[i]);
+            }
+        }
+        ListItems(Buildings);
+    }
+
+    public void CheckCropType()
+    {
+        List<Item> Crops = new List<Item>();
+        for (int i = 0; i < Items.Count; i++)
+        {
+            if (Items[i].type == Item.itemType.Crop)
+            {
+                Crops.Add(Items[i]);
+            }
+        }
+        ListItems(Crops);
+    }
+
+    public void checkListEmpty()
+    {
+        if (Items.Count == 0)
+        {
+            Content.SetActive(false);
+        }
+        else
+        {
+            Content.SetActive(true);
+        }
+    }
+    
 
 
 }

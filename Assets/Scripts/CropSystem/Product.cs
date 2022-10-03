@@ -29,19 +29,19 @@ public class Product : MonoBehaviour
         spriteRenderer.color = Color.red;
     }
 
-    private void OnMouseDown()
-    {
-        var inventoryProduct = new Item
-        {
-            id = 01234,
-            itemName = "prc",
-            value = 0,
-            amount = 1,
-            icon = spriteRenderer.sprite,
-            type = Item.itemType.Crop,
-        };
+    //private void OnMouseDown()
+    //{
+    //    var inventoryProduct = new Item
+    //    {
+    //        id = 01234,
+    //        itemName = "prc",
+    //        value = 0,
+    //        amount = 1,
+    //        icon = spriteRenderer.sprite,
+    //        type = Item.itemType.Crop,
+    //    };
 
-        InventoryManagerNew.Instance.Add(inventoryProduct);
-        Destroy(this.transform.gameObject);
-    }
+    //    InventoryManagerNew.Instance.Add(inventoryProduct);
+    //    Destroy(this.transform.gameObject);
+    //}
 }
