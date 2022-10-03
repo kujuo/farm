@@ -73,6 +73,9 @@ public class LoadSceneManager : MonoBehaviour
         SceneManager.MoveGameObjectToScene(player, SceneManager.GetSceneAt(currSceneNum));
         player.SetActive(true);
         SceneManager.SetActiveScene(SceneManager.GetSceneAt(currSceneNum));
+        GameObject[] spawns = GameObject.FindGameObjectsWithTag("Spawn");
+        Vector3 spawnLocation = spawns[spawns.Length-1].transform.position;
+        player.transform.position = spawnLocation;
     }
 
 }

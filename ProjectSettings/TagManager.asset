@@ -9,6 +9,7 @@ TagManager:
   - Seed
   - Bounds
   - Strawberry
+  - Spawn
   layers:
   - Default
   - TransparentFX

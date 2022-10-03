@@ -291,7 +291,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173697948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.17, y: 2.8, z: 0.08938329}
+  m_LocalPosition: {x: -17.15, y: 3.09, z: 0.08938329}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1184,7 +1184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677322999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24, y: 8.43, z: 0.08938329}
+  m_LocalPosition: {x: 25.33, y: 8.43, z: 0.08938329}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2117,7 +2117,7 @@ MonoBehaviour:
     ShowGridParameters: 1
     ShowPathfindingSettings: 1
     ShowGridGraphSettigs: 0
-    ScaleLvl: 1
+    ScaleLvl: 2
   EditorSettings: {fileID: 11400000, guid: f54fe2e0866d59148bb49fcb7b6fd41b, type: 2}
   grids:
   - GridName: Default Grid 0
@@ -2126,7 +2126,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 247
     UserGridData: {fileID: 0}
-    gridPosition: {x: -18.03376, y: -12, z: 0}
+    gridPosition: {x: -18.096392, y: -11.93, z: 0}
     gridPivot: 0
     width: 50
     height: 40
@@ -14031,7 +14031,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003026019}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.18, y: 13.91, z: -10}
+  m_LocalPosition: {x: -4.28, y: 13.91, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14051,8 +14051,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 259622725}
-  offsetX: 3
-  offsetY: 3
+  offsetX: 5
+  offsetY: 5
   limitX: 0
   limitX1: 0
   limitY: 0
