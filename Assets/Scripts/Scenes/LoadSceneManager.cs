@@ -72,8 +72,7 @@ public class LoadSceneManager : MonoBehaviour
         }
         SceneManager.MoveGameObjectToScene(player, SceneManager.GetSceneAt(currSceneNum));
         player.SetActive(true);
-        bool worked = SceneManager.SetActiveScene(SceneManager.GetSceneAt(currSceneNum));
-        Debug.Log(worked);
+        SceneManager.SetActiveScene(SceneManager.GetSceneAt(currSceneNum));
     }
 
 }
