@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: -4577908036403255815}
   - component: {fileID: -2009888176655028278}
   - component: {fileID: 1119895581669040608}
+  - component: {fileID: -5615006834283939545}
+  - component: {fileID: -7149892079816101241}
   m_Layer: 0
   m_Name: EggplantSeed
   m_TagString: Untagged
@@ -72,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1745862493
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 272762720, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -112,3 +114,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: f0db7fc48d93a7c4ca774db97fe67a9f, type: 2}
+--- !u!114 &-5615006834283939545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7603154723599671093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df0958d4013e85944a6cd54a147a9e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seed: {fileID: 2432057304289593436, guid: ec1116acde153ff4886838024f60390b, type: 3}
+--- !u!61 &-7149892079816101241
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7603154723599671093}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.6000001}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.25}
+    oldSize: {x: 3.2, y: 6.4}
+    newSize: {x: 3.2, y: 6.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.2, y: 6.4}
+  m_EdgeRadius: 0

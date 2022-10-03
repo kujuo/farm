@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3196259071143685656}
   - component: {fileID: 3196259071143685659}
   m_Layer: 0
-  m_Name: Seed24
+  m_Name: PumpkinSeed0
   m_TagString: Seed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 1745862493
   m_SortingLayer: 1
   m_SortingOrder: 4
-  m_Sprite: {fileID: 368015095, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  m_Sprite: {fileID: 270232126, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c231d4bbc114c21a76e77a554cc5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 123a22ebf1e6244eaabedd97761d3fa7, type: 2}
+  item: {fileID: 11400000, guid: 12cf7884d51824d4b9db748f15e6dbdd, type: 2}
 --- !u!114 &3196259071143685657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06778f17815d44d2c9bd9b41b0613e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 123a22ebf1e6244eaabedd97761d3fa7, type: 2}
+  item: {fileID: 11400000, guid: 12cf7884d51824d4b9db748f15e6dbdd, type: 2}
 --- !u!61 &3196259071143685656
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -152,13 +152,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e8ccf50345849df83809979d2841ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedImage: {fileID: 2020316181, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  plantImage: {fileID: 368015095, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  seedImage: {fileID: 270232126, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  plantImage: {fileID: 616005201, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   images:
-  - {fileID: 2020316181, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  - {fileID: 509809035, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  - {fileID: -1280150499, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  - {fileID: 368015095, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  - {fileID: 2072827461, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  - {fileID: 1247644821, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  - {fileID: -1750437184, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  - {fileID: 2078995599, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   harvestProduct: {fileID: 8529052950218627889, guid: 7bfdb06ca2e1342549d79e39336258db, type: 3}
-  seed: {fileID: 0}
+  seed: {fileID: 3196259071143685659}
   harvestTime: 1

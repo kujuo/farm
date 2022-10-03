@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 3196259071143685657}
   - component: {fileID: 3196259071143685656}
   - component: {fileID: 3196259071143685659}
+  - component: {fileID: -2278867309699768152}
+  - component: {fileID: -3755263616433166331}
+  - component: {fileID: -6661591966100096956}
   m_Layer: 0
   m_Name: WaterMelonCrop
   m_TagString: Seed
@@ -74,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1745862493
+  m_SortingLayer: 1
   m_SortingOrder: 4
   m_Sprite: {fileID: -100175820, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -114,7 +117,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 123a22ebf1e6244eaabedd97761d3fa7, type: 2}
-  Items: []
 --- !u!61 &3196259071143685656
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -161,4 +163,43 @@ MonoBehaviour:
   - {fileID: 1685204296, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   - {fileID: -100175820, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   harvestProduct: {fileID: 8529052950218627889, guid: 7bfdb06ca2e1342549d79e39336258db, type: 3}
+  seed: {fileID: 0}
   harvestTime: 1
+--- !u!114 &-2278867309699768152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3196259071143685652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ca63034c58647b18b5eefcd2f7e875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 2b397dcf6605db240990b6b334a9b4f7, type: 2}
+--- !u!114 &-3755263616433166331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3196259071143685652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c231d4bbc114c21a76e77a554cc5f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 2b397dcf6605db240990b6b334a9b4f7, type: 2}
+--- !u!114 &-6661591966100096956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3196259071143685652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e945795c66c44e7bd21775309d6634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
