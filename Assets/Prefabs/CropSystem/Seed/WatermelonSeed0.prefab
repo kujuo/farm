@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 1745862493
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1053681424, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  m_Sprite: {fileID: -1253866753, guid: ee2a2b1d4045f4ce98866cf71b72f133, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,13 +124,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e8ccf50345849df83809979d2841ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedImage: {fileID: -1053681424, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  seedImage: {fileID: -1253866753, guid: ee2a2b1d4045f4ce98866cf71b72f133, type: 3}
   plantImage: {fileID: -100175820, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   images:
-  - {fileID: 2072827461, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  - {fileID: 1247644821, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  - {fileID: -1750437184, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  - {fileID: 2078995599, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  - {fileID: -1253866753, guid: ee2a2b1d4045f4ce98866cf71b72f133, type: 3}
+  - {fileID: -1053681424, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  - {fileID: 1685204296, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  - {fileID: -100175820, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   harvestProduct: {fileID: 3196259071143685652, guid: 08b4d31897ef94165bc01835c1f8f267, type: 3}
   seed: {fileID: 5617666235889031282}
   harvestTime: 1

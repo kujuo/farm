@@ -24,7 +24,7 @@ public class Seed : MonoBehaviour
         isPlanted = false;
         canPlant = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        seedImage = images[images.Length - 1];
+        seedImage = images[0];
         spriteRenderer.sprite = seedImage;
         //seedCollider = GetComponentsInChildren<BoxCollider2D>()[1];
     }
