@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3196259071143685656}
   - component: {fileID: 3196259071143685659}
   m_Layer: 0
-  m_Name: Seed23
+  m_Name: WaterMelonCrop
   m_TagString: Seed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

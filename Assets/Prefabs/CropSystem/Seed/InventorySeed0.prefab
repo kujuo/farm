@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 3196259071143685662}
   - component: {fileID: 3196259071143685657}
   - component: {fileID: 3196259071143685656}
-  - component: {fileID: 3196259071143685659}
+  - component: {fileID: -5217798749103434136}
   m_Layer: 0
-  m_Name: Seed0
+  m_Name: InventorySeed0
   m_TagString: Seed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,7 +140,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.2, y: 3.3908594}
   m_EdgeRadius: 0
---- !u!114 &3196259071143685659
+--- !u!114 &-5217798749103434136
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,16 +149,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3196259071143685652}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8e8ccf50345849df83809979d2841ed, type: 3}
+  m_Script: {fileID: 11500000, guid: df0958d4013e85944a6cd54a147a9e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedImage: {fileID: 2072827461, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  plantImage: {fileID: 2078995599, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  images:
-  - {fileID: 2072827461, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  - {fileID: 1247644821, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  - {fileID: -1750437184, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  - {fileID: 2078995599, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  harvestProduct: {fileID: 8529052950218627889, guid: 7bfdb06ca2e1342549d79e39336258db, type: 3}
-  seed: {fileID: 3196259071143685659}
-  harvestTime: 1
+  seed: {fileID: 3196259071143685659, guid: 9a4707742cef1448d8b2dd28cb4bc6c5, type: 3}

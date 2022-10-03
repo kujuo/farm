@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b97e9f16462db40ef8223b05f7dc564a, type: 3}
-  m_Name: PumpkinSeed
+  m_Name: EggplantCrop
   m_EditorClassIdentifier: 
-  id: 6
-  itemName: PumpkinSeed
+  id: 12
+  itemName: EggplantCrop
   value: 0
-  amount: 1
-  icon: {fileID: 270232126, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  type: 2
-  prefab: {fileID: 3196259071143685652, guid: 77f905a426abbcf4aa54d3b12f50257a, type: 3}
+  amount: 0
+  icon: {fileID: 303241494, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  type: 1
+  prefab: {fileID: 3833271039864301440, guid: f867d37719f2262489d474e21e84d41f, type: 3}

@@ -7,6 +7,7 @@ public class Product : MonoBehaviour
 {
     InventoryManagerNew instance;
     private SpriteRenderer spriteRenderer;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +17,8 @@ public class Product : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
+
 
     private void OnMouseExit()
     {
@@ -27,6 +28,11 @@ public class Product : MonoBehaviour
     private void OnMouseEnter()
     {
         spriteRenderer.color = Color.red;
+    }
+
+    public void onClicK()
+    {
+        Debug.Log("product has been clicked");
     }
 
     //private void OnMouseDown()

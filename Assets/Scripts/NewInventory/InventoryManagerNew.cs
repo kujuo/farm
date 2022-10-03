@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -108,10 +109,21 @@ public class InventoryManagerNew : MonoBehaviour
             itemAmount.text = item.amount.ToString();
             Button btn = obj.GetComponent<Button>();
             // binds clicking to building
+            if (!item.prefab) return;
             if (item.prefab.GetComponent<BuildingBlueprint>())
             {
                 item.prefab.GetComponent<BuildingBlueprint>().initItem(item);
                 btn.onClick.AddListener(item.prefab.GetComponent<BuildingBlueprint>().onClick);
+            }
+            else if (item.prefab.GetComponent<SeedInventory>())
+            {
+                item.prefab.GetComponent<SeedInventory>().initItem(item);
+                btn.onClick.AddListener(item.prefab.GetComponent<SeedInventory>().onClick);
+            }
+            else if (item.prefab.GetComponent<Product>())
+            {
+                //item.prefab.GetComponent<BuildingBlueprint>().initItem(item);
+                btn.onClick.AddListener(item.prefab.GetComponent<Product>().onClicK);
             }
             //TODO, binds clicking to crops/ etc
         }
