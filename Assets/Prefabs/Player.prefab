@@ -114,7 +114,7 @@ MonoBehaviour:
   - {fileID: 909700197, guid: 860d6055b02a24c288564d722c97ea55, type: 3}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 640
   animationController: {fileID: 0}
   statusManagerPrefab: {fileID: 2023777781817004645, guid: 21a7e64c5072741df8b3ffa9c0309563, type: 3}
   buildings: []

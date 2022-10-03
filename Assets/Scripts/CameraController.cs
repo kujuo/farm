@@ -34,7 +34,10 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (player == null)
+        {
+            player = GameObject.Find("Player").transform;
+        }
         //Camera cam = Camera.main;
         //float height = 2f * cam.orthographicSize;
         //float width = height * cam.aspect;

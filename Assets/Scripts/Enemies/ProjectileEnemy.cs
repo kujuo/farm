@@ -25,9 +25,8 @@ public class ProjectileEnemy : Enemy
         currHealth = maxHealth;
         HealthbarCreation();
         animationController.moving = false;
-
-        Attack();
     }
+
     void Update()
     {
         if (attacking) return;
@@ -35,6 +34,7 @@ public class ProjectileEnemy : Enemy
         {
             if (Vector3.Distance(transform.position, player.transform.position) < activeDistance)
             {
+                Attack();
                 animationController.moving = true;
                 active = true;
                 animationController.StopCoroutine("MoveAnimation");

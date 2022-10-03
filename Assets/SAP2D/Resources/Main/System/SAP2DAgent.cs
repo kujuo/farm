@@ -96,6 +96,10 @@ namespace SAP2D {
                     Move();
 
             }
+            else
+            {
+                Target = GameObject.Find("Player").transform;
+            }
         }
 
         private IEnumerator FindPath()
