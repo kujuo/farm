@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b97e9f16462db40ef8223b05f7dc564a, type: 3}
-  m_Name: Well1
+  m_Name: FenceV
   m_EditorClassIdentifier: Assembly-CSharp::item
-  id: 7
-  itemName: Well1
+  id: 9
+  itemName: FenceV
   value: 0
   amount: 0
-  icon: {fileID: 21300000, guid: 1e53ce780f9d547db98db34e12e3cadf, type: 3}
+  icon: {fileID: -1940177617, guid: fdce35e56acf94d54b7b3be64541ed0d, type: 3}
   type: 0
-  prefab: {fileID: 1609335142222950082, guid: e796fb2e40a8b5344b22689b37a74184, type: 3}
+  prefab: {fileID: 1609335142222950082, guid: 3357e0615d9592d4db7610445dd6bd28, type: 3}

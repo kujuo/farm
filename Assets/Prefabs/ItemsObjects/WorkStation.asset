@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b97e9f16462db40ef8223b05f7dc564a, type: 3}
-  m_Name: Well1
+  m_Name: WorkStation
   m_EditorClassIdentifier: Assembly-CSharp::item
-  id: 7
-  itemName: Well1
+  id: 10
+  itemName: Work station
   value: 0
   amount: 0
-  icon: {fileID: 21300000, guid: 1e53ce780f9d547db98db34e12e3cadf, type: 3}
+  icon: {fileID: 21300000, guid: 58e0d2bc97a2043b48f0b61187f38623, type: 3}
   type: 0
-  prefab: {fileID: 1609335142222950082, guid: e796fb2e40a8b5344b22689b37a74184, type: 3}
+  prefab: {fileID: 1609335142222950082, guid: 0b35ce52de30e7a449efc7b98f1b39a5, type: 3}
