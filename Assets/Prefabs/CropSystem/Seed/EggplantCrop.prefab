@@ -10,6 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5029043914880052737}
   - component: {fileID: -5645771049077316283}
+  - component: {fileID: 5024958529976480066}
+  - component: {fileID: 3126405681898610090}
+  - component: {fileID: 155435189269041607}
+  - component: {fileID: -2735797896333678270}
   m_Layer: 0
   m_Name: EggplantCrop
   m_TagString: Untagged
@@ -70,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1745862493
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 303241494, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -84,3 +88,67 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5024958529976480066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833271039864301440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c231d4bbc114c21a76e77a554cc5f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: c1b0d17248acbbe4294b8fdb703e14b2, type: 2}
+--- !u!114 &3126405681898610090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833271039864301440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ca63034c58647b18b5eefcd2f7e875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: c1b0d17248acbbe4294b8fdb703e14b2, type: 2}
+--- !u!114 &155435189269041607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833271039864301440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e945795c66c44e7bd21775309d6634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &-2735797896333678270
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833271039864301440}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.6000001}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.25}
+    oldSize: {x: 3.2, y: 6.4}
+    newSize: {x: 3.2, y: 6.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.2, y: 6.4}
+  m_EdgeRadius: 0
