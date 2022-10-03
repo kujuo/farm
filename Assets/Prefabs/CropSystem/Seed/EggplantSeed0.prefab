@@ -10,13 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3411971124394139246}
   - component: {fileID: -4577908036403255815}
-  - component: {fileID: -2009888176655028278}
-  - component: {fileID: 1119895581669040608}
   - component: {fileID: 2432057304289593436}
   - component: {fileID: 5691836129197601855}
   m_Layer: 0
   m_Name: EggplantSeed0
-  m_TagString: Untagged
+  m_TagString: Seed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,32 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-2009888176655028278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7603154723599671093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72c231d4bbc114c21a76e77a554cc5f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: f0db7fc48d93a7c4ca774db97fe67a9f, type: 2}
---- !u!114 &1119895581669040608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7603154723599671093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60ca63034c58647b18b5eefcd2f7e875, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: f0db7fc48d93a7c4ca774db97fe67a9f, type: 2}
 --- !u!114 &2432057304289593436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,10 +118,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.6000001}
+  m_Offset: {x: 0, y: -0.11174619}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.25}
@@ -160,5 +132,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2, y: 6.4}
+  m_Size: {x: 3.2, y: 2.9765065}
   m_EdgeRadius: 0

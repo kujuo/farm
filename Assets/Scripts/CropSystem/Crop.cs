@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 enum CropState
 {
@@ -59,22 +61,28 @@ public class Crop : MonoBehaviour
         if (cropState == CropState.EMPTY) spriteRenderer.sprite = defaultSprite;
     }
 
-    private void OnMouseDown()
+    public void Plant(GameObject seed)
     {
         if (cropState == CropState.EMPTY)
         {
             //Redundant way of setting image to sprite :)
             //Waiting for the UI, just a temporary solution
-            seedObject = Instantiate(GameObject.FindGameObjectsWithTag("Seed")[0], transform.position, Quaternion.identity);
+            seedObject = Instantiate(seed, transform.position, Quaternion.identity);
+
+                //Instantiate(GameObject.FindGameObjectsWithTag("Seed")[0], transform.position, Quaternion.identity);
 
             this.setSeed(seedObject);
             seedObject.SetActive(false);
             
-        } else if (cropState == CropState.PLANT)
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        if (cropState == CropState.PLANT)
         {
             harvest();
         }
-
     }
 
     private void OnMouseEnter()
