@@ -7,11 +7,17 @@ public class Product : MonoBehaviour
 {
     InventoryManagerNew instance;
     private SpriteRenderer spriteRenderer;
+    private Item item;
     
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = this.GetComponent<SpriteRenderer>();
+    }
+
+    public void InitItem(Item item)
+    {
+        this.item = item;
     }
 
     // Update is called once per frame
@@ -32,7 +38,14 @@ public class Product : MonoBehaviour
 
     public void onClicK()
     {
-        Debug.Log("product has been clicked");
+        
+        Debug.Log("About to delete");
+        //Do sth to player, not sure yet
+        var player = GameObject.FindGameObjectsWithTag("Player")[0];
+
+        player.GetComponent<PlayerController>();
+        InventoryManagerNew.Instance.RemoveItem(item);
+        InventoryManagerNew.Instance.ListItems(InventoryManagerNew.Instance.Items);
     }
 
     //private void OnMouseDown()

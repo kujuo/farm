@@ -10,11 +10,14 @@ public class InventoryItemController : MonoBehaviour
 
     //public void RemoveItem()
     //{
-    //    InventoryManagerNew.Instance.Remove(item);
+    //    InventoryManagerNew.Instance.RemoveItem(item);
+    //    Destroy(gameObject);
     //}
 
     public void AddItem(Item newItem)
     {
         item = newItem;
     }
+
+
 }
