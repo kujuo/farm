@@ -131,6 +131,6 @@ MonoBehaviour:
   - {fileID: -1053681424, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   - {fileID: 1685204296, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   - {fileID: -100175820, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  harvestProduct: {fileID: 3196259071143685652, guid: 08b4d31897ef94165bc01835c1f8f267, type: 3}
+  harvestProduct: {fileID: 8529052950218627889, guid: 3c41e6b3cf717485281be3748458d5ca, type: 3}
   seed: {fileID: 5617666235889031282}
   harvestTime: 1

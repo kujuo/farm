@@ -2200,6 +2200,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EggplantSeed
       objectReference: {fileID: 0}
+    - target: {fileID: 7603154723599671093, guid: dd3b830999fb65b4f8fbd9636dbbe1dd, type: 3}
+      propertyPath: m_TagString
+      value: Seed
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd3b830999fb65b4f8fbd9636dbbe1dd, type: 3}
 --- !u!1 &393187571
@@ -3030,29 +3034,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &529131093 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8965914254852175689, guid: 2276436bbca8a4b05bb4ac9445a9bdcd, type: 3}
-  m_PrefabInstance: {fileID: 291018983}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &529131100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 529131093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8e8ccf50345849df83809979d2841ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seedImage: {fileID: 0}
-  plantImage: {fileID: 0}
-  images: []
-  harvestProduct: {fileID: 0}
-  seed: {fileID: 0}
-  harvestTime: 0
 --- !u!1 &563622391
 GameObject:
   m_ObjectHideFlags: 0
