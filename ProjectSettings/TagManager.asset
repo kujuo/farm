@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Building
   - Enemy
+  - Seed
+  - Bounds
+  - Strawberry
   layers:
   - Default
   - TransparentFX
@@ -48,4 +51,7 @@ TagManager:
     locked: 0
   - name: building
     uniqueID: 3312713207
+    locked: 0
+  - name: Sign
+    uniqueID: 3409616643
     locked: 0
