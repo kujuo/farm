@@ -39,8 +39,6 @@ public class PlayerController : MonoBehaviour
 
     private bool attacking = false;
     private bool invulnerable = false;
-    //private bool canInteract;
-    //private NpcController interactableTarget;
 
     private void Awake()
     {
@@ -180,6 +178,7 @@ public class PlayerController : MonoBehaviour
         {
             shieldHealth -= health;
             if (shieldHealth <= 0) shieldHealth = 0;
+            StartCoroutine(DamageTaken());
             return;
         }
 
