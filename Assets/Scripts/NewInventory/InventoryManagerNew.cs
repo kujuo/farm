@@ -16,7 +16,7 @@ public class InventoryManagerNew : MonoBehaviour
     public GameObject InventoryItem;
     public GameObject Content;
 
-    public InventoryItemController[] InventoryItems;
+    //public InventoryItemController[] InventoryItems;
     private void Awake()
     {
         Instance = this;
@@ -127,15 +127,12 @@ public class InventoryManagerNew : MonoBehaviour
                 item.prefab.GetComponent<Product>().InitItem(item);
                 btn.onClick.AddListener(item.prefab.GetComponent<Product>().onClicK);
             }
-            //TODO, binds clicking to crops/ etc
         }
-
-        SetInventoryItems();
     }
 
 
-
-    public void SetInventoryItems()
+    // stopped using this because it was giving me array out of index exceptions - kp
+   /** public void SetInventoryItems()
     {
         InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
         for (int i = 0; i < Items.Count; i++)
@@ -144,7 +141,7 @@ public class InventoryManagerNew : MonoBehaviour
         }
 
     }
-
+*/
     //check if item in the inventory is of seed type
     public void CheckSeedType()
     {
