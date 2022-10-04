@@ -12,13 +12,13 @@ public class BuildingSystemManager : MonoBehaviour
     private static BuildingSystemManager instance;
     public static int buildingLayer;
     public static int buildingLayerFront;
-    /*
+
     public Animator animator;
     public GameObject layoutParent;
     public GameObject layout;
     public BuildingBlueprint[] blueprint; // list of buildings that can be build
     // OR have a building blueprint obj that holds the prefab info
-    // generate # of blue prints based on how many blue prints there are*/
+    // generate # of blue prints based on how many blue prints there are
 
     public bool isOpen;
 
@@ -45,7 +45,7 @@ public class BuildingSystemManager : MonoBehaviour
             return instance;
         }
     }
-/*
+
     public void DisplayBuildingUi()
     {
         isOpen = !isOpen;
@@ -67,5 +67,5 @@ public class BuildingSystemManager : MonoBehaviour
             curr.transform.SetParent(layoutParent.transform, false);
             
         }
-    }*/
+    }
 }

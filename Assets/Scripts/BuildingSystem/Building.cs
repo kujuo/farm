@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    private string buildingName;
     private bool isPlaced;
     private bool canPlace;
     private bool front;
@@ -39,9 +38,8 @@ public class Building : MonoBehaviour
         }
     }
 
-    public void Init(string building, bool health, bool shield, bool attack, bool poision)
+    public void Init(bool health, bool shield, bool attack, bool poision)
     {
-        buildingName = building;
         isHealthRegenEffect = health;
         isShieldEffect = shield;
         isAttackRangeEffect = attack;
@@ -87,8 +85,8 @@ public class Building : MonoBehaviour
         outline.enabled = false;
         if (behind) GetComponent<SpriteRenderer>().sortingOrder = --BuildingSystemManager.buildingLayer;
         else if (front) GetComponent<SpriteRenderer>().sortingOrder = ++BuildingSystemManager.buildingLayerFront;
-        // adds to player
-        BuildingSystemManager.Instance.player.AddBuilding(GetComponent<Building>());
+        
+        BuildingSystemManager.Instance.player.AddBuilding(gameObject.GetComponent<Building>());
     }
 
     public void UseEffect()
