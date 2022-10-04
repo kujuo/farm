@@ -11,6 +11,7 @@ public class CombatLevelManager : MonoBehaviour
     void Start()
     {
         numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        itemsRecieved.Add(Item.itemName = 'WatermelonSeed');
     }
 
     // Update is called once per frame

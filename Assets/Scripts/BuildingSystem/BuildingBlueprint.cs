@@ -26,7 +26,7 @@ public class BuildingBlueprint : MonoBehaviour
         var s = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         s.z = 0;
         var created = Instantiate(building, s, Quaternion.identity);
-        created.Init(isHealthRegenEffect, isShieldEffect, isAttackRangeEffect, isPoisonEffect);
+        created.Init(buildingName, isHealthRegenEffect, isShieldEffect, isAttackRangeEffect, isPoisonEffect);
         //BuildingSystemManager.Instance.DisplayBuildingUi(); no longer needed
         InventoryManagerNew.Instance.RemoveItem(item);
         InventoryManagerNew.Instance.ListItems(InventoryManagerNew.Instance.Items);
