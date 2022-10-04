@@ -20,11 +20,11 @@ public class CombatLevelManager : MonoBehaviour
         numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
         if (numberOfEnemies <= 0)
         {
-            
+            addItemWhenLevelEnd(itemsRecieved);
             LoadSceneManager load = FindObjectOfType<LoadSceneManager>();
             load.load("HomeBase");
             //add all items
-            addItemWhenLevelEnd(itemsRecieved);
+            
         }
     }
 

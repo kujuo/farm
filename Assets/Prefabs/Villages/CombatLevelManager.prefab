@@ -45,3 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfEnemies: 0
+  itemsRecieved:
+  - {fileID: 11400000, guid: 15f5481c1800b420abdda65864d2e4b7, type: 2}
+  - {fileID: 11400000, guid: 12cf7884d51824d4b9db748f15e6dbdd, type: 2}
+  - {fileID: 11400000, guid: b2bed503ed3304f67b82752c14d78986, type: 2}
+  - {fileID: 11400000, guid: e0c88f61914bb58459c6571c8973bb3c, type: 2}
