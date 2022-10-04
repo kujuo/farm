@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ItemCatButtonManager : MonoBehaviour
 {
-    public void OnMouseDown()
+    public void changeButtonColor()
     {
         gameObject.transform.GetComponent<Image>().color = Color.blue; 
     }
