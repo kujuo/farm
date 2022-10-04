@@ -229,7 +229,7 @@ MonoBehaviour:
   pathIndex: 0
   posInGrid: {x: 0, y: 0, z: 0}
   CanSearch: 1
-  PathUpdateRate: 0.15
+  PathUpdateRate: 0.5
   GetNextPointDistance: 0.1
   ShowGraphic: 1
   color:
