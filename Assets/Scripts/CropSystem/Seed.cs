@@ -80,16 +80,14 @@ public class Seed : MonoBehaviour
 
     private void PlantSeed()
     {
-        if (soil.GetComponentInParent<Crop>().Plant(gameObject)){
-            isPlanted = true;
-        }
-        else
-        {
-            InventoryManagerNew.Instance.Add(item);
-            InventoryManagerNew.Instance.ListItems(InventoryManagerNew.Instance.Items);
-        }
+        isPlanted = true;
+        soil.Plant(gameObject);
+
         Destroy(gameObject);
+
+
     }
+
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.name == "SeedCollider")

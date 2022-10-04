@@ -19,5 +19,6 @@ public class Item : ScriptableObject
         Building,
         Crop,
         Seed,
+        All
     }
 }
