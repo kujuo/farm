@@ -8,10 +8,6 @@ public class BasicEnemy : Enemy
 
     void Update()
     {
-        if (player == null)
-        {
-            player = GameObject.Find("Player");
-        }
         CheckDistance();
         ChangeAnimationDirection();
     }
