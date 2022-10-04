@@ -16,10 +16,25 @@ public class InventoryManagerNew : MonoBehaviour
     public GameObject InventoryItem;
     public GameObject Content;
 
+    public Item.itemType filterType;
+
+    private void setFilterType(Item.itemType type)
+    {
+        filterType = type;
+        ListItems();
+    }
+
+    //Some quick lambdas for button event handling
+    public void setCropFilter()     => setFilterType(Item.itemType.Crop);
+    public void setSeedFilter()     => setFilterType(Item.itemType.Seed);
+    public void setBuildingFilter() => setFilterType(Item.itemType.Building);
+    public void setAllFilter()      => setFilterType(Item.itemType.All);
+
     private void Awake()
     {
         Instance = this;
-
+        filterType = Item.itemType.All;
+        ListItems();
     }
 
     public void Add(Item item)
@@ -33,11 +48,13 @@ public class InventoryManagerNew : MonoBehaviour
                 itemInInventory = true;
             }
         }
+
         if (itemInInventory == false)
         {
             Items.Add(item);
             item.amount = 1;
         }
+        ListItems();
     }
 
 
@@ -59,11 +76,13 @@ public class InventoryManagerNew : MonoBehaviour
         {
             Items.Remove(needRemovedItem);
         }
+        ListItems();
     }
 
 
     //show items on ui window
-    public void ListItems(List<Item> ItemList)
+    //Render item from the this items list or (List<Ittem> Items)
+    public void ListItems()
     {
         //clean inside of content before instantiating
         foreach (Transform item in ItemContent)
@@ -71,94 +90,98 @@ public class InventoryManagerNew : MonoBehaviour
             Destroy(item.gameObject);
         }
 
-        foreach (var item in ItemList)
+        foreach (var item in this.Items)
         {
+            Debug.Log(item.name + "Name for me: ");
+            if (item.type == filterType || filterType == Item.itemType.All)
+            {
+                GameObject obj = Instantiate(InventoryItem, ItemContent);
+                var itemIcon = obj.transform.Find("ItemImage").GetComponent<Image>();
+                itemIcon.sprite = item.icon;
+                var itemAmount = obj.transform.Find("ItemAmount").GetComponent<Text>();
+                itemAmount.text = item.amount.ToString();
+                Button btn = obj.GetComponent<Button>();
+                // binds clicking to building
+                if (!item.prefab) return;
+                if (item.prefab.GetComponent<BuildingBlueprint>())
+                {
+                    item.prefab.GetComponent<BuildingBlueprint>().initItem(item);
+                    btn.onClick.AddListener(item.prefab.GetComponent<BuildingBlueprint>().onClick);
+                }
+                else if (item.prefab.GetComponent<SeedInventory>())
+                {
+                    item.prefab.GetComponent<SeedInventory>().initItem(item);
+                    btn.onClick.AddListener(item.prefab.GetComponent<SeedInventory>().onClick);
+                }
+                else if (item.prefab.GetComponent<Product>())
+                {
+                    item.prefab.GetComponent<Product>().InitItem(item);
+                    btn.onClick.AddListener(item.prefab.GetComponent<Product>().onClicK);
+                }
+                //TODO, binds clicking to crops/ etc
+            }
 
-            GameObject obj = Instantiate(InventoryItem, ItemContent);
-            var itemIcon = obj.transform.Find("ItemImage").GetComponent<Image>();
-            itemIcon.sprite = item.icon;
-            var itemAmount = obj.transform.Find("ItemAmount").GetComponent<Text>();
-            itemAmount.text = item.amount.ToString();
-            Button btn = obj.GetComponent<Button>();
-            // binds clicking to building
-            if (!item.prefab) return;
-            if (item.prefab.GetComponent<BuildingBlueprint>())
-            {
-                item.prefab.GetComponent<BuildingBlueprint>().initItem(item);
-                btn.onClick.AddListener(item.prefab.GetComponent<BuildingBlueprint>().onClick);
-            }
-            else if (item.prefab.GetComponent<SeedInventory>())
-            {
-                item.prefab.GetComponent<SeedInventory>().initItem(item);
-                btn.onClick.AddListener(item.prefab.GetComponent<SeedInventory>().onClick);
-            }
-            else if (item.prefab.GetComponent<Product>())
-            {
-                item.prefab.GetComponent<Product>().InitItem(item);
-                btn.onClick.AddListener(item.prefab.GetComponent<Product>().onClicK);
-            }
-            //TODO, binds clicking to crops/ etc
         }
 
     }
 
-    //check if item in the inventory is of seed type
-    public void CheckSeedType()
-    {
-        List<Item> Seeds = new List<Item>();
-        for (int i = 0; i < Items.Count; i++)
-        {
-            if (Items[i].type == Item.itemType.Seed)
-            {
-                Seeds.Add(Items[i]);
-            }
-        }
-        ListItems(Seeds);
+    ////check if item in the inventory is of seed type
+    //public void CheckSeedType()
+    //{
+    //    List<Item> Seeds = new List<Item>();
+    //    for (int i = 0; i < Items.Count; i++)
+    //    {
+    //        if (Items[i].type == Item.itemType.Seed)
+    //        {
+    //            Seeds.Add(Items[i]);
+    //        }
+    //    }
+    //    //ListItems(Seeds);
         
-    }
+    //}
 
-    public void CheckBuildingType()
-    {
-        List<Item> Buildings = new List<Item>();
-        for (int i = 0; i < Items.Count; i++)
-        {
-            if (Items[i].type == Item.itemType.Building)
-            {
-                Buildings.Add(Items[i]);
-            }
-        }
-        ListItems(Buildings);
-    }
+    //public void CheckBuildingType()
+    //{
+    //    List<Item> Buildings = new List<Item>();
+    //    for (int i = 0; i < Items.Count; i++)
+    //    {
+    //        if (Items[i].type == Item.itemType.Building)
+    //        {
+    //            Buildings.Add(Items[i]);
+    //        }
+    //    }
+    //    //ListItems(Buildings);
+    //}
 
-    public void CheckCropType()
-    {
-        List<Item> Crops = new List<Item>();
-        for (int i = 0; i < Items.Count; i++)
-        {
-            if (Items[i].type == Item.itemType.Crop)
-            {
-                Crops.Add(Items[i]);
-            }
-        }
-        ListItems(Crops);
-    }
+    //public void CheckCropType()
+    //{
+    //    List<Item> Crops = new List<Item>();
+    //    for (int i = 0; i < Items.Count; i++)
+    //    {
+    //        if (Items[i].type == Item.itemType.Crop)
+    //        {
+    //            Crops.Add(Items[i]);
+    //        }
+    //    }
+    //    //ListItems(Crops);
+    //}
 
-    public void checkListEmpty()
-    {
-        if (Items.Count == 0)
-        {
-            Content.SetActive(false);
-        }
-        else
-        {
-            Content.SetActive(true);
-        }
-    }
+    //public void checkListEmpty()
+    //{
+    //    if (Items.Count == 0)
+    //    {
+    //        Content.SetActive(false);
+    //    }
+    //    else
+    //    {
+    //        Content.SetActive(true);
+    //    }
+    //}
 
-    public void ListAllITems()
-    {
-        ListItems(Items);
-    }
+    //public void ListAllITems()
+    //{
+    //    //ListItems(Items);
+    //}
 
 
 }

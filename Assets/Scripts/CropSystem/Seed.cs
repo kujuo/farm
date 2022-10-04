@@ -70,8 +70,12 @@ public class Seed : MonoBehaviour
     {
         isPlanted = true;
         soil.Plant(gameObject);
+
         Destroy(gameObject);
+
+
     }
+
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.name == "SeedCollider")

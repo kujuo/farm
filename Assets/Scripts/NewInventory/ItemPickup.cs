@@ -18,7 +18,7 @@ public class ItemPickup : MonoBehaviour
         //if (item.type == Item.itemType.Building)
         InventoryManagerNew.Instance.Add(item);
         Destroy(gameObject);
-        InventoryManagerNew.Instance.ListItems(InventoryManagerNew.Instance.Items);
+        InventoryManagerNew.Instance.ListItems();
     }
 
     //pick up objects when clicked on it. Need collider in the prefab gameobjects
