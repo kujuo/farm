@@ -17,11 +17,6 @@ public class CharacterAnimationController : MonoBehaviour
     public Sprite[] rightMove;
     public Sprite[] leftMove;
 
-    //public Sprite[] upAttack;
-    //public Sprite[] downAttack;
-    //public Sprite[] rightAttack;
-    //public Sprite[] leftAttack;
-
     public Sprite[] frames;
     
     public bool moving = true;
@@ -30,12 +25,6 @@ public class CharacterAnimationController : MonoBehaviour
 
     private SpriteRenderer sr;
 
-    //private Vector2 rightVector = new Vector2(1, 0);
-    //private Vector2 leftVector = new Vector2(-1, 0);
-    //private Vector2 upVector = new Vector2(0, 1);
-    //private Vector2 downVector = new Vector2(0, -1);
-
-    // Start is called before the first frame update
     void Start()
     {
         frames = downIdle;

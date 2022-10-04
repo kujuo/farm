@@ -7,6 +7,7 @@ public abstract class Enemy : MonoBehaviour
     public GameObject player;
     public float maxHealth;
     public float touchDamage;
+    public float activeDistance;
 
     protected bool active;
     protected SpriteRenderer sr;
@@ -30,6 +31,38 @@ public abstract class Enemy : MonoBehaviour
         animationController.moving = false;
     }
 
+    public void CheckDistance()
+    {
+        if (!active)
+        {
+            if (Vector3.Distance(transform.position, player.transform.position) < activeDistance)
+            {
+                gameObject.GetComponent<SAP2D.SAP2DAgent>().enabled = true;
+                animationController.moving = true;
+                active = true;
+                animationController.StopCoroutine("MoveAnimation");
+                animationController.StartCoroutine("MoveAnimation");
+            }
+            else gameObject.GetComponent<SAP2D.SAP2DAgent>().enabled = false;
+        }
+    }
+
+    public void ChangeAnimationDirection()
+    {
+        Vector3 movement = player.transform.position - transform.position;
+        Vector2 direction = new Vector2(movement.x, movement.y);
+        Vector2 currentDir = animationController.getDirection(direction);
+
+        if (currentDir != enemyDir)
+        {
+            animationController.direction = currentDir;
+            enemyDir = currentDir;
+
+            animationController.StopCoroutine("MoveAnimation");
+            animationController.StartCoroutine("MoveAnimation");
+        }
+    }
+
     public GameObject healthCanvas;
 
     public void HealthbarCreation()
@@ -40,10 +73,25 @@ public abstract class Enemy : MonoBehaviour
 
     public abstract void Attack();
 
-    public abstract void OnHit(float damage);
+    public virtual void OnHurt(float damage)
+    {
+        GameObject healthObject = this.gameObject.transform.GetChild(0).GetChild(0).gameObject;
+        Healthbar healthbar = healthObject.GetComponent<Healthbar>();
+        if (currHealth == maxHealth) healthbar.Activate();
+        
+        currHealth -= damage;
+        gameObject.GetComponent<SAP2D.SAP2DAgent>().enabled = false;
+        rb2D.AddForce(enemyDir * -5, ForceMode2D.Impulse);
+        gameObject.GetComponent<SAP2D.SAP2DAgent>().enabled = true;
+        if (currHealth <= 0) OnDeath();
+        else healthbar.SetHealthBarValue(currHealth / maxHealth);
+    }
+
+    public virtual void OnDeath()
+    {
+        Destroy(this.gameObject);
+    }
 
     public abstract void ItemDrop();
-
-        //public abstract float touchDamage(); 
 
     }
