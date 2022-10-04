@@ -31,9 +31,9 @@ public class Product : MonoBehaviour
         spriteRenderer.color = Color.white;
     }
 
-    private void OnMouseEnter()
+    private void OnMouseOver()
     {
-        spriteRenderer.color = Color.red;
+        spriteRenderer.color = Color.green;
     }
 
     public void onClicK()

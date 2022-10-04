@@ -97,9 +97,7 @@ public class InventoryManagerNew : MonoBehaviour
                 item.prefab.GetComponent<Product>().InitItem(item);
                 btn.onClick.AddListener(item.prefab.GetComponent<Product>().onClicK);
             }
-            //TODO, binds clicking to crops/ etc
         }
-
     }
 
     //check if item in the inventory is of seed type

@@ -177,13 +177,13 @@ public class PlayerController : MonoBehaviour
 
     public void loseHealth(float healthLost)
     {
+        if (state == States.Invulnerable) return;
         if (shieldHealth > 0)
         {
             shieldHealth -= health;
             if (shieldHealth <= 0) shieldHealth = 0;
             return;
         }
-        if (state == States.Invulnerable) return;
 
         //rb2D.AddForce(playerDir * -10, ForceMode2D.Impulse);
         //Debug.Log(playerDir * -10);
@@ -195,7 +195,11 @@ public class PlayerController : MonoBehaviour
             combatLevelManager.playerDeath();
         }
         statusManager.updateHealth(health, maxHealth);
-        if (state == States.Normal) StartCoroutine(DamageTaken());
+        if (state == States.Normal)
+        {
+            state = States.Invulnerable;
+            StartCoroutine(DamageTaken());
+        }
     }
 
     private void InteractionCheck()
@@ -207,7 +211,6 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator DamageTaken()
     {
-        state = States.Invulnerable;
         sr.color = new Color(255, 0, 0);
         yield return new WaitForSeconds(1f);
         sr.color = new Color(1, 1, 1, 1);

@@ -98,7 +98,8 @@ namespace SAP2D {
             }
             else
             {
-                Target = GameObject.Find("Player").transform;
+                GameObject gameObject = GameObject.Find("Player");
+                if (gameObject != null) Target = gameObject.transform;
             }
         }
 
