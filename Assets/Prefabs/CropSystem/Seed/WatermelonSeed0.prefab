@@ -11,12 +11,10 @@ GameObject:
   - component: {fileID: 1306457232097470149}
   - component: {fileID: 8166536864352589675}
   - component: {fileID: -5881374557415377642}
-  - component: {fileID: -7529033712138110766}
-  - component: {fileID: 7884599326627250304}
   - component: {fileID: 5617666235889031282}
   m_Layer: 0
   m_Name: WatermelonSeed0
-  m_TagString: Untagged
+  m_TagString: Seed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 1745862493
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1053681424, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  m_Sprite: {fileID: -1253866753, guid: ee2a2b1d4045f4ce98866cf71b72f133, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,10 +96,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.6000001}
+  m_Offset: {x: 0, y: 0.06980276}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.25}
@@ -112,34 +110,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2, y: 6.4}
+  m_Size: {x: 3.2, y: 3.3396053}
   m_EdgeRadius: 0
---- !u!114 &-7529033712138110766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7221560614193129356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72c231d4bbc114c21a76e77a554cc5f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: f82cab7d1cbaf4442959da774e9eba6a, type: 2}
---- !u!114 &7884599326627250304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7221560614193129356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60ca63034c58647b18b5eefcd2f7e875, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: f82cab7d1cbaf4442959da774e9eba6a, type: 2}
 --- !u!114 &5617666235889031282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,13 +124,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e8ccf50345849df83809979d2841ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedImage: {fileID: -1053681424, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  seedImage: {fileID: -1253866753, guid: ee2a2b1d4045f4ce98866cf71b72f133, type: 3}
   plantImage: {fileID: -100175820, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   images:
-  - {fileID: 2072827461, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  - {fileID: 1247644821, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  - {fileID: -1750437184, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  - {fileID: 2078995599, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
-  harvestProduct: {fileID: 3196259071143685652, guid: 08b4d31897ef94165bc01835c1f8f267, type: 3}
+  - {fileID: -1253866753, guid: ee2a2b1d4045f4ce98866cf71b72f133, type: 3}
+  - {fileID: -1053681424, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  - {fileID: 1685204296, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  - {fileID: -100175820, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  harvestProduct: {fileID: 8529052950218627889, guid: 3c41e6b3cf717485281be3748458d5ca, type: 3}
   seed: {fileID: 5617666235889031282}
   harvestTime: 1

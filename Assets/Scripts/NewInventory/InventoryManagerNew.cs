@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class InventoryManagerNew : MonoBehaviour
 {
@@ -122,7 +124,7 @@ public class InventoryManagerNew : MonoBehaviour
             }
             else if (item.prefab.GetComponent<Product>())
             {
-                //item.prefab.GetComponent<BuildingBlueprint>().initItem(item);
+                item.prefab.GetComponent<Product>().InitItem(item);
                 btn.onClick.AddListener(item.prefab.GetComponent<Product>().onClicK);
             }
             //TODO, binds clicking to crops/ etc
@@ -195,7 +197,6 @@ public class InventoryManagerNew : MonoBehaviour
             Content.SetActive(true);
         }
     }
-    
 
 
 }
