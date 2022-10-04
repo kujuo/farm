@@ -44,6 +44,6 @@ public abstract class Enemy : MonoBehaviour
 
     public abstract void ItemDrop();
 
-    //public abstract float touchDamage(); 
+        //public abstract float touchDamage(); 
 
-}
+    }

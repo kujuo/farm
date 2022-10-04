@@ -29,6 +29,10 @@ public class ProjectileEnemy : Enemy
 
     void Update()
     {
+        if (player == null)
+        {
+            player = GameObject.Find("Player");
+        }
         if (attacking) return;
         if (!active)
         {
@@ -72,7 +76,8 @@ public class ProjectileEnemy : Enemy
 
         currHealth -= damage;
 
-        if (currHealth <= 0) Destroy(this.gameObject);
+        if (currHealth <= 0) { Destroy(this.gameObject);
+        }
         else healthbar.SetHealthBarValue(currHealth / maxHealth);
     }
 

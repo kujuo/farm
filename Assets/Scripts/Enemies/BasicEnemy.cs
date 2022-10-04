@@ -92,8 +92,10 @@ public class BasicEnemy : Enemy
 
         currHealth -= damage;
 
-        if (currHealth <= 0) Destroy(this.gameObject);
-        else healthbar.SetHealthBarValue(currHealth/maxHealth);
+        if (currHealth <= 0) {
+            Destroy(this.gameObject);
+        }
+        else healthbar.SetHealthBarValue(currHealth / maxHealth);
     }
 
 

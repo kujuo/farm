@@ -34,26 +34,26 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player == null)
-        {
-            player = GameObject.Find("Player").transform;
-        }
-        //Camera cam = Camera.main;
-        //float height = 2f * cam.orthographicSize;
-        //float width = height * cam.aspect;
-        //float inputX = Input.GetAxis("Horizontal");
-        //if (player.position.x + offsetX + width/2 > boundsRight.position.x && inputX >0 )
+        //if (player == null)
         //{
+    player = GameObject.Find("Player").transform;
         //}
-        //else
-        //{
-        //    Vector3 pos = transform.position;
-        //    pos.x = player.position.x + offsetX;
-        //    pos.y = player.position.y + offsetY;
-        //    transform.position = pos;
-        //}
+    //Camera cam = Camera.main;
+    //float height = 2f * cam.orthographicSize;
+    //float width = height * cam.aspect;
+    //float inputX = Input.GetAxis("Horizontal");
+    //if (player.position.x + offsetX + width/2 > boundsRight.position.x && inputX >0 )
+    //{
+    //}
+    //else
+    //{
+    //    Vector3 pos = transform.position;
+    //    pos.x = player.position.x + offsetX;
+    //    pos.y = player.position.y + offsetY;
+    //    transform.position = pos;
+    //}
 
-        camY = Mathf.Clamp(player.position.y, boundsDown.position.y + camOrthSize, boundsUp.position.y - camOrthSize);
+    camY = Mathf.Clamp(player.position.y, boundsDown.position.y + camOrthSize, boundsUp.position.y - camOrthSize);
         camX = Mathf.Clamp(player.position.x, boundsLeft.position.x + cameraRatio, boundsRight.position.x - cameraRatio);
         smoothPos = Vector3.Lerp(this.transform.position, new Vector3(camX, camY, this.transform.position.z), 0.5f);
         this.transform.position = smoothPos;
