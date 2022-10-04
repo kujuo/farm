@@ -31,6 +31,7 @@ public class SeedInventory : MonoBehaviour
         var created = Instantiate(seed, s, Quaternion.identity);
         //BuildingSystemManager.Instance.DisplayBuildingUi(); no longer needed
         InventoryManagerNew.Instance.RemoveItem(item);
-        InventoryManagerNew.Instance.ListItems(InventoryManagerNew.Instance.Items);
+        //InventoryManagerNew.Instance.ListItems(InventoryManagerNew.Instance.Items);
+        InventoryManagerNew.Instance.CheckSeedType();
     }
 }

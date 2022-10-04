@@ -7,7 +7,6 @@ public class ProjectileEnemy : Enemy
     public float speed = 0.5f;
     public float attackSpeed;
     public float buildUpTime;
-    public float activeDistance;
 
     public GameObject projectile;
     private bool attacking = false;
@@ -34,40 +33,13 @@ public class ProjectileEnemy : Enemy
             player = GameObject.Find("Player");
         }
         if (attacking) return;
-        if (!active)
-        {
-            if (Vector3.Distance(transform.position, player.transform.position) < activeDistance)
-            {
-                Attack();
-                animationController.moving = true;
-                active = true;
-                animationController.StopCoroutine("MoveAnimation");
-                animationController.StartCoroutine("MoveAnimation");
-            }
-            else return;
-        }
-        var step = speed * Time.deltaTime; // calculate distance to move
-        Vector3 move = Vector3.MoveTowards(transform.position, player.transform.position, step);
-        Vector3 movement = move - transform.position;
-        transform.position = move;
-
-        //Vector3 movement = move - player.transform.position;
-        Vector2 direction = new Vector2(movement.x, movement.y);
-        Vector2 currentDir = animationController.getDirection(direction);
-
-        if (currentDir != enemyDir)
-        {
-            animationController.direction = currentDir;
-            enemyDir = currentDir;
-
-            animationController.StopCoroutine("MoveAnimation");
-            animationController.StartCoroutine("MoveAnimation");
-        }
-
-
+        bool wasActive = active;
+        CheckDistance();
+        if (active && !wasActive) Attack();
+        ChangeAnimationDirection();
     }
 
-    public override void OnHit(float damage)
+    public override void OnHurt(float damage)
     {
 
         GameObject healthObject = this.gameObject.transform.GetChild(0).GetChild(0).gameObject;
@@ -81,11 +53,9 @@ public class ProjectileEnemy : Enemy
         else healthbar.SetHealthBarValue(currHealth / maxHealth);
     }
 
-
     public override void Attack()
     {
         StartCoroutine(AttackCoroutine());
-        
     }
 
     public override void ItemDrop()
@@ -94,8 +64,7 @@ public class ProjectileEnemy : Enemy
     }
 
     
-
-    IEnumerator AttackCoroutine()
+     IEnumerator AttackCoroutine()
     {
         while (true)
         {
@@ -106,13 +75,14 @@ public class ProjectileEnemy : Enemy
     IEnumerator ShootingProjectile()
     {
         attacking = true;
+        gameObject.GetComponent<SAP2D.SAP2DAgent>().enabled = false;
         GameObject shoot = Instantiate(projectile, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(buildUpTime);
         Vector2 shootingVector = player.transform.position - transform.position;
         shootingVector.Normalize();
         shoot.gameObject.GetComponent<Projectile>().addForce(shootingVector);
         attacking = false;
-
+        gameObject.GetComponent<SAP2D.SAP2DAgent>().enabled = true;
     }
 
     private void OnCollisionStay2D(Collision2D other)

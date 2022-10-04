@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 5;
     public float attackDuration = 0.5f;
-    //public float frameDuration = 2f;
     public float attackRange = 0.5f;
     public float health = 100;
     public InventoryManager inventory;
@@ -31,7 +30,6 @@ public class PlayerController : MonoBehaviour
 
     // PUT BUILDINGS HERE
     public List<Building> buildings = new List<Building>();
-
 
     private Rigidbody2D rb2D;
     private SpriteRenderer sr;
@@ -121,7 +119,6 @@ public class PlayerController : MonoBehaviour
         Move();
         InteractionCheck();
         if (Input.GetKeyDown(KeyCode.E) && interactableTarget) interactableTarget.Interact();
-        //if (Input.GetKeyDown(KeyCode.Z)) StartCoroutine("Attack");
         if (Input.GetKeyDown(KeyCode.B)) BuildingSystemManager.Instance.DisplayBuildingUi();
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -129,6 +126,19 @@ public class PlayerController : MonoBehaviour
             StartCoroutine("Attack");
             HitInteraction();
         }
+    }
+
+    public void Reset()
+    {
+        state = States.Normal;
+        enabled = true;
+        sr.color = new Color(1, 1, 1, 1);
+        rb2D.velocity = new Vector2(0, 0);
+        health = maxHealth;
+        statusManager.updateHealth(health, maxHealth);
+        animationController.StopCoroutine("MoveAnimation");
+        StopAllCoroutines();
+        animationController.StartCoroutine("MoveAnimation");
     }
 
     private IEnumerator Attack()
@@ -161,7 +171,7 @@ public class PlayerController : MonoBehaviour
         if (hit.collider && hit.collider.tag == "Enemy")
         {
             Enemy en = hit.collider.gameObject.GetComponent<Enemy>();
-            en.OnHit(10);
+            en.OnHurt(10);
         }
     }
 
@@ -174,8 +184,16 @@ public class PlayerController : MonoBehaviour
             return;
         }
         if (state == States.Invulnerable) return;
-        
+
+        //rb2D.AddForce(playerDir * -10, ForceMode2D.Impulse);
+        //Debug.Log(playerDir * -10);
+
         health -= healthLost;
+        if (health <= 0)
+        {
+            CombatLevelManager combatLevelManager = FindObjectOfType<CombatLevelManager>();
+            combatLevelManager.playerDeath();
+        }
         statusManager.updateHealth(health, maxHealth);
         if (state == States.Normal) StartCoroutine(DamageTaken());
     }
@@ -191,10 +209,12 @@ public class PlayerController : MonoBehaviour
     {
         state = States.Invulnerable;
         sr.color = new Color(255, 0, 0);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         sr.color = new Color(1, 1, 1, 1);
         state = States.Normal;
     }
+
+
 
     // EFFECTS
     // CALL THIS FUNCTION ON SCENE LOAD
@@ -265,10 +285,11 @@ public class PlayerController : MonoBehaviour
                 if (hit.tag == "Enemy")
                 {
                     Enemy en = hit.gameObject.GetComponent<Enemy>();
-                    en.OnHit(amount);
+                    en.OnHurt(amount);
                 }
             }
             yield return new WaitForSeconds(rate);
         }
     }
+
 }

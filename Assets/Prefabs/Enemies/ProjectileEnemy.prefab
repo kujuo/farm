@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2462588423978860761}
   - component: {fileID: 7583217425875266526}
   - component: {fileID: 4755925204840407559}
-  - component: {fileID: 1294815529}
+  - component: {fileID: -8374816715837096176}
   m_Layer: 9
   m_Name: ProjectileEnemy
   m_TagString: Enemy
@@ -104,13 +104,12 @@ MonoBehaviour:
   player: {fileID: 0}
   maxHealth: 100
   touchDamage: 10
+  activeDistance: 10
   healthCanvas: {fileID: 3697363039924043752, guid: 68f248c7c593f45148553402450d70ca, type: 3}
   speed: 1.5
   attackSpeed: 5
   buildUpTime: 1
-  activeDistance: 10
   projectile: {fileID: 5925582513153225043, guid: d278712481528468b8e5002c5c2d5f06, type: 3}
-  enemyKill: {fileID: 2638492378004795895, guid: 92300764572c44036bd4928832242467, type: 3}
 --- !u!114 &2462588423978860761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +207,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &1294815529
+--- !u!114 &-8374816715837096176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,7 +224,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   CanMove: 1
   MovementSpeed: 5
-  RotationSpeed: 500
+  RotationSpeed: 0
   isMoving: 0
   pathIndex: 0
   posInGrid: {x: 0, y: 0, z: 0}
