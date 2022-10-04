@@ -85,6 +85,8 @@ public class Building : MonoBehaviour
         outline.enabled = false;
         if (behind) GetComponent<SpriteRenderer>().sortingOrder = --BuildingSystemManager.buildingLayer;
         else if (front) GetComponent<SpriteRenderer>().sortingOrder = ++BuildingSystemManager.buildingLayerFront;
+        
+        BuildingSystemManager.Instance.player.AddBuilding(gameObject.GetComponent<Building>());
     }
 
     public void UseEffect()
