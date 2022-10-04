@@ -267,42 +267,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 809945754}
     m_Modifications:
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: Config
-      value: 
-      objectReference: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: MovementSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: RotationSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: PathUpdateRate
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: GetNextPointDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1991965037, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1991965037, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: MovementSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1991965037, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: RotationSpeed
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6211560704827135565, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -350,18 +314,6 @@ PrefabInstance:
     - target: {fileID: 8108971725482132800, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
       propertyPath: m_Name
       value: BasicEnemy (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_Mass
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_UseAutoMass
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
@@ -451,30 +403,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 809945754}
     m_Modifications:
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: Config
-      value: 
-      objectReference: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: MovementSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: RotationSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: PathUpdateRate
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: GetNextPointDistance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6211560704827135565, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -523,20 +451,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicEnemy (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_Mass
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_UseAutoMass
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1991965037, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
 --- !u!4 &218515254 stripped
 Transform:
@@ -608,30 +523,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 809945754}
     m_Modifications:
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: Config
-      value: 
-      objectReference: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: MovementSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: RotationSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: PathUpdateRate
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: GetNextPointDistance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6211560704827135565, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -680,18 +571,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 1 (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_Mass
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_UseAutoMass
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
 --- !u!1001 &247194975
@@ -701,30 +580,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 809945754}
     m_Modifications:
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: Config
-      value: 
-      objectReference: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: MovementSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: RotationSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: PathUpdateRate
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: GetNextPointDistance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6211560704827135565, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -773,20 +628,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 1 (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_Mass
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_UseAutoMass
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1991965037, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
 --- !u!1001 &288947271
 PrefabInstance:
@@ -795,30 +637,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 809945754}
     m_Modifications:
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: Config
-      value: 
-      objectReference: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: MovementSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: RotationSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: PathUpdateRate
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: GetNextPointDistance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6211560704827135565, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -866,18 +684,6 @@ PrefabInstance:
     - target: {fileID: 8108971725482132800, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
       propertyPath: m_Name
       value: Enemy 1 (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_Mass
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_UseAutoMass
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
@@ -2688,30 +2494,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 809945754}
     m_Modifications:
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: Config
-      value: 
-      objectReference: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: MovementSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: RotationSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: PathUpdateRate
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: GetNextPointDistance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6211560704827135565, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -2759,18 +2541,6 @@ PrefabInstance:
     - target: {fileID: 8108971725482132800, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
       propertyPath: m_Name
       value: Enemy 1 (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_Mass
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_UseAutoMass
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
@@ -3197,42 +2967,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 809945754}
     m_Modifications:
-    - target: {fileID: 1294815529, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: Config
-      value: 
-      objectReference: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}
-    - target: {fileID: 1294815529, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294815529, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: MovementSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294815529, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: RotationSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294815529, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: PathUpdateRate
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294815529, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: GetNextPointDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4755925204840407559, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: m_Mass
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4755925204840407559, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4755925204840407559, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: m_UseAutoMass
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5639744469968079597, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
       propertyPath: m_Name
       value: ProjectileEnemy
@@ -3702,42 +3436,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 809945754}
     m_Modifications:
-    - target: {fileID: 1294815529, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: Config
-      value: 
-      objectReference: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}
-    - target: {fileID: 1294815529, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294815529, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: MovementSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294815529, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: RotationSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294815529, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: PathUpdateRate
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294815529, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: GetNextPointDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4755925204840407559, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: m_Mass
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4755925204840407559, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4755925204840407559, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
-      propertyPath: m_UseAutoMass
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5639744469968079597, guid: cb65fd08a723740f883a8e54101aea6c, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -11129,30 +10827,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 809945754}
     m_Modifications:
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: Config
-      value: 
-      objectReference: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: MovementSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: RotationSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: PathUpdateRate
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 207578901, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: GetNextPointDistance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6211560704827135565, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -11200,18 +10874,6 @@ PrefabInstance:
     - target: {fileID: 8108971725482132800, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
       propertyPath: m_Name
       value: Enemy 1 (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_Mass
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992790852114951594, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
-      propertyPath: m_UseAutoMass
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1db350ba2505431288fd34f432c0a5d, type: 3}
@@ -11450,6 +11112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2132776741}
+  - component: {fileID: 2132776742}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -11472,3 +11135,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2132776742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132776740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23775c02f1c649a6a6a3c30ecd6fdb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfEnemies: 0

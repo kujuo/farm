@@ -17,12 +17,6 @@ public class Projectile : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
     }
 
-    //// Update is called once per frame
-    //void Update()
-    //{
-        
-    //}
-
     public void addForce(Vector2 direction)
     {
         rb2D.AddForce(direction * 10, ForceMode2D.Impulse);

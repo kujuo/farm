@@ -16,17 +16,11 @@ public class InventoryManagerNew : MonoBehaviour
     public GameObject InventoryItem;
     public GameObject Content;
 
-    //public InventoryItemController[] InventoryItems;
     private void Awake()
     {
         Instance = this;
 
     }
-
-    //public void Add(Item item)
-    //{
-    //    Items.Add(item);
-    //}
 
     public void Add(Item item)
     {
@@ -46,11 +40,6 @@ public class InventoryManagerNew : MonoBehaviour
         }
     }
 
-    //public void Remove(Item item)
-    //{
-    //    Items.Remove(item);
-    //}
-    //
 
     public void RemoveItem(Item item)
     {
@@ -72,26 +61,6 @@ public class InventoryManagerNew : MonoBehaviour
         }
     }
 
-    //list item icons in inventory ui
-    //public void ListItems()
-    //{
-    //    //clean inside of content before instantiating
-    //    foreach (Transform item in ItemContent)
-    //    {
-    //        Destroy(item.gameObject);
-    //    }
-
-    //    foreach (var item in Items)
-    //    {
-    //        GameObject obj = Instantiate(InventoryItem, ItemContent);
-    //        var itemIcon = obj.transform.Find("ItemImage").GetComponent<Image>();
-    //        itemIcon.sprite = item.icon;
-    //        var itemAmount = obj.transform.Find("ItemAmount").GetComponent<Text>();
-    //        itemAmount.text = item.amount.ToString();
-    //    }
-
-    //    SetInventoryItems();
-    //}
 
     //show items on ui window
     public void ListItems(List<Item> ItemList)
@@ -104,6 +73,7 @@ public class InventoryManagerNew : MonoBehaviour
 
         foreach (var item in ItemList)
         {
+
             GameObject obj = Instantiate(InventoryItem, ItemContent);
             var itemIcon = obj.transform.Find("ItemImage").GetComponent<Image>();
             itemIcon.sprite = item.icon;
@@ -130,18 +100,6 @@ public class InventoryManagerNew : MonoBehaviour
         }
     }
 
-
-    // stopped using this because it was giving me array out of index exceptions - kp
-   /** public void SetInventoryItems()
-    {
-        InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
-        for (int i = 0; i < Items.Count; i++)
-        {
-            InventoryItems[i].AddItem(Items[i]);
-        }
-
-    }
-*/
     //check if item in the inventory is of seed type
     public void CheckSeedType()
     {
@@ -193,6 +151,11 @@ public class InventoryManagerNew : MonoBehaviour
         {
             Content.SetActive(true);
         }
+    }
+
+    public void ListAllITems()
+    {
+        ListItems(Items);
     }
 
 
