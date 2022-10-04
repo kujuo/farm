@@ -36,8 +36,11 @@ public class CameraController : MonoBehaviour
     {
         //if (player == null)
         //{
-    player = GameObject.Find("Player").transform;
-        //}
+    if (player == null) {
+            GameObject playerGameObject = GameObject.Find("Player");
+            if (playerGameObject == null) return;
+            else player = playerGameObject.transform;
+    }
     //Camera cam = Camera.main;
     //float height = 2f * cam.orthographicSize;
     //float width = height * cam.aspect;
