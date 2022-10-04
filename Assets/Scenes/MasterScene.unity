@@ -4115,7 +4115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Items: []
   ItemContent: {fileID: 925121910}
-  InventoryItem: {fileID: 2749776596851009776, guid: 657bd00cd255e4ec0aaeab1912477165, type: 3}
+  InventoryItem: {fileID: 2749776596851009776, guid: 12708aa946e044ff5a5956ca6369836d, type: 3}
   Content: {fileID: 925121907}
 --- !u!4 &1897709645
 Transform:
