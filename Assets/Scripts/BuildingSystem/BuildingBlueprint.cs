@@ -30,5 +30,6 @@ public class BuildingBlueprint : MonoBehaviour
         //BuildingSystemManager.Instance.DisplayBuildingUi(); no longer needed
         InventoryManagerNew.Instance.RemoveItem(item);
         InventoryManagerNew.Instance.ListItems(InventoryManagerNew.Instance.Items);
+        BuildingSystemManager.Instance.placeMode = true;
     }
 }

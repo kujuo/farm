@@ -44,8 +44,6 @@ public class PlayerController : MonoBehaviour
     public PlayerStatusManager statusManager;
 
     private States state;
-    //private bool canInteract;
-    //private NpcController interactableTarget;
 
     private void Awake()
     {
@@ -123,9 +121,6 @@ public class PlayerController : MonoBehaviour
     {
         if (state == States.Attacking) return;
         Move();
-        //InteractionCheck();
-        //if (Input.GetKeyDown(KeyCode.E) && interactableTarget) interactableTarget.Interact();
-        if (Input.GetKeyDown(KeyCode.B)) BuildingSystemManager.Instance.DisplayBuildingUi();
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb2D.velocity = new Vector2(0, 0);

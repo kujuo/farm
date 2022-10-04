@@ -80,6 +80,7 @@ public class Building : MonoBehaviour
     private void PlaceBuilding()
     {
         isPlaced = true;
+        BuildingSystemManager.Instance.placeMode = false;
         canPlace = false;
         gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
         outline.enabled = false;
@@ -100,9 +101,10 @@ public class Building : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (isPlaced)
+        if (isPlaced && !BuildingSystemManager.Instance.placeMode)
         {
             isPlaced = false;
+            BuildingSystemManager.Instance.placeMode = true;
             gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
             outline.enabled = true;
             behind = false;
