@@ -18,12 +18,17 @@ public class LoadSceneManager : MonoBehaviour
         SceneManager.LoadScene("HomeBase", LoadSceneMode.Additive);
         currScene = "HomeBase";
         currSceneNum = 1;
-        //StartCoroutine(test());
+        StartCoroutine(move());
     }
 
     public void load(string sceneName)
     {
         StartCoroutine(loadScene(sceneName));
+    }
+
+    IEnumerator move()
+    {
+        yield return new WaitForSeconds(1f);
     }
 
     IEnumerator loadScene(string sceneName)
@@ -71,7 +76,8 @@ public class LoadSceneManager : MonoBehaviour
             obj.SetActive(true);
         }
         SceneManager.MoveGameObjectToScene(player, SceneManager.GetSceneAt(currSceneNum));
-
+        //SceneManager.MoveGameObjectToScene(GameObject.Find("Inventory"), SceneManager.GetSceneAt(currSceneNum));
+        //SceneManager.MoveGameObjectToScene(GameObject.Find("InventoryManager"), SceneManager.GetSceneAt(currSceneNum));
         player.SetActive(true);
         player.GetComponent<PlayerController>().Reset();
 

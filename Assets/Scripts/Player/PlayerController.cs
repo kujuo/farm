@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
     enum States
     {
         Normal,
@@ -15,8 +16,9 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 5;
     public float attackDuration = 0.5f;
-    public float attackRange = 0.5f;
+    public float attackRange = 0.5f; 
     public float health = 100;
+    public float attackDamage;
     public InventoryManager inventory;
 
     public Sprite[] upAttack;
@@ -42,10 +44,15 @@ public class PlayerController : MonoBehaviour
     public PlayerStatusManager statusManager;
 
     private States state;
-    private bool canInteract;
-    private NpcController interactableTarget;
+    //private bool canInteract;
+    //private NpcController interactableTarget;
 
+    private void Awake()
+    {
+        instance = this;
+    }
 
+    //public static 
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +62,6 @@ public class PlayerController : MonoBehaviour
         playerDir = new Vector2(0, -1);
 
         statusManager = Instantiate(statusManagerPrefab).GetComponent<PlayerStatusManager>();
-        canInteract = false;
         sr = GetComponent<SpriteRenderer>();
         Physics2D.queriesStartInColliders = false;
         animationController.direction = playerDir;
@@ -117,8 +123,8 @@ public class PlayerController : MonoBehaviour
     {
         if (state == States.Attacking) return;
         Move();
-        InteractionCheck();
-        if (Input.GetKeyDown(KeyCode.E) && interactableTarget) interactableTarget.Interact();
+        //InteractionCheck();
+        //if (Input.GetKeyDown(KeyCode.E) && interactableTarget) interactableTarget.Interact();
         //if (Input.GetKeyDown(KeyCode.B)) BuildingSystemManager.Instance.DisplayBuildingUi();
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -177,7 +183,7 @@ public class PlayerController : MonoBehaviour
 
     public void loseHealth(float healthLost)
     {
-        if (state == States.Invulnerable) return;
+        if (state == States.Invulnerable ) return;
         if (shieldHealth > 0)
         {
             shieldHealth -= health;
@@ -202,12 +208,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void InteractionCheck()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, playerDir, playerDir.magnitude);
-        if (hit.collider) interactableTarget = hit.collider.GetComponent<NpcController>();
-        else interactableTarget = null;
-    }
+    //private void InteractionCheck()
+    //{
+    //    RaycastHit2D hit = Physics2D.Raycast(transform.position, playerDir, playerDir.magnitude);
+    //    if (hit.collider) interactableTarget = hit.collider.GetComponent<NpcController>();
+    //    else interactableTarget = null;
+    //}
 
     IEnumerator DamageTaken()
     {
