@@ -5,16 +5,16 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float touchDamage;
+    public float destroyTime;
     private Rigidbody2D rb2D;
 
     protected SpriteRenderer sr;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         rb2D = GetComponent<Rigidbody2D>();
+        Destroy(gameObject, destroyTime);
     }
 
     public void addForce(Vector2 direction)

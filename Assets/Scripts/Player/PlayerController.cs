@@ -7,18 +7,12 @@ using UnityEngine.Networking;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
-    enum States
-    {
-        Normal,
-        Invulnerable,
-        Attacking,
-    }
 
     public float speed = 5;
     public float attackDuration = 0.5f;
     public float attackRange = 0.5f; 
     public float health = 100;
-    public float attackDamage;
+    public float attackDamage = 10;
     public InventoryManager inventory;
 
     public Sprite[] upAttack;
@@ -43,7 +37,8 @@ public class PlayerController : MonoBehaviour
     private float shieldHealth = 0;
     public PlayerStatusManager statusManager;
 
-    private States state;
+    private bool attacking = false;
+    private bool invulnerable = false;
     //private bool canInteract;
     //private NpcController interactableTarget;
 
@@ -65,7 +60,6 @@ public class PlayerController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         Physics2D.queriesStartInColliders = false;
         animationController.direction = playerDir;
-        state = States.Normal;
         ApplyEffects();
     }
 
@@ -121,7 +115,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (state == States.Attacking) return;
+        if (attacking) return;
         Move();
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -133,7 +127,8 @@ public class PlayerController : MonoBehaviour
 
     public void Reset()
     {
-        state = States.Normal;
+        invulnerable = false;
+        attacking = false;
         enabled = true;
         sr.color = new Color(1, 1, 1, 1);
         rb2D.velocity = new Vector2(0, 0);
@@ -146,7 +141,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        state = States.Attacking;
+        attacking = true;
         enabled = false;
         rb2D.velocity = new Vector2(0, 0);
         animationController.StopCoroutine("MoveAnimation");
@@ -162,7 +157,7 @@ public class PlayerController : MonoBehaviour
         }
         enabled = true;
         animationController.StartCoroutine("MoveAnimation");
-        state = States.Normal;
+        attacking = false;
     }
 
     private void HitInteraction()
@@ -174,13 +169,13 @@ public class PlayerController : MonoBehaviour
         if (hit.collider && hit.collider.tag == "Enemy")
         {
             Enemy en = hit.collider.gameObject.GetComponent<Enemy>();
-            en.OnHurt(10);
+            en.OnHurt(attackDamage);
         }
     }
 
     public void loseHealth(float healthLost)
     {
-        if (state == States.Invulnerable ) return;
+        if (invulnerable) return;
         if (shieldHealth > 0)
         {
             shieldHealth -= health;
@@ -198,26 +193,20 @@ public class PlayerController : MonoBehaviour
             combatLevelManager.playerDeath();
         }
         statusManager.updateHealth(health, maxHealth);
-        if (state == States.Normal)
+        if (!invulnerable)
         {
-            state = States.Invulnerable;
             StartCoroutine(DamageTaken());
         }
     }
 
-    //private void InteractionCheck()
-    //{
-    //    RaycastHit2D hit = Physics2D.Raycast(transform.position, playerDir, playerDir.magnitude);
-    //    if (hit.collider) interactableTarget = hit.collider.GetComponent<NpcController>();
-    //    else interactableTarget = null;
-    //}
 
     IEnumerator DamageTaken()
     {
+        invulnerable = true;
         sr.color = new Color(255, 0, 0);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
         sr.color = new Color(1, 1, 1, 1);
-        state = States.Normal;
+        invulnerable = false;
     }
 
 

@@ -9,6 +9,8 @@ public class PlayerStatusManager : MonoBehaviour
     public void updateHealth(float health, float maxHealth)
     {
         playerHealth.SetHealthBarValue(health / maxHealth);
-        playerHealth.SetHealthBarAlpha(0.6f);
+        playerHealth.SetHealthBarAlpha(0.8f);
     }
+
+    
 }
