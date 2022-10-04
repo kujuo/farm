@@ -46,7 +46,7 @@ public class Product : MonoBehaviour
         player.GetComponent<PlayerController>();
         InventoryManagerNew.Instance.RemoveItem(item);
         //InventoryManagerNew.Instance.ListItems(InventoryManagerNew.Instance.Items);
-        InventoryManagerNew.Instance.CheckCropType();
+        InventoryManagerNew.Instance.ListItems();
     }
 
     //private void OnMouseDown()
