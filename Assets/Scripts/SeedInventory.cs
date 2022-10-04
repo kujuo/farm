@@ -29,7 +29,7 @@ public class SeedInventory : MonoBehaviour
         var s = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         s.z = 0;
         var created = Instantiate(seed, s, Quaternion.identity);
-        //BuildingSystemManager.Instance.DisplayBuildingUi(); no longer needed
+        created.initItem(item);
         InventoryManagerNew.Instance.RemoveItem(item);
         InventoryManagerNew.Instance.ListItems();
         //InventoryManagerNew.Instance.CheckSeedType();

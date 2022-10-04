@@ -33,6 +33,12 @@ public abstract class Enemy : MonoBehaviour
 
     public void CheckDistance()
     {
+        if (player == null)
+        {
+            player = GameObject.Find("Player");
+            if (player == null) return;
+        }
+
         if (!active)
         {
             if (Vector3.Distance(transform.position, player.transform.position) < activeDistance)
@@ -49,6 +55,11 @@ public abstract class Enemy : MonoBehaviour
 
     public void ChangeAnimationDirection()
     {
+        if (player == null)
+        {
+            player = GameObject.Find("Player");
+            if (player == null) return;
+        }
         Vector3 movement = player.transform.position - transform.position;
         Vector2 direction = new Vector2(movement.x, movement.y);
         Vector2 currentDir = animationController.getDirection(direction);

@@ -8,10 +8,6 @@ public class BasicEnemy : Enemy
 
     void Update()
     {
-        if (player == null)
-        {
-            player = GameObject.Find("Player");
-        }
         CheckDistance();
         ChangeAnimationDirection();
     }
@@ -19,7 +15,6 @@ public class BasicEnemy : Enemy
 
     public override void OnHurt(float damage)
     {
-                
         GameObject healthObject = this.gameObject.transform.GetChild(0).GetChild(0).gameObject;
         Healthbar healthbar = healthObject.GetComponent<Healthbar>();
         if (currHealth == maxHealth) healthbar.Activate();

@@ -61,7 +61,7 @@ public class Crop : MonoBehaviour
         if (cropState == CropState.EMPTY) spriteRenderer.sprite = defaultSprite;
     }
 
-    public void Plant(GameObject seed)
+    public bool Plant(GameObject seed)
     {
         if (cropState == CropState.EMPTY)
         {
@@ -73,8 +73,10 @@ public class Crop : MonoBehaviour
 
             this.setSeed(seedObject);
             seedObject.SetActive(false);
-            
+            return true;
         }
+
+        return false;
     }
 
     private void OnMouseDown()
@@ -85,9 +87,11 @@ public class Crop : MonoBehaviour
         }
     }
 
-    private void OnMouseEnter()
+    
+    private void OnMouseOver()
     {
-        spriteRenderer.color = Color.red;
+        if (cropState == CropState.PLANT) spriteRenderer.color = Color.green;
+        else spriteRenderer.color = Color.red;
     }
 
     private void OnMouseExit()
