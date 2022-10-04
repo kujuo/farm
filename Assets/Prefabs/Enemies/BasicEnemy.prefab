@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 10
   m_Sprite: {fileID: -740881790, guid: 52527629802ca45eba2abf367a40f4b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -108,6 +108,7 @@ MonoBehaviour:
   healthCanvas: {fileID: 3697363039924043752, guid: 68f248c7c593f45148553402450d70ca, type: 3}
   speed: 1.5
   activeDistance: 10
+  enemyKill: {fileID: 2638492378004795895, guid: 92300764572c44036bd4928832242467, type: 3}
 --- !u!114 &2080769109315325812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,11 +218,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436bc0f096be0d34ba379a789d03ec45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Config: {fileID: 0}
+  Config: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}
   MouseControl: 0
   Target: {fileID: 0}
   CanMove: 1
-  MovementSpeed: 5
+  MovementSpeed: 2
   RotationSpeed: 0
   isMoving: 0
   pathIndex: 0
@@ -250,13 +251,13 @@ MonoBehaviour:
   MouseControl: 0
   Target: {fileID: 0}
   CanMove: 1
-  MovementSpeed: 5
+  MovementSpeed: 2
   RotationSpeed: 0
   isMoving: 0
   pathIndex: 0
   posInGrid: {x: 0, y: 0, z: 0}
   CanSearch: 1
-  PathUpdateRate: 0.15
+  PathUpdateRate: 1.5
   GetNextPointDistance: 0.1
   ShowGraphic: 1
   color:
