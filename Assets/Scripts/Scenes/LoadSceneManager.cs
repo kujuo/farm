@@ -80,6 +80,7 @@ public class LoadSceneManager : MonoBehaviour
         //SceneManager.MoveGameObjectToScene(GameObject.Find("InventoryManager"), SceneManager.GetSceneAt(currSceneNum));
         player.SetActive(true);
         player.GetComponent<PlayerController>().Reset();
+        if (GameObject.Find("CombatLevelManager") != null) PlayerController.instance.ApplyEffects();
 
         SceneManager.SetActiveScene(SceneManager.GetSceneAt(currSceneNum));
         GameObject[] spawns = GameObject.FindGameObjectsWithTag("Spawn");
