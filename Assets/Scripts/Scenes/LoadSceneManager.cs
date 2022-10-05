@@ -15,10 +15,9 @@ public class LoadSceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadScene("HomeBase", LoadSceneMode.Additive);
         currScene = "HomeBase";
         currSceneNum = 1;
-        StartCoroutine(move());
+        StartCoroutine(loadHome());
     }
 
     public void load(string sceneName)
@@ -26,9 +25,16 @@ public class LoadSceneManager : MonoBehaviour
         StartCoroutine(loadScene(sceneName));
     }
 
-    IEnumerator move()
+    IEnumerator loadHome()
     {
-        yield return new WaitForSeconds(1f);
+        AsyncOperation scene = SceneManager.LoadSceneAsync("HomeBase", LoadSceneMode.Additive);
+        scene.allowSceneActivation = true;
+        sceneAsync = scene;
+        while (scene.progress < 1f)
+        {
+            yield return null;
+        }
+        SceneManager.SetActiveScene(SceneManager.GetSceneAt(currSceneNum));
     }
 
     IEnumerator loadScene(string sceneName)
@@ -47,6 +53,7 @@ public class LoadSceneManager : MonoBehaviour
         }
         else
         {
+
             currScene = sceneName;
             currSceneNum = 2;
             scene = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
@@ -80,6 +87,7 @@ public class LoadSceneManager : MonoBehaviour
         //SceneManager.MoveGameObjectToScene(GameObject.Find("InventoryManager"), SceneManager.GetSceneAt(currSceneNum));
         player.SetActive(true);
         player.GetComponent<PlayerController>().Reset();
+        if (GameObject.Find("CombatLevelManager") != null) PlayerController.instance.ApplyEffects();
 
         SceneManager.SetActiveScene(SceneManager.GetSceneAt(currSceneNum));
         GameObject[] spawns = GameObject.FindGameObjectsWithTag("Spawn");
