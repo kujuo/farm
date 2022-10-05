@@ -140,6 +140,6 @@ public class Building : MonoBehaviour
         if (isPlaced && !BuildingSystemManager.Instance.placeMode)
         {
             buildingSr.color = Color.white;
-        }g
+        }
     }
 }
