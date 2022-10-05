@@ -67,7 +67,7 @@ public class Seed : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 InventoryManagerNew.Instance.Add(item);
-                InventoryManagerNew.Instance.ListItems(InventoryManagerNew.Instance.Items);
+                InventoryManagerNew.Instance.ListItems();
                 Destroy(gameObject);
             }
         }
@@ -86,7 +86,7 @@ public class Seed : MonoBehaviour
         else
         {
             InventoryManagerNew.Instance.Add(item);
-            InventoryManagerNew.Instance.ListItems(InventoryManagerNew.Instance.Items);
+            InventoryManagerNew.Instance.ListItems();
         }
         Destroy(gameObject);
     }

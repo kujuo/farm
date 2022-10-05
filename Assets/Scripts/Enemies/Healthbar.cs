@@ -7,17 +7,21 @@ public class Healthbar : MonoBehaviour
 {
     public bool activated = false;
     private Image HealthBarImage;
+
+    private Color initColor;
     // Start is called before the first frame update
     void Start()
     {
         HealthBarImage = GetComponent<Image>();
-        SetHealthBarColor(new Color(1, 1, 1, 0));
-        if (activated) SetHealthBarColor(new Color(0, 255, 0, 1));
+        initColor = HealthBarImage.color;
+        //SetHealthBarColor(new Color(1, 1, 1, 0));
+        //if (activated) SetHealthBarColor(new Color(0, 255, 0, 0.6f));
     }
 
     public void Activate()
     {
-        SetHealthBarColor(new Color(0, 255, 0, 1));
+        SetHealthBarColor(initColor);
+        HealthBarImage.fillAmount = 1;
     }
 
     public void SetHealthBarValue(float value)
@@ -33,8 +37,9 @@ public class Healthbar : MonoBehaviour
         }
         else
         {
-            SetHealthBarColor(Color.green);
+            SetHealthBarColor(initColor);
         }
+        SetHealthBarAlpha(0.6f);
     }
 
     public float GetHealthBarValue()
@@ -45,6 +50,11 @@ public class Healthbar : MonoBehaviour
     public void SetHealthBarColor(Color healthColor)
     {
         HealthBarImage.color = healthColor;
+    }
+
+    public Color GetColor()
+    {
+        return HealthBarImage.color;
     }
 
     public void SetHealthBarAlpha(float a)

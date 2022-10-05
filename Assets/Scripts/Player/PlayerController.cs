@@ -7,18 +7,12 @@ using UnityEngine.Networking;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
-    enum States
-    {
-        Normal,
-        Invulnerable,
-        Attacking,
-    }
 
     public float speed = 5;
     public float attackDuration = 0.5f;
     public float attackRange = 0.5f; 
     public float health = 100;
-    public float attackDamage;
+    public float attackDamage = 10;
     public InventoryManager inventory;
 
     public Sprite[] upAttack;
@@ -41,9 +35,14 @@ public class PlayerController : MonoBehaviour
     private float maxHealth = 100;
     private bool healthRegen;
     private float shieldHealth = 0;
+    private float maxShieldAmount;
+    private GameObject poisonAura;
+    private SpriteRenderer poisonAuraSr;
+    private float poisonAuraAlpha;
     public PlayerStatusManager statusManager;
 
-    private States state;
+    private bool attacking = false;
+    private bool invulnerable = false;
 
     private void Awake()
     {
@@ -63,8 +62,9 @@ public class PlayerController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         Physics2D.queriesStartInColliders = false;
         animationController.direction = playerDir;
-        state = States.Normal;
-        ApplyEffects();
+        poisonAura = transform.GetChild(0).gameObject;
+        poisonAuraSr = poisonAura.GetComponent<SpriteRenderer>();
+        poisonAuraAlpha = 1;
     }
 
     private void Move()
@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (state == States.Attacking) return;
+        if (attacking) return;
         Move();
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -131,20 +131,23 @@ public class PlayerController : MonoBehaviour
 
     public void Reset()
     {
-        state = States.Normal;
+        invulnerable = false;
+        attacking = false;
         enabled = true;
+        poisonAura.SetActive(false);
         sr.color = new Color(1, 1, 1, 1);
         rb2D.velocity = new Vector2(0, 0);
         health = maxHealth;
         statusManager.updateHealth(health, maxHealth);
         animationController.StopCoroutine("MoveAnimation");
         StopAllCoroutines();
+        ApplyEffects();
         animationController.StartCoroutine("MoveAnimation");
     }
 
     private IEnumerator Attack()
     {
-        state = States.Attacking;
+        attacking = true;
         enabled = false;
         rb2D.velocity = new Vector2(0, 0);
         animationController.StopCoroutine("MoveAnimation");
@@ -160,7 +163,7 @@ public class PlayerController : MonoBehaviour
         }
         enabled = true;
         animationController.StartCoroutine("MoveAnimation");
-        state = States.Normal;
+        attacking = false;
     }
 
     private void HitInteraction()
@@ -172,20 +175,21 @@ public class PlayerController : MonoBehaviour
         if (hit.collider && hit.collider.tag == "Enemy")
         {
             Enemy en = hit.collider.gameObject.GetComponent<Enemy>();
-            en.OnHurt(10);
+            en.OnHurt(attackDamage);
         }
     }
 
     public void loseHealth(float healthLost)
     {
-        if (state == States.Invulnerable ) return;
+        if (invulnerable) return;
         if (shieldHealth > 0)
         {
             shieldHealth -= health;
+            statusManager.updateHealth(shieldHealth, maxShieldAmount);
             if (shieldHealth <= 0) shieldHealth = 0;
+            StartCoroutine(DamageTaken());
             return;
         }
-
         //rb2D.AddForce(playerDir * -10, ForceMode2D.Impulse);
         //Debug.Log(playerDir * -10);
 
@@ -196,26 +200,20 @@ public class PlayerController : MonoBehaviour
             combatLevelManager.playerDeath();
         }
         statusManager.updateHealth(health, maxHealth);
-        if (state == States.Normal)
+        if (!invulnerable)
         {
-            state = States.Invulnerable;
             StartCoroutine(DamageTaken());
         }
     }
 
-    //private void InteractionCheck()
-    //{
-    //    RaycastHit2D hit = Physics2D.Raycast(transform.position, playerDir, playerDir.magnitude);
-    //    if (hit.collider) interactableTarget = hit.collider.GetComponent<NpcController>();
-    //    else interactableTarget = null;
-    //}
 
     IEnumerator DamageTaken()
     {
+        invulnerable = true;
         sr.color = new Color(255, 0, 0);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
         sr.color = new Color(1, 1, 1, 1);
-        state = States.Normal;
+        invulnerable = false;
     }
 
 
@@ -248,6 +246,7 @@ public class PlayerController : MonoBehaviour
 
     public void Poison(float amount, float rate)
     {
+        poisonAura.SetActive(true);
         StartCoroutine(SetPoisonEffect(amount, rate));
     }
 
@@ -267,6 +266,8 @@ public class PlayerController : MonoBehaviour
         while (true)
         {
             shieldHealth = amount;
+            maxShieldAmount = shieldHealth;
+            statusManager.initShieldBar(shieldHealth);
             yield return new WaitForSeconds(rate);
         }
     }
@@ -275,17 +276,38 @@ public class PlayerController : MonoBehaviour
     {
         attackRange = amount;
     }
+    
 
     private IEnumerator SetPoisonEffect(float amount, float rate)
     {
         while (true)
         {
+            var color = poisonAuraSr.color;
+            if (color.a > 0.6f) poisonAuraAlpha = -1;
+            else if (color.a < 0.3f) poisonAuraAlpha = 1;
+            color.a += poisonAuraAlpha * 0.1f;
+            poisonAuraSr.color = color;
             Physics2D.queriesStartInColliders = true;
 
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 5, enemyLayer);
-
-            foreach (Collider2D hit in hits)
+            List<Collider2D> hits = new List<Collider2D>();
+            ContactFilter2D filter = new ContactFilter2D
             {
+                useTriggers = false,
+                useLayerMask = true,
+                useDepth = false,
+                useOutsideDepth = false,
+                useNormalAngle = false,
+                useOutsideNormalAngle = false,
+                layerMask = enemyLayer,
+                minDepth = 0,
+                maxDepth = 0,
+                minNormalAngle = 0,
+                maxNormalAngle = 0
+            };
+            GetComponentInChildren<CircleCollider2D>().OverlapCollider(filter, hits);
+            
+            foreach (Collider2D hit in hits)
+            { 
                 if (hit.tag == "Enemy")
                 {
                     Enemy en = hit.gameObject.GetComponent<Enemy>();

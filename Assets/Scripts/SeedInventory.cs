@@ -32,6 +32,6 @@ public class SeedInventory : MonoBehaviour
         created.initItem(item);
         InventoryManagerNew.Instance.RemoveItem(item);
         //InventoryManagerNew.Instance.ListItems(InventoryManagerNew.Instance.Items);
-        InventoryManagerNew.Instance.CheckSeedType();
+        InventoryManagerNew.Instance.ListItems();
     }
 }
