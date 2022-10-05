@@ -9,6 +9,7 @@ public class Building : MonoBehaviour
     private bool canPlace;
     private bool front;
     private bool behind;
+    private SpriteRenderer buildingSr;
     private SpriteRenderer outline;
     private bool isHealthRegenEffect;
     private bool isShieldEffect;
@@ -23,6 +24,7 @@ public class Building : MonoBehaviour
         front = false;
         canPlace = true;
         outline = GetComponentsInChildren<SpriteRenderer>()[1]; //GetComponentInChildren<SpriteRenderer>();
+        buildingSr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -122,6 +124,22 @@ public class Building : MonoBehaviour
             outline.enabled = true;
             behind = false;
             front = false;
+        }
+    }
+
+    private void OnMouseOver()
+    {
+        if (isPlaced && !BuildingSystemManager.Instance.placeMode)
+        {
+            buildingSr.color = Color.green;
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        if (isPlaced && !BuildingSystemManager.Instance.placeMode)
+        {
+            buildingSr.color = Color.white;
         }
     }
 }
