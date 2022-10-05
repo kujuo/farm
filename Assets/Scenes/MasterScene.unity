@@ -1995,11 +1995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bed2f44473c45099970af150ea84a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  layoutParent: {fileID: 0}
-  layout: {fileID: 0}
-  blueprint: []
-  isOpen: 0
+  placeMode: 0
   player: {fileID: 70302599}
 --- !u!4 &1649374052
 Transform:
@@ -2049,6 +2045,7 @@ MonoBehaviour:
   ItemContent: {fileID: 925121910}
   InventoryItem: {fileID: 2749776596851009776, guid: 12708aa946e044ff5a5956ca6369836d, type: 3}
   Content: {fileID: 925121907}
+  inventoryUi: {fileID: 163107194}
   filterType: 0
 --- !u!4 &1897709645
 Transform:
@@ -2120,6 +2117,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4805975255388374111, guid: 330b233cfacdf4a6485601f7e678aa47, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1103937520, guid: 860d6055b02a24c288564d722c97ea55, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 330b233cfacdf4a6485601f7e678aa47, type: 3}
 --- !u!1 &2062647479

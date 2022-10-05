@@ -179,7 +179,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -1495608164, guid: 5fbc807da66dd1c48ac9e37331e591b6, type: 3}
+  m_Sprite: {fileID: 1866370856, guid: 860d6055b02a24c288564d722c97ea55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -222,6 +222,7 @@ MonoBehaviour:
   statusManagerPrefab: {fileID: 2023777781817004645, guid: 21a7e64c5072741df8b3ffa9c0309563, type: 3}
   buildings: []
   statusManager: {fileID: 0}
+  spellObj: {fileID: 0}
 --- !u!114 &4805975255388374105
 MonoBehaviour:
   m_ObjectHideFlags: 0

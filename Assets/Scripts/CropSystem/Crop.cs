@@ -35,13 +35,18 @@ public class Crop : MonoBehaviour
     public Sprite defaultSprite;
     public Sprite[] seedImages;
     public float dropOffsetX, dropOffsetY;
+
+    private Vector3 botRight;
     // private UIManager uIManager; import UI Manager later
     void Awake()
     {
         cropState = CropState.EMPTY;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        dropOffsetX = +2f;
-        dropOffsetY = -2f;
+        //dropOffsetX = +2f;
+        //dropOffsetY = -2f;
+        botRight = spriteRenderer.transform.TransformPoint(new Vector3(spriteRenderer.sprite.bounds.min.x, spriteRenderer.sprite.bounds.max.y, 0));
+        botRight.x += spriteRenderer.sprite.bounds.extents.x*2;
+        botRight.y -= spriteRenderer.sprite.bounds.extents.y*2;
     }
 
     private IEnumerator Grow()
@@ -65,13 +70,9 @@ public class Crop : MonoBehaviour
     {
         if (cropState == CropState.EMPTY)
         {
-            //Redundant way of setting image to sprite :)
-            //Waiting for the UI, just a temporary solution
             seedObject = Instantiate(seed, transform.position, Quaternion.identity);
-
-                //Instantiate(GameObject.FindGameObjectsWithTag("Seed")[0], transform.position, Quaternion.identity);
-
             this.setSeed(seedObject);
+            GetComponent<BoxCollider2D>().isTrigger = false;
             seedObject.SetActive(false);
             return true;
         }
@@ -113,7 +114,6 @@ public class Crop : MonoBehaviour
             this.seed = seed;
             this.totalDuration = seed.getHarvestingTime();
             this.cropState = CropState.SEED;
-            //this.spriteRenderer.sprite = seed.getSeedImage();
             this.harvestProduct = seed.getHarvestProduct();
             this.seedImages = seed.getImages();
             this.spriteRenderer.sprite = seedImages[0];
@@ -137,13 +137,15 @@ public class Crop : MonoBehaviour
     {
         if (cropState == CropState.PLANT)
         {
+            GetComponent<BoxCollider2D>().isTrigger = true;
             cropState = CropState.EMPTY;
 
             //Better to instantaniate object
             var dropOffset = new Vector3();
             dropOffset.x = dropOffsetX;
             dropOffset.y = dropOffsetY;
-            Object.Instantiate(harvestProduct, this.transform.position + dropOffset, Quaternion.identity);
+            
+            Instantiate(harvestProduct, botRight, Quaternion.identity);
 
             harvestProduct.GetComponent<BoxCollider2D>().isTrigger = true;
             harvestProduct.SetActive(true);
