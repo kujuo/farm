@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
+//using static UnityEditor.Progress;
 
 public class CombatLevelManager : MonoBehaviour
 {
     public int numberOfEnemies;
     public List<Item> itemsRecieved; //items recieved when level ends
+    public string levelCompleteSceneName;
+    private bool loaded = false;
+    public int loade = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +26,10 @@ public class CombatLevelManager : MonoBehaviour
         {
             addItemWhenLevelEnd(itemsRecieved);
             LoadSceneManager load = FindObjectOfType<LoadSceneManager>();
-            load.load("HomeBase");
+            if (!loaded) load.load(levelCompleteSceneName, true) ;
+            loaded = true;
             //add all items
-            
+
         }
     }
 
