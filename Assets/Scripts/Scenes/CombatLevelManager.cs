@@ -10,7 +10,7 @@ public class CombatLevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //PlayerController.instance.ApplyEffects();
+        PlayerController.instance.ApplyEffects();
         numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
         //itemsRecieved.Add(Item.itemName = 'WatermelonSeed');
     }
