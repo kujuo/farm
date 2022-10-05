@@ -15,6 +15,7 @@ public class InventoryManagerNew : MonoBehaviour
     public Transform ItemContent; //item slot icon
     public GameObject InventoryItem;
     public GameObject Content;
+    public GameObject inventoryUi;
 
     public Item.itemType filterType;
 
@@ -89,10 +90,9 @@ public class InventoryManagerNew : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
-
+        if (Items.Count == 0 && inventoryUi) inventoryUi.SetActive(false);
         foreach (var item in this.Items)
         {
-            Debug.Log(item.name + "Name for me: ");
             if (item.type == filterType || filterType == Item.itemType.All)
             {
                 GameObject obj = Instantiate(InventoryItem, ItemContent);
@@ -118,7 +118,6 @@ public class InventoryManagerNew : MonoBehaviour
                     item.prefab.GetComponent<Product>().InitItem(item);
                     btn.onClick.AddListener(item.prefab.GetComponent<Product>().onClicK);
                 }
-                //TODO, binds clicking to crops/ etc
             }
 
         }

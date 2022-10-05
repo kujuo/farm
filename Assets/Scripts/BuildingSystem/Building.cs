@@ -133,6 +133,7 @@ public class Building : MonoBehaviour
         {
             buildingSr.color = Color.green;
         }
+        else buildingSr.color = Color.white;
     }
 
     private void OnMouseExit()
