@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerController : MonoBehaviour
 {
@@ -39,6 +40,8 @@ public class PlayerController : MonoBehaviour
 
     private bool attacking = false;
     private bool invulnerable = false;
+
+    public GameObject spellObj;
 
     private void Awake()
     {
@@ -120,6 +123,10 @@ public class PlayerController : MonoBehaviour
             rb2D.velocity = new Vector2(0, 0);
             StartCoroutine("Attack");
             HitInteraction();
+        } else if (Input.GetKeyDown(KeyCode.Q)) {
+                //Testing
+
+           Instantiate(spellObj, this.transform.position, Quaternion.identity);
         }
     }
 
@@ -137,12 +144,15 @@ public class PlayerController : MonoBehaviour
         animationController.StartCoroutine("MoveAnimation");
     }
 
+
     private IEnumerator Attack()
     {
         attacking = true;
         enabled = false;
         rb2D.velocity = new Vector2(0, 0);
         animationController.StopCoroutine("MoveAnimation");
+
+        
 
         Sprite[][] frameSet = { rightAttack, leftAttack, upAttack, downAttack };
         Sprite[] attackFrames = animationController.GetFramesFromDirection(frameSet);
@@ -158,6 +168,7 @@ public class PlayerController : MonoBehaviour
         attacking = false;
     }
 
+
     private void HitInteraction()
     {
         Physics2D.queriesStartInColliders = true;
@@ -169,6 +180,7 @@ public class PlayerController : MonoBehaviour
             Enemy en = hit.collider.gameObject.GetComponent<Enemy>();
             en.OnHurt(attackDamage);
         }
+
     }
 
     public void loseHealth(float healthLost)
