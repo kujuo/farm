@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NeighborVillage1.unity
     guid: dd167b7e1f4c5413b91e164269a47ebd
+  - enabled: 1
+    path: Assets/Scenes/NeighborVillage2.unity
+    guid: c41676cced38f427e9838c927080a4ad
   m_configObjects: {}

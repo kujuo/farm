@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   itemName: 
   value: 0
-  amount: 0
-  icon: {fileID: 0}
-  type: 1
-  prefab: {fileID: 3196259071143685652, guid: 08b4d31897ef94165bc01835c1f8f267, type: 3}
+  amount: 3
+  icon: {fileID: -1053681424, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
+  type: 2
+  prefab: {fileID: 7221560614193129356, guid: b682954276e59de47814e50d6774368e, type: 3}
