@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 1745862493
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1253866753, guid: ee2a2b1d4045f4ce98866cf71b72f133, type: 3}
+  m_Sprite: {fileID: -693961040, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.2, y: 6.4}
+  m_Size: {x: 1.8666667, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,18 +99,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5656182}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.25}
-    oldSize: {x: 3.2, y: 6.4}
-    newSize: {x: 3.2, y: 6.4}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.7333333, y: 1.1333333}
+    newSize: {x: 1.8666667, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2, y: 2.0687633}
+  m_Size: {x: 1.0666667, y: 1.1333333}
   m_EdgeRadius: 0
 --- !u!114 &5617666235889031282
 MonoBehaviour:
@@ -124,10 +124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e8ccf50345849df83809979d2841ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedImage: {fileID: -1253866753, guid: ee2a2b1d4045f4ce98866cf71b72f133, type: 3}
+  seedImage: {fileID: -693961040, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   plantImage: {fileID: -100175820, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   images:
-  - {fileID: -1253866753, guid: ee2a2b1d4045f4ce98866cf71b72f133, type: 3}
+  - {fileID: -693961040, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   - {fileID: -1053681424, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   - {fileID: 1685204296, guid: 19bb7908588324e3197766c7ed14034c, type: 3}
   - {fileID: -100175820, guid: 19bb7908588324e3197766c7ed14034c, type: 3}

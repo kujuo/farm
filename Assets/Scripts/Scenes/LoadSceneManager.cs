@@ -6,23 +6,37 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneManager : MonoBehaviour
 {
-    public String currScene;
+    public static LoadSceneManager instance;
+    public string currScene;
     public int currSceneNum;
+    [SerializeField] AudioClip[] audioClips;
     public GameObject player;
     public GameObject playerUI;
     private AsyncOperation sceneAsync;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
+    {
+        if (instance != null) return;
+        instance = this;
+        audioSource = GetComponent<AudioSource>();
+        StartGame();
+        //currScene = "Menu";
+        //audioSource.clip = audioClips[1];
+        //audioSource.Play();
+    }
+
+    void StartGame()
     {
         currScene = "HomeBase";
         currSceneNum = 1;
         StartCoroutine(loadHome());
     }
 
-    public void load(string sceneName)
+    public void load(string sceneName, bool unloadOld = false)
     {
-        StartCoroutine(loadScene(sceneName));
+        StartCoroutine(loadScene(sceneName, unloadOld));
     }
 
     IEnumerator loadHome()
@@ -34,43 +48,51 @@ public class LoadSceneManager : MonoBehaviour
         {
             yield return null;
         }
+        audioSource.clip = audioClips[0];
+        audioSource.Play();
         SceneManager.SetActiveScene(SceneManager.GetSceneAt(currSceneNum));
     }
 
-    IEnumerator loadScene(string sceneName)
+    IEnumerator loadScene(string sceneName, bool unloadOld = false)
     {
-        GameObject[] oldObjects = SceneManager.GetSceneAt(currSceneNum).GetRootGameObjects();
-        foreach (GameObject obj in oldObjects)
-        {
-            obj.SetActive(false);
-        }
+        
         AsyncOperation scene;
         if (sceneName == "HomeBase")
         {
+           
+            audioSource.clip = audioClips[0];
+            audioSource.Play();
             SceneManager.UnloadSceneAsync(currScene);
             currScene = sceneName;
-            currSceneNum = 1;
+            currSceneNum--;
         }
         else
         {
+            if (unloadOld)
+            {
+                SceneManager.MoveGameObjectToScene(player, SceneManager.GetSceneAt(1));
+                SceneManager.UnloadSceneAsync(currScene);
+                currSceneNum--;
+            }
+            GameObject[] oldObjects = SceneManager.GetSceneAt(currSceneNum).GetRootGameObjects();
+            foreach (GameObject obj in oldObjects)
+            {
+                obj.SetActive(false);
+            }
 
             currScene = sceneName;
-            currSceneNum = 2;
+            currSceneNum ++;
+            if (currScene == "NeighborVillage1") audioSource.clip = audioClips[2];
+            else if (currScene == "NeighborVillage2") audioSource.clip = audioClips[3];
+            audioSource.Play();
             scene = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
             scene.allowSceneActivation = true;
             sceneAsync = scene;
             while (scene.progress < 1f)
             {
-                Debug.Log("Loading scene " + " [][] Progress: " + scene.progress);
                 yield return null;
             }
         }
-        //AsyncOperation scene = SceneManager.LoadSceneAsync(index, LoadSceneMode.Additive);
-        //scene.allowSceneActivation = false;
-        //sceneAsync = scene;
-
-        //Wait until we are done loading the scene
-
 
         OnFinishedLoadingAllScene();
     }

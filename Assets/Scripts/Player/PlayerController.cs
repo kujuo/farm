@@ -27,7 +27,8 @@ public class PlayerController : MonoBehaviour
 
     // PUT BUILDINGS HERE
     public List<Building> buildings = new List<Building>();
-
+    [SerializeField] private GameObject pauseMenu;
+    
     private Rigidbody2D rb2D;
     private SpriteRenderer sr;
     private Vector2 playerDir;
@@ -133,6 +134,12 @@ public class PlayerController : MonoBehaviour
                 //Testing
 
            Instantiate(spellObj, this.transform.position, Quaternion.identity);
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // sets pause menu to be active
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 
