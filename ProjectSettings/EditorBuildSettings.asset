@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/NeighborVillage2.unity
     guid: c41676cced38f427e9838c927080a4ad
   - enabled: 1
-    path: Assets/Scenes/LevelUpScene.unity
+    path: Assets/Scenes/Level1CompleteScene.unity
     guid: 1e16fe10293fb412b8569c8a35e68c2a
   m_configObjects: {}

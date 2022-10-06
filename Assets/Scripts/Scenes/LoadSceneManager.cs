@@ -9,15 +9,26 @@ public class LoadSceneManager : MonoBehaviour
     public static LoadSceneManager instance;
     public string currScene;
     public int currSceneNum;
+    [SerializeField] AudioClip[] audioClips;
     public GameObject player;
     public GameObject playerUI;
     private AsyncOperation sceneAsync;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         if (instance != null) return;
         instance = this;
+        audioSource = GetComponent<AudioSource>();
+        StartGame();
+        //currScene = "Menu";
+        //audioSource.clip = audioClips[1];
+        //audioSource.Play();
+    }
+
+    void StartGame()
+    {
         currScene = "HomeBase";
         currSceneNum = 1;
         StartCoroutine(loadHome());
@@ -37,6 +48,8 @@ public class LoadSceneManager : MonoBehaviour
         {
             yield return null;
         }
+        audioSource.clip = audioClips[0];
+        audioSource.Play();
         SceneManager.SetActiveScene(SceneManager.GetSceneAt(currSceneNum));
     }
 
@@ -46,6 +59,9 @@ public class LoadSceneManager : MonoBehaviour
         AsyncOperation scene;
         if (sceneName == "HomeBase")
         {
+           
+            audioSource.clip = audioClips[0];
+            audioSource.Play();
             SceneManager.UnloadSceneAsync(currScene);
             currScene = sceneName;
             currSceneNum--;
@@ -66,6 +82,9 @@ public class LoadSceneManager : MonoBehaviour
 
             currScene = sceneName;
             currSceneNum ++;
+            if (currScene == "NeighborVillage1") audioSource.clip = audioClips[2];
+            else if (currScene == "NeighborVillage2") audioSource.clip = audioClips[3];
+            audioSource.Play();
             scene = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
             scene.allowSceneActivation = true;
             sceneAsync = scene;

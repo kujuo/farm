@@ -24,6 +24,7 @@ public class CombatLevelManager : MonoBehaviour
         numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
         if (numberOfEnemies <= 0)
         {
+            Time.timeScale = 0;
             addItemWhenLevelEnd(itemsRecieved);
             LoadSceneManager load = FindObjectOfType<LoadSceneManager>();
             if (!loaded) load.load(levelCompleteSceneName, true) ;
