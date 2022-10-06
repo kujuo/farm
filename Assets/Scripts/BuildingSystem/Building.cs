@@ -97,7 +97,7 @@ public class Building : MonoBehaviour
         PlayerController player = BuildingSystemManager.Instance.player;
         if (isHealthRegenEffect)
         {
-            player.Regen(0.5f, 0.5f);
+            player.Regen(0.015f, 1f);
         }
         else if (isShieldEffect)
         {
@@ -110,7 +110,7 @@ public class Building : MonoBehaviour
         }
         else if (isPoisonEffect)
         {
-            player.Poison(50f, 1);
+            player.Poison(0.05f, 1);
         }
     }
 

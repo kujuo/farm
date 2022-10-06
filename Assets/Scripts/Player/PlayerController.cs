@@ -137,7 +137,6 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // sets pause menu to be active
             pauseMenu.SetActive(true);
             Time.timeScale = 0;
         }
@@ -155,7 +154,6 @@ public class PlayerController : MonoBehaviour
         statusManager.updateHealth(health, maxHealth);
         animationController.StopCoroutine("MoveAnimation");
         StopAllCoroutines();
-        ApplyEffects();
         animationController.StartCoroutine("MoveAnimation");
     }
 
@@ -273,7 +271,7 @@ public class PlayerController : MonoBehaviour
     {
         while (true)
         {
-            if (health <= maxHealth) health += amount;
+            if (health <= maxHealth) health += amount*maxHealth; // % regen instead of flat regen
             if (health > maxHealth) health = maxHealth;
             statusManager.updateHealth(health, maxHealth);
             yield return new WaitForSeconds(rate);
@@ -330,7 +328,7 @@ public class PlayerController : MonoBehaviour
                 if (hit.tag == "Enemy")
                 {
                     Enemy en = hit.gameObject.GetComponent<Enemy>();
-                    en.OnHurt(amount);
+                    en.OnHurt(amount, true);
                 }
             }
             yield return new WaitForSeconds(rate);
