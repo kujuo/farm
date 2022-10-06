@@ -206,7 +206,7 @@ MonoBehaviour:
   attackDuration: 0.25
   attackRange: 2
   health: 100
-  attackDamage: 20
+  attackDamage: 30
   upAttack:
   - {fileID: -1163314739, guid: 860d6055b02a24c288564d722c97ea55, type: 3}
   downAttack:
@@ -221,6 +221,7 @@ MonoBehaviour:
   animationController: {fileID: 0}
   statusManagerPrefab: {fileID: 2023777781817004645, guid: 21a7e64c5072741df8b3ffa9c0309563, type: 3}
   buildings: []
+  pauseMenu: {fileID: 0}
   statusManager: {fileID: 0}
   spellObj: {fileID: 0}
 --- !u!114 &4805975255388374105

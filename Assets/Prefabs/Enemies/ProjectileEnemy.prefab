@@ -107,7 +107,7 @@ MonoBehaviour:
   activeDistance: 10
   healthCanvas: {fileID: 3697363039924043752, guid: 68f248c7c593f45148553402450d70ca, type: 3}
   speed: 1.5
-  attackSpeed: 10
+  attackSpeed: 5
   buildUpTime: 1
   projectile: {fileID: 5925582513153225043, guid: d278712481528468b8e5002c5c2d5f06, type: 3}
 --- !u!114 &2462588423978860761
