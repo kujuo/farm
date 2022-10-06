@@ -62,15 +62,17 @@ public class LoadSceneManager : MonoBehaviour
            
             audioSource.clip = audioClips[0];
             audioSource.Play();
+            Debug.Log("unloading" + currScene);
             SceneManager.UnloadSceneAsync(currScene);
             currScene = sceneName;
-            currSceneNum--;
+            currSceneNum = 1;
         }
         else
         {
             if (unloadOld)
             {
                 SceneManager.MoveGameObjectToScene(player, SceneManager.GetSceneAt(1));
+                Debug.Log("unloading old" + currScene);
                 SceneManager.UnloadSceneAsync(currScene);
                 currSceneNum--;
             }
@@ -81,7 +83,7 @@ public class LoadSceneManager : MonoBehaviour
             }
 
             currScene = sceneName;
-            currSceneNum ++;
+            if (!unloadOld) currSceneNum ++;
             if (currScene == "NeighborVillage1") audioSource.clip = audioClips[2];
             else if (currScene == "NeighborVillage2") audioSource.clip = audioClips[3];
             else if (currScene == "NeighborVillage3") audioSource.clip = audioClips[3];
@@ -111,7 +113,7 @@ public class LoadSceneManager : MonoBehaviour
         player.SetActive(true);
         player.GetComponent<PlayerController>().Reset();
         if (GameObject.Find("CombatLevelManager") != null) PlayerController.instance.ApplyEffects();
-
+        CameraController.instance.Clear();
         SceneManager.SetActiveScene(SceneManager.GetSceneAt(currSceneNum));
         GameObject[] spawns = GameObject.FindGameObjectsWithTag("Spawn");
         Vector3 spawnLocation = spawns[spawns.Length-1].transform.position;
