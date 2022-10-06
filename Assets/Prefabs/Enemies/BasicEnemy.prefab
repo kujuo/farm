@@ -106,7 +106,7 @@ MonoBehaviour:
   touchDamage: 10
   activeDistance: 10
   healthCanvas: {fileID: 3697363039924043752, guid: 68f248c7c593f45148553402450d70ca, type: 3}
-  speed: 1.5
+  speed: 2
 --- !u!114 &2080769109315325812
 MonoBehaviour:
   m_ObjectHideFlags: 0
