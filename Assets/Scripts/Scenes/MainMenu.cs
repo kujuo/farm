@@ -5,9 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private void Start()
+    {
+        Screen.SetResolution(1920, 1080, false);
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene("MasterScene");
+
     }
 
     public void LoadTitleScreen()

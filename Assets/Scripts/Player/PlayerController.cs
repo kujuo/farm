@@ -204,6 +204,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void gainHealth(float healthGained)
+    {
+        health += healthGained;
+        if (health > maxHealth) health = maxHealth;
+        statusManager.updateHealth(health, maxHealth);
+    }
+
     public void loseHealth(float healthLost)
     {
         if (invulnerable) return;
@@ -215,8 +222,6 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(DamageTaken());
             return;
         }
-        //rb2D.AddForce(playerDir * -10, ForceMode2D.Impulse);
-        //Debug.Log(playerDir * -10);
 
         health -= healthLost;
         if (health <= 0)

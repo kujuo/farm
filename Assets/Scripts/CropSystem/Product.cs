@@ -6,6 +6,7 @@ using UnityEngine;
 public class Product : MonoBehaviour
 {
     InventoryManagerNew instance;
+    public float healthRestore;
     private SpriteRenderer spriteRenderer;
     private Item item;
     
@@ -38,30 +39,8 @@ public class Product : MonoBehaviour
 
     public void onClicK()
     {
-        
-        Debug.Log("About to delete");
-        //Do sth to player, not sure yet
-        var player = GameObject.FindGameObjectsWithTag("Player")[0];
-
-        player.GetComponent<PlayerController>();
+        PlayerController.instance.gainHealth(healthRestore);
         InventoryManagerNew.Instance.RemoveItem(item);
-        //InventoryManagerNew.Instance.ListItems(InventoryManagerNew.Instance.Items);
         InventoryManagerNew.Instance.ListItems();
     }
-
-    //private void OnMouseDown()
-    //{
-    //    var inventoryProduct = new Item
-    //    {
-    //        id = 01234,
-    //        itemName = "prc",
-    //        value = 0,
-    //        amount = 1,
-    //        icon = spriteRenderer.sprite,
-    //        type = Item.itemType.Crop,
-    //    };
-
-    //    InventoryManagerNew.Instance.Add(inventoryProduct);
-    //    Destroy(this.transform.gameObject);
-    //}
 }
