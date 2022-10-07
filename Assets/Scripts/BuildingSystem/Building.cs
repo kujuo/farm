@@ -51,7 +51,7 @@ public class Building : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         if (isPlaced) return;
-        if (other.name == "Player")
+        if (other.name == "Player" || other.CompareTag("Soil"))
         {
             canPlace = false;
             outline.color = Color.red;
