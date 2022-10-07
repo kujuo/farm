@@ -86,7 +86,7 @@ public class LoadSceneManager : MonoBehaviour
             if (!unloadOld) currSceneNum ++;
             if (currScene == "NeighborVillage1") audioSource.clip = audioClips[2];
             else if (currScene == "NeighborVillage2") audioSource.clip = audioClips[3];
-            else if (currScene == "NeighborVillage3") audioSource.clip = audioClips[3];
+            else if (currScene == "NeighborVillage3") audioSource.clip = audioClips[4];
             audioSource.Play();
             scene = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
             scene.allowSceneActivation = true;
