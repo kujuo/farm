@@ -1894,7 +1894,6 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       1_magicspell_spritesheet_36: -716252193
-      1_magicspell_spritesheet_58: -1121029909
       1_magicspell_spritesheet_47: -88026158
       1_magicspell_spritesheet_59: -1780977155
       1_magicspell_spritesheet_10: -13232712
@@ -1917,6 +1916,7 @@ TextureImporter:
       1_magicspell_spritesheet_39: 92060683
       1_magicspell_spritesheet_43: -1731897375
       1_magicspell_spritesheet_42: 792401022
+      1_magicspell_spritesheet_37: -554588277
       1_magicspell_spritesheet_45: 268995386
       1_magicspell_spritesheet_49: -1579633535
       1_magicspell_spritesheet_65: 1716985106
@@ -1971,11 +1971,11 @@ TextureImporter:
       1_magicspell_spritesheet_34: -370276244
       1_magicspell_spritesheet_73: 1403386794
       1_magicspell_spritesheet_26: 1858158209
-      1_magicspell_spritesheet_20: -1866967473
-      1_magicspell_spritesheet_9: 512348039
-      1_magicspell_spritesheet_37: -554588277
-      1_magicspell_spritesheet_29: -1118471199
+      1_magicspell_spritesheet_58: -1121029909
       1_magicspell_spritesheet_62: 786302776
+      1_magicspell_spritesheet_20: -1866967473
+      1_magicspell_spritesheet_29: -1118471199
+      1_magicspell_spritesheet_9: 512348039
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
