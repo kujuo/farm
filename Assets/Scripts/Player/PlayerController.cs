@@ -261,7 +261,16 @@ public class PlayerController : MonoBehaviour
     // adds a building for effects to use
     public void AddBuilding(Building building)
     {
-        buildings.Add(building);
+        bool exists = false;
+        for (int i = 0; i < buildings.Count; i++)
+        {
+            if (buildings[i].name == building.name)
+            {
+                exists = true;
+                break;
+            }
+        }
+        if (!exists) buildings.Add(building);
     }
 
     public void Regen(float amount, float rate)
