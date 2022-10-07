@@ -97,7 +97,7 @@ public class Building : MonoBehaviour
         PlayerController player = BuildingSystemManager.Instance.player;
         if (isHealthRegenEffect)
         {
-            player.Regen(0.015f, 1f);
+            player.Regen(0.01f, 1f);
         }
         else if (isShieldEffect)
         {
