@@ -8,11 +8,13 @@ public class SpellProjectile : MonoBehaviour
     public float destroyTime;
     public float castRange;
     public float time;
+    public float duration = 1f;
 
     private Vector3 originalPosition;
     private Vector3 castDirection;
 
     private Rigidbody2D rb2D;
+    private Sprite[] spellSprites;
     public float speed = 10f;
     public float force = 10f;
     private bool collideWithEnemy = false;
@@ -27,6 +29,8 @@ public class SpellProjectile : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         rb2D = GetComponent<Rigidbody2D>();
         originalPosition = transform.position;
+        spellSprites = Resources.LoadAll<Sprite>("Sprites/LoadingTrail");
+        
 
         //Select enemy
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -44,6 +48,16 @@ public class SpellProjectile : MonoBehaviour
         }
 
         rb2D.velocity = castDirection * speed;
+        StartCoroutine(castSpellCoroutine());
+    }
+
+    IEnumerator castSpellCoroutine()
+    {
+        foreach (var sprite in spellSprites)
+        {
+            sr.sprite = sprite;
+            yield return new WaitForSeconds(duration / spellSprites.Length);
+        }
     }
 
     private GameObject findclosestEnemy(GameObject[] enemies)
