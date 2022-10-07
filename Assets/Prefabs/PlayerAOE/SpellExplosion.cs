@@ -28,46 +28,33 @@ public class SpellExplosion : MonoBehaviour
 
     private void Awake()
     {
-<<<<<<< Updated upstream
-=======
         //explodeSprites = Resources.LoadAll<Sprite>("Sprites/MidnightTrail");
 
         selectExplodeSprites();
 
-        //foreach(var sprite in explodeSprites)
-        //{
-        //    Debug.Log(sprite + "ESDF");
-        //}
-
->>>>>>> Stashed changes
         sr = GetComponent<SpriteRenderer>();
         rb2D = GetComponent<Rigidbody2D>();
         StartCoroutine(explodeCoroutine());
         Destroy(gameObject, explosionTime);
     }
 
-<<<<<<< Updated upstream
-    private void OnTriggerStay2D(Collider2D other)
-=======
     private void Update()
     {
         timePassed += Time.deltaTime;
     }
 
-
-    private void OnCollisionStay2D(Collision2D other)
->>>>>>> Stashed changes
+    private void OnTriggerStay2D(Collider2D other)
     {
         print(timePassed);
         if (other.gameObject.tag == "Enemy")
         {
-<<<<<<< Updated upstream
+
+//            Enemy en = other.gameObject.GetComponent<Enemy>();
+//            en.OnHurt(0.1f);
+//=======
             Enemy en = other.gameObject.GetComponent<Enemy>();
-            en.OnHurt(0.1f);
-=======
-            Enemy en = other.collider.gameObject.GetComponent<Enemy>();
             en.OnHurt(0.1f * Mathf.Exp(timePassed * 1000));
->>>>>>> Stashed changes
+
         }
     }
 
