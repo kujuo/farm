@@ -2373,7 +2373,7 @@ MonoBehaviour:
     ShowGridParameters: 1
     ShowPathfindingSettings: 1
     ShowGridGraphSettigs: 0
-    ScaleLvl: 16
+    ScaleLvl: 32
   EditorSettings: {fileID: 11400000, guid: f54fe2e0866d59148bb49fcb7b6fd41b, type: 2}
   grids:
   - GridName: Default Grid 0
@@ -11176,5 +11176,17 @@ PrefabInstance:
       propertyPath: levelCompleteSceneName
       value: Level1CompleteScene
       objectReference: {fileID: 0}
+    - target: {fileID: 4149206716854668970, guid: 48880e827fe484e81914db230522afbe, type: 3}
+      propertyPath: itemsRecieved.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149206716854668970, guid: 48880e827fe484e81914db230522afbe, type: 3}
+      propertyPath: itemsRecieved.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0547e79f6592b564ebb50fb209b2788e, type: 2}
+    - target: {fileID: 4149206716854668970, guid: 48880e827fe484e81914db230522afbe, type: 3}
+      propertyPath: itemsRecieved.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0547e79f6592b564ebb50fb209b2788e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48880e827fe484e81914db230522afbe, type: 3}
