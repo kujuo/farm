@@ -14905,5 +14905,25 @@ PrefabInstance:
       propertyPath: levelCompleteSceneName
       value: Level1CompleteScene
       objectReference: {fileID: 0}
+    - target: {fileID: 4149206716854668970, guid: 48880e827fe484e81914db230522afbe, type: 3}
+      propertyPath: itemsRecieved.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149206716854668970, guid: 48880e827fe484e81914db230522afbe, type: 3}
+      propertyPath: itemsRecieved.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 910158bcbc6e8a74f872bee1a872b8e2, type: 2}
+    - target: {fileID: 4149206716854668970, guid: 48880e827fe484e81914db230522afbe, type: 3}
+      propertyPath: itemsRecieved.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: c8b06e4bcfc1c444cac39c5ba978b3ae, type: 2}
+    - target: {fileID: 4149206716854668970, guid: 48880e827fe484e81914db230522afbe, type: 3}
+      propertyPath: itemsRecieved.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 271b766bc973e7b42be8801ad718d3c0, type: 2}
+    - target: {fileID: 4149206716854668970, guid: 48880e827fe484e81914db230522afbe, type: 3}
+      propertyPath: itemsRecieved.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 51179189c41af074d97c32e018428221, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48880e827fe484e81914db230522afbe, type: 3}
