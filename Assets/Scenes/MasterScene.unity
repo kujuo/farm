@@ -4136,7 +4136,7 @@ PrefabInstance:
       objectReference: {fileID: 2048244939}
     - target: {fileID: 4805975255388374110, guid: 330b233cfacdf4a6485601f7e678aa47, type: 3}
       propertyPath: attackRange
-      value: 1
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 4805975255388374111, guid: 330b233cfacdf4a6485601f7e678aa47, type: 3}
       propertyPath: m_Sprite
