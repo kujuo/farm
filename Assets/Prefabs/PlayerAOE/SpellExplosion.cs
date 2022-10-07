@@ -26,7 +26,7 @@ public class SpellExplosion : MonoBehaviour
     private void selectExplodeSprites()
     {
         //PlayerController.instance.downAttack;
-        explodeSprites = firstFormSprites;
+        explodeSprites = thirdFormSprites;
     }
 
     private void Awake()
