@@ -6,13 +6,13 @@ public class SpellExplosion : MonoBehaviour
 {
     public float explosionTime = 2f;
     // Start is called before the first frame update
-    private Sprite[] explodeSprites;
+    public Sprite[] explodeSprites;
     private SpriteRenderer sr;
     private Rigidbody2D rb2D;
 
     private void Awake()
     {
-        explodeSprites = Resources.LoadAll<Sprite>("Sprites/SuperNova");
+        //explodeSprites = Resources.LoadAll<Sprite>("Sprites/MidnightTrail");
 
         foreach(var sprite in explodeSprites)
         {
@@ -32,7 +32,7 @@ public class SpellExplosion : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             Enemy en = other.collider.gameObject.GetComponent<Enemy>();
-            en.OnHurt(1);
+            en.OnHurt(0.5f);
         }
 
 
