@@ -13,13 +13,14 @@ public class BasicEnemy : Enemy
     }
 
 
-    public override void OnHurt(float damage)
+    public override void OnHurt(float damage, bool percentDamage=false)
     {
         GameObject healthObject = this.gameObject.transform.GetChild(0).GetChild(0).gameObject;
         Healthbar healthbar = healthObject.GetComponent<Healthbar>();
         if (currHealth == maxHealth) healthbar.Activate();
 
-        currHealth -= damage;
+        if (percentDamage) currHealth -= damage * maxHealth;
+        else currHealth -= damage;
 
         if (currHealth <= 0) {
             Destroy(this.gameObject);

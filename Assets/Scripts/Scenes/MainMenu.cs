@@ -10,6 +10,12 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("MasterScene");
     }
 
+    public void LoadTitleScreen()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void Resume()
     {
         Time.timeScale = 1;

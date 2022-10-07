@@ -27,8 +27,9 @@ public class CombatLevelManager : MonoBehaviour
             Time.timeScale = 0;
             addItemWhenLevelEnd(itemsRecieved);
             LoadSceneManager load = FindObjectOfType<LoadSceneManager>();
-            if (!loaded) load.load(levelCompleteSceneName, true) ;
+            if (!loaded) { load.load(levelCompleteSceneName, true); }
             loaded = true;
+
             //add all items
 
         }
