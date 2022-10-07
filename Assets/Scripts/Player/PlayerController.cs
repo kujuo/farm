@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float attackRange = 0.5f; 
     public float health = 100;
     public float attackDamage = 10;
+    public float spellCoolDown = 2f, spellTimer = 2f;
     public InventoryManager inventory;
 
     public Sprite[] upAttack;
@@ -132,15 +133,21 @@ public class PlayerController : MonoBehaviour
             StartCoroutine("Attack");
             HitInteraction();
         } else if (Input.GetKeyDown(KeyCode.Q)) {
-                //Testing
-
-           Instantiate(spellObj, this.transform.position, Quaternion.identity);
+            //Testing
+            if (spellTimer <= 0)
+            {
+                Instantiate(spellObj, this.transform.position, Quaternion.identity);
+                spellTimer = spellCoolDown;
+            } 
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
             pauseMenu.SetActive(true);
             Time.timeScale = 0;
         }
+
+        //Update spell cooldown time
+        spellTimer -= Time.deltaTime;
     }
 
     public void Reset()
