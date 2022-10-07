@@ -10,6 +10,7 @@ public class CombatLevelManager : MonoBehaviour
     public string levelCompleteSceneName;
     private bool loaded = false;
     public int loade = 0;
+    public GameObject showMissionButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,7 @@ public class CombatLevelManager : MonoBehaviour
             LoadSceneManager load = FindObjectOfType<LoadSceneManager>();
             if (!loaded) { load.load(levelCompleteSceneName, true); }
             loaded = true;
+            showMissionButton.SetActive(true);
 
             //add all items
 
@@ -39,6 +41,7 @@ public class CombatLevelManager : MonoBehaviour
     {
         LoadSceneManager load = FindObjectOfType<LoadSceneManager>();
         load.load("HomeBase");
+        showMissionButton.SetActive(true);
     }
 
     public void addItemWhenLevelEnd(List<Item> itemList)

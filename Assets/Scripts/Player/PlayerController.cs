@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask enemyLayer;
     public CharacterAnimationController animationController;
     public GameObject statusManagerPrefab;
+  
 
     // PUT BUILDINGS HERE
     public List<Building> buildings = new List<Building>();
