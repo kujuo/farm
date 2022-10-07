@@ -12,6 +12,9 @@ public class SpellExplosion : MonoBehaviour
     public Sprite[] thirdFormSprites;
     public Sprite[] finalFormSprites;
 
+    public float baseDmg = 0.1f;
+    public float mutiplierFactor = 0;
+
     private Sprite[] explodeSprites;
 
     public float timePassed;
@@ -53,7 +56,7 @@ public class SpellExplosion : MonoBehaviour
 //            en.OnHurt(0.1f);
 //=======
             Enemy en = other.gameObject.GetComponent<Enemy>();
-            en.OnHurt(0.1f * Mathf.Exp(timePassed * 1000));
+            en.OnHurt(baseDmg * Mathf.Exp(timePassed * mutiplierFactor));
 
         }
     }
