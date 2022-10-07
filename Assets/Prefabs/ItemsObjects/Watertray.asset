@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b97e9f16462db40ef8223b05f7dc564a, type: 3}
-  m_Name: Tree
-  m_EditorClassIdentifier: 
-  id: 15
-  itemName: Tree
+  m_Name: Watertray
+  m_EditorClassIdentifier: Assembly-CSharp::item
+  id: 9
+  itemName: Watertray
   value: 0
   amount: 0
-  icon: {fileID: -1994562820, guid: 4a03c253b62ec42738e81e1abb9646fa, type: 3}
+  icon: {fileID: -1014685716, guid: ed7ae373088e54944b3059df48defd59, type: 3}
   type: 0
-  prefab: {fileID: 3827164938038660024, guid: d3502dfd28eb14b01bfc5c2e7e0f5d14, type: 3}
+  prefab: {fileID: 3827164938038660024, guid: f5fa4650c7a27dc44a3fca903291880a, type: 3}

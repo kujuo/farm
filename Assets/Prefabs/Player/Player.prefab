@@ -178,8 +178,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
-  m_Sprite: {fileID: 1866370856, guid: 860d6055b02a24c288564d722c97ea55, type: 3}
+  m_SortingOrder: 15
+  m_Sprite: {fileID: 1103937520, guid: 860d6055b02a24c288564d722c97ea55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
   buildings: []
   pauseMenu: {fileID: 0}
   statusManager: {fileID: 0}
-  spellObj: {fileID: 0}
+  spellObj: {fileID: 5925582513153225043, guid: 90e8eacde060147aa90545581a29bb2c, type: 3}
 --- !u!114 &4805975255388374105
 MonoBehaviour:
   m_ObjectHideFlags: 0
