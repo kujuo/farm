@@ -29,8 +29,6 @@ public class CameraController : MonoBehaviour
     {
         instance = this;
         cam = Camera.main;
-        camOrthSize = cam.orthographicSize;
-        cameraRatio = (boundsRight.position.x + camOrthSize) / 2.0f;
     }
 
     public void Clear()
@@ -75,6 +73,9 @@ public class CameraController : MonoBehaviour
             if (down == null) return;
             else boundsDown = down.transform;
         }
+        
+        camOrthSize = cam.orthographicSize;
+        cameraRatio = (boundsRight.position.x + camOrthSize) / 2.0f;
 
         camY = Mathf.Clamp(player.position.y, boundsDown.position.y + camOrthSize, boundsUp.position.y - camOrthSize);
         camX = Mathf.Clamp(player.position.x, boundsLeft.position.x + cameraRatio, boundsRight.position.x - cameraRatio);
