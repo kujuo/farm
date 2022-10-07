@@ -4522,6 +4522,7 @@ PrefabInstance:
       propertyPath: m_enableAutoSizing
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 3809109713408272436, guid: 929f11a9d0023e9429348b2822914897, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -4573,6 +4574,32 @@ PrefabInstance:
     - target: {fileID: 4901012275419514713, guid: 929f11a9d0023e9429348b2822914897, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -134
+=======
+    - target: {fileID: 4805975255388374110, guid: 330b233cfacdf4a6485601f7e678aa47, type: 3}
+      propertyPath: spellObj
+      value: 
+      objectReference: {fileID: 5925582513153225043, guid: 90e8eacde060147aa90545581a29bb2c, type: 3}
+    - target: {fileID: 4805975255388374110, guid: 330b233cfacdf4a6485601f7e678aa47, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 2048244939}
+    - target: {fileID: 4805975255388374111, guid: 330b233cfacdf4a6485601f7e678aa47, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1103937520, guid: 860d6055b02a24c288564d722c97ea55, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 330b233cfacdf4a6485601f7e678aa47, type: 3}
+--- !u!1001 &2048244937
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 112296899}
+    m_Modifications:
+    - target: {fileID: 1026084528714480778, guid: 929f11a9d0023e9429348b2822914897, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+>>>>>>> 1d71548aff2dacc9ad1c44ce2b6db578751c2538
       objectReference: {fileID: 0}
     - target: {fileID: 7249046342774732248, guid: 929f11a9d0023e9429348b2822914897, type: 3}
       propertyPath: m_Name

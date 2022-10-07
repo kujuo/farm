@@ -5,19 +5,32 @@ using UnityEngine;
 public class SpellExplosion : MonoBehaviour
 {
     public float explosionTime = 2f;
-    // Start is called before the first frame update
-    public Sprite[] explodeSprites;
+
+    //Manually add all sprite sheet in. Which is not that efficient, but they are in small size 
+    public Sprite[] firstFormSprites;
+    public Sprite[] secondFormSprites;
+    public Sprite[] thirdFormSprites;
+    public Sprite[] finalFormSprites;
+
+    private Sprite[] explodeSprites;
+
+    public float timePassed;
+
     private SpriteRenderer sr;
     private Rigidbody2D rb2D;
+
+
+    private void selectExplodeSprites()
+    {
+        //PlayerController.instance.downAttack;
+        explodeSprites = firstFormSprites;
+    }
 
     private void Awake()
     {
         //explodeSprites = Resources.LoadAll<Sprite>("Sprites/MidnightTrail");
 
-        foreach(var sprite in explodeSprites)
-        {
-            Debug.Log(sprite + "ESDF");
-        }
+        selectExplodeSprites();
 
         sr = GetComponent<SpriteRenderer>();
         rb2D = GetComponent<Rigidbody2D>();
@@ -25,17 +38,24 @@ public class SpellExplosion : MonoBehaviour
         Destroy(gameObject, explosionTime);
     }
 
-
-
-    private void OnCollisionStay2D(Collision2D other)
+    private void Update()
     {
+        timePassed += Time.deltaTime;
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        print(timePassed);
         if (other.gameObject.tag == "Enemy")
         {
-            Enemy en = other.collider.gameObject.GetComponent<Enemy>();
-            en.OnHurt(0.5f);
+
+//            Enemy en = other.gameObject.GetComponent<Enemy>();
+//            en.OnHurt(0.1f);
+//=======
+            Enemy en = other.gameObject.GetComponent<Enemy>();
+            en.OnHurt(0.1f * Mathf.Exp(timePassed * 1000));
+
         }
-
-
     }
 
     IEnumerator explodeCoroutine()

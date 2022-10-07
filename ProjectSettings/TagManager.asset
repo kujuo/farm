@@ -10,6 +10,9 @@ TagManager:
   - Bounds
   - Strawberry
   - Spawn
+  - Product
+  - Apple
+  - Soil
   layers:
   - Default
   - TransparentFX
