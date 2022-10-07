@@ -81,15 +81,12 @@ public class SpellCasting : MonoBehaviour
         //spell.gameObject.GetComponent<Projectile>().addForce(spellDir);
     }
 
-
-    private void OnCollisionStay2D(Collision2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Enemy en = other.collider.gameObject.GetComponent<Enemy>();
+            Enemy en = other.gameObject.GetComponent<Enemy>();
             en.OnHurt(10);
         }
-
-
     }
 }

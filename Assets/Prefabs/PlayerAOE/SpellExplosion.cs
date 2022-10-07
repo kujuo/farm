@@ -12,30 +12,19 @@ public class SpellExplosion : MonoBehaviour
 
     private void Awake()
     {
-        //explodeSprites = Resources.LoadAll<Sprite>("Sprites/MidnightTrail");
-
-        foreach(var sprite in explodeSprites)
-        {
-            Debug.Log(sprite + "ESDF");
-        }
-
         sr = GetComponent<SpriteRenderer>();
         rb2D = GetComponent<Rigidbody2D>();
         StartCoroutine(explodeCoroutine());
         Destroy(gameObject, explosionTime);
     }
 
-
-
-    private void OnCollisionStay2D(Collision2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Enemy en = other.collider.gameObject.GetComponent<Enemy>();
-            en.OnHurt(0.5f);
+            Enemy en = other.gameObject.GetComponent<Enemy>();
+            en.OnHurt(0.1f);
         }
-
-
     }
 
     IEnumerator explodeCoroutine()
