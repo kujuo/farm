@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
         instance = this;
         cam = Camera.main;
         camOrthSize = cam.orthographicSize;
-        cameraRatio = (boundsRight.position.x + camOrthSize) / 2.0f;
+        if (boundsRight != null) cameraRatio = (boundsRight.position.x + camOrthSize) / 2.0f;
     }
 
     public void Clear()
@@ -55,7 +55,11 @@ public class CameraController : MonoBehaviour
         {
             GameObject right = GameObject.Find("BoundsRight");
             if (right == null) return;
-            else boundsRight = right.transform;
+            else
+            {
+                boundsRight = right.transform;
+                cameraRatio = (boundsRight.position.x + camOrthSize) / 2.0f;
+            }
         }
         if (boundsLeft == null)
         {
