@@ -338,10 +338,10 @@ RectTransform:
   m_Father: {fileID: 1273656898}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -506.58, y: 247}
-  m_SizeDelta: {x: -1013.16, y: -494}
+  m_AnchorMin: {x: 0, y: 0.6987778}
+  m_AnchorMax: {x: 0.46, y: 0.96300006}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &818807485
 MonoBehaviour:
@@ -416,7 +416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.45740741}
   m_AnchorMax: {x: 0.4723125, y: 1}
-  m_AnchoredPosition: {x: 239.264, y: -134.02039}
+  m_AnchoredPosition: {x: 239.26389, y: -134.02039}
   m_SizeDelta: {x: 478.52814, y: 268.04074}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1005424164
@@ -439,7 +439,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Untitled: Frontier Farmer'
+  m_text: Viking Farmer
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 512bad52baf1bf64ba261aa75f08372b, type: 2}
   m_sharedMaterial: {fileID: 3126621904631355612, guid: 512bad52baf1bf64ba261aa75f08372b, type: 2}
