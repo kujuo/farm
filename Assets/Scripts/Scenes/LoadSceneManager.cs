@@ -22,9 +22,8 @@ public class LoadSceneManager : MonoBehaviour
         instance = this;
         audioSource = GetComponent<AudioSource>();
         StartGame();
-        //currScene = "Menu";
-        //audioSource.clip = audioClips[1];
-        //audioSource.Play();
+        PlayerController.instance.pauseMenu.SetActive(true);
+        Time.timeScale = 0;
     }
 
     void StartGame()
@@ -62,7 +61,6 @@ public class LoadSceneManager : MonoBehaviour
            
             audioSource.clip = audioClips[0];
             audioSource.Play();
-            Debug.Log("unloading" + currScene);
             SceneManager.UnloadSceneAsync(currScene);
             currScene = sceneName;
             currSceneNum = 1;

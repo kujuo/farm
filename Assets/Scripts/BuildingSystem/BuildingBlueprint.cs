@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 // use as item drops
 public class BuildingBlueprint : MonoBehaviour
 {
@@ -23,13 +25,15 @@ public class BuildingBlueprint : MonoBehaviour
 
     public void onClick()
     {
-        var s = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        s.z = 0;
-        var created = Instantiate(building, s, Quaternion.identity);
-        created.Init(isHealthRegenEffect, isShieldEffect, isAttackRangeEffect, isPoisonEffect);
-        //BuildingSystemManager.Instance.DisplayBuildingUi(); no longer needed
-        InventoryManagerNew.Instance.RemoveItem(item);
-        BuildingSystemManager.Instance.placeMode = true;
-        InventoryManagerNew.Instance.ListItems();
+        if (SceneManager.GetActiveScene().name == "HomeBase")
+        {
+            var s = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            s.z = 0;
+            var created = Instantiate(building, s, Quaternion.identity);
+            created.Init(isHealthRegenEffect, isShieldEffect, isAttackRangeEffect, isPoisonEffect);
+            InventoryManagerNew.Instance.RemoveItem(item);
+            BuildingSystemManager.Instance.placeMode = true;
+            InventoryManagerNew.Instance.ListItems();
+        }
     }
 }

@@ -586,11 +586,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1413971674 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2489390123432511950, guid: 90713473b21009c469f9600136841d3d, type: 3}
-  m_PrefabInstance: {fileID: 5050186774234940111}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1649374050
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +744,7 @@ PrefabInstance:
     - target: {fileID: 4805975255388374110, guid: 330b233cfacdf4a6485601f7e678aa47, type: 3}
       propertyPath: pauseMenu
       value: 
-      objectReference: {fileID: 1413971674}
+      objectReference: {fileID: 5050186774234940112}
     - target: {fileID: 4805975255388374110, guid: 330b233cfacdf4a6485601f7e678aa47, type: 3}
       propertyPath: attackRange
       value: 1.25
@@ -885,6 +880,11 @@ PrefabInstance:
       objectReference: {fileID: 1897709644}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90713473b21009c469f9600136841d3d, type: 3}
+--- !u!1 &5050186774234940112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5105044669962057544, guid: 90713473b21009c469f9600136841d3d, type: 3}
+  m_PrefabInstance: {fileID: 5050186774234940111}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5485005731637653581
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     // PUT BUILDINGS HERE
     public List<Building> buildings = new List<Building>();
-    [SerializeField] private GameObject pauseMenu;
+    public GameObject pauseMenu;
     
     private Rigidbody2D rb2D;
     private SpriteRenderer sr;

@@ -106,7 +106,7 @@ public class Building : MonoBehaviour
         }
         else if (isAttackRangeEffect)
         {
-            player.SetAttackRangeEffect(5);
+            player.SetAttackRangeEffect(2);
         }
         else if (isPoisonEffect)
         {

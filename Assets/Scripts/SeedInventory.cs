@@ -1,23 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SeedInventory : MonoBehaviour
 {
 
     public Seed seed;
     private Item item;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     public void initItem(Item item)
     {
@@ -26,12 +16,14 @@ public class SeedInventory : MonoBehaviour
 
     public void onClick()
     {
-        var s = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        s.z = 0;
-        var created = Instantiate(seed, s, Quaternion.identity);
-        created.initItem(item);
-        InventoryManagerNew.Instance.RemoveItem(item);
-        //InventoryManagerNew.Instance.ListItems(InventoryManagerNew.Instance.Items);
-        InventoryManagerNew.Instance.ListItems();
+        if (SceneManager.GetActiveScene().name == "HomeBase")
+        {
+            var s = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            s.z = 0;
+            var created = Instantiate(seed, s, Quaternion.identity);
+            created.initItem(item);
+            InventoryManagerNew.Instance.RemoveItem(item);
+            InventoryManagerNew.Instance.ListItems();
+        }
     }
 }

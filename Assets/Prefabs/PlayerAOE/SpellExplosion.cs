@@ -49,14 +49,14 @@ public class SpellExplosion : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         print(timePassed);
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.CompareTag("Enemy"))
         {
 
 //            Enemy en = other.gameObject.GetComponent<Enemy>();
 //            en.OnHurt(0.1f);
 //=======
             Enemy en = other.gameObject.GetComponent<Enemy>();
-            en.OnHurt(baseDmg * Mathf.Exp(timePassed * mutiplierFactor));
+            if (en) en.OnHurt(baseDmg * Mathf.Exp(timePassed * mutiplierFactor));
 
         }
     }

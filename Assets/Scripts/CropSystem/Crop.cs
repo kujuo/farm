@@ -27,6 +27,7 @@ public class Crop : MonoBehaviour
      */
 
     // Start is called before the first frame update
+    private GameObject readyIcon;
     private CropState cropState;
     private SpriteRenderer spriteRenderer;
     private Seed seed;
@@ -42,8 +43,7 @@ public class Crop : MonoBehaviour
     {
         cropState = CropState.EMPTY;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        //dropOffsetX = +2f;
-        //dropOffsetY = -2f;
+        readyIcon = transform.GetChild(1).gameObject;
         botRight = spriteRenderer.transform.TransformPoint(new Vector3(spriteRenderer.sprite.bounds.min.x, spriteRenderer.sprite.bounds.max.y, 0));
         botRight.x += spriteRenderer.sprite.bounds.extents.x*2;
         botRight.y -= spriteRenderer.sprite.bounds.extents.y*2;
@@ -63,7 +63,15 @@ public class Crop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cropState == CropState.EMPTY) spriteRenderer.sprite = defaultSprite;
+        if (cropState == CropState.EMPTY)
+        {
+            spriteRenderer.sprite = defaultSprite;
+            readyIcon.SetActive(false);
+        }
+        else if (cropState == CropState.PLANT)
+        {
+            readyIcon.SetActive(true);
+        }
     }
 
     public bool Plant(GameObject seed)
@@ -119,11 +127,6 @@ public class Crop : MonoBehaviour
             this.spriteRenderer.sprite = seedImages[0];
             StartCoroutine(Grow());
 
-        } else
-        {
-            //display to the UI that this cannot be planted
-
-            Debug.Log("Cannot plant here");
         }
     }
 
@@ -140,27 +143,13 @@ public class Crop : MonoBehaviour
             GetComponent<BoxCollider2D>().isTrigger = true;
             cropState = CropState.EMPTY;
 
-            //Better to instantaniate object
-            var dropOffset = new Vector3();
-            dropOffset.x = dropOffsetX;
-            dropOffset.y = dropOffsetY;
-            
             Instantiate(harvestProduct, botRight, Quaternion.identity);
 
             harvestProduct.GetComponent<BoxCollider2D>().isTrigger = true;
             harvestProduct.SetActive(true);
             Destroy(seedObject);
 
-        } else if (cropState == CropState.SEED)
-        {
-            //Should access to the UI and display some info
-            Debug.Log("Please come back later.");
-        } else
-        {
-            //Should access to the UI and display some info
-            Debug.Log("Please plant something");
         }
-
         return null;
     }
 }
