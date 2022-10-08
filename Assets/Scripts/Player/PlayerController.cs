@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     public float health = 100;
     public float attackDamage = 10;
     public float spellCoolDown = 2f, spellTimer = 2f;
-    public InventoryManager inventory;
 
     public Sprite[] upAttack;
     public Sprite[] downAttack;
@@ -59,7 +58,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventory = new InventoryManager();
+        //inventory = new InventoryManager();
         rb2D = GetComponent<Rigidbody2D>();
         animationController = GetComponent<CharacterAnimationController>();
         playerDir = new Vector2(0, -1);
