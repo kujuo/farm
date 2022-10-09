@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
 public class Product : MonoBehaviour
 {
-    InventoryManagerNew instance;
+    private InventoryManagerNew instance;
     public float healthRestore;
     private SpriteRenderer spriteRenderer;
     private Item item;

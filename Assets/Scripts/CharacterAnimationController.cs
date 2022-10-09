@@ -6,7 +6,6 @@ public class CharacterAnimationController : MonoBehaviour
 {
     public float walkDuration = 1f;
     public float idleDuration = 1f;
-    public float attackDuration = 0.5f;
     public Sprite[] downIdle;
     public Sprite[] upIdle;
     public Sprite[] rightIdle;
@@ -40,23 +39,19 @@ public class CharacterAnimationController : MonoBehaviour
             return frames[0];
         }
         // left
-        else if (direction.Equals(Vector2.left))
+        if (direction.Equals(Vector2.left))
         {
             //playerDir = new Vector2(-1, 0);
             return frames[1];
         }
         // up 
-        else if (direction.Equals(Vector2.up))
+        if (direction.Equals(Vector2.up))
         {
             //playerDir = new Vector2(0, 1);
             return frames[2];
         }
         // down
-        else
-        {
-            //playerDir = new Vector2(0, -1);
-            return frames[3];
-        }
+        return frames[3];
     }
 
     // Update is called once per frame

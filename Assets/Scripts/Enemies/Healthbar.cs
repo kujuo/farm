@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,8 +12,6 @@ public class Healthbar : MonoBehaviour
     {
         HealthBarImage = GetComponent<Image>();
         initColor = HealthBarImage.color;
-        //SetHealthBarColor(new Color(1, 1, 1, 0));
-        //if (activated) SetHealthBarColor(new Color(0, 255, 0, 0.6f));
     }
 
     public void Activate()

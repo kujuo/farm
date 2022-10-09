@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Mime;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Building : MonoBehaviour
 {

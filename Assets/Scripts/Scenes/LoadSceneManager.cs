@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -70,7 +68,6 @@ public class LoadSceneManager : MonoBehaviour
             if (unloadOld)
             {
                 SceneManager.MoveGameObjectToScene(player, SceneManager.GetSceneAt(1));
-                Debug.Log("unloading old" + currScene);
                 SceneManager.UnloadSceneAsync(currScene);
                 currSceneNum--;
             }
@@ -105,9 +102,7 @@ public class LoadSceneManager : MonoBehaviour
         {
             obj.SetActive(true);
         }
-        SceneManager.MoveGameObjectToScene(player, SceneManager.GetSceneAt(currSceneNum));
-        //SceneManager.MoveGameObjectToScene(GameObject.Find("Inventory"), SceneManager.GetSceneAt(currSceneNum));
-        //SceneManager.MoveGameObjectToScene(GameObject.Find("InventoryManager"), SceneManager.GetSceneAt(currSceneNum));
+        SceneManager.MoveGameObjectToScene(player, SceneManager.GetSceneAt(currSceneNum)); 
         player.SetActive(true);
         player.GetComponent<PlayerController>().Reset();
         if (GameObject.Find("CombatLevelManager") != null) PlayerController.instance.ApplyEffects();

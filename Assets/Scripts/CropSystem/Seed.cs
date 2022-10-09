@@ -1,10 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-//Will extend the Item class in inventory
 public class Seed : MonoBehaviour
 {
     public Sprite seedImage;
@@ -27,7 +22,6 @@ public class Seed : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         seedImage = images[0];
         spriteRenderer.sprite = seedImage;
-        //seedCollider = GetComponentsInChildren<BoxCollider2D>()[1];
     }
 
     public Sprite getSeedImage()
